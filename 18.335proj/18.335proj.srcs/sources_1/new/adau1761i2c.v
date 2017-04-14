@@ -27,7 +27,8 @@ module adau1761i2c(
 input wire reset,
 input wire serialclk,
 input wire start,
-input wire[34:0] data,
+input wire[7:0] addr, reghi, reglo, data,
+//input wire[34:0] data,
 output reg scl,
 output reg sda
     );
@@ -39,6 +40,9 @@ output reg sda
      parameter END_CONDITION=3'b110;
      reg [3:0] curstate=RESET_STATE;
      reg [6:0] count=DATACOUNT;
+     
+     //heres the hack!
+     wire[34:0] outdata = {addr[7:0], reghi[7:0], 1'b0, reglo[7:0], 1'b0, data[7:0], 1'b0};
      
      //scl idles high
     always @*
@@ -82,7 +86,7 @@ output reg sda
                             end
                         else
                             begin
-                                sda<=data[34-count];
+                                sda<=outdata[34-count];
                             end
                      end
                 WAITFOR_NOSTART:
