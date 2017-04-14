@@ -35,10 +35,10 @@ output wire ac_scl,
 inout wire ac_sda,
 
 //input from clockgen
-input wire MCLK, //i2s mclk
-input wire LRCLK, //i2slrclk
-input wire BCLK, //i2sbclk
-input wire FSMCLK, //state machine clock
+input wire mclk, //i2s mclk
+input wire lrclk, //i2slrclk
+input wire bclk, //i2sbclk
+input wire fsmclk, //state machine clock
 
 //input/output from DSP modules
 input wire sdto_in,
