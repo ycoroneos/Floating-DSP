@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1492217183">
-  <File Type="PA-TCL" Name="toplevel.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1492278497">
+  <File Type="VDS-TIMING-PB" Name="toplevel_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="toplevel_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="toplevel.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="toplevel_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="toplevel_utilization_synth.rpt"/>
   <File Type="RDS-PROPCONSTRS" Name="toplevel_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="toplevel.vds"/>
-  <File Type="RDS-UTIL" Name="toplevel_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="toplevel_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="toplevel.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="toplevel_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="toplevel_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="toplevel.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/adau1761i2c.v">

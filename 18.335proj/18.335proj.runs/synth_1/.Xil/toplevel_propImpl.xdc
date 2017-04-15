@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc rfile:../../../18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc rfile:../../../18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN R4    IOSTANDARD LVCMOS33 } [get_ports { sysclk }]; #IO_L13P_T2_MRCC_34 Sch=sysclk
 set_property src_info {type:XDC file:1 line:22 export:INPUT save:INPUT read:READ} [current_design]

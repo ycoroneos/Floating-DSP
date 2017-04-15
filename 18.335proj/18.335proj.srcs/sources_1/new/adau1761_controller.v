@@ -64,10 +64,10 @@ output reg ready
     
     //wire the i2s together
     assign sdto_from_codec = ready ? ac_sdto_adc : 1'b0;
-    assign ac_stdo_dac = ready ? sdto_to_codec : 1'b0;
+    assign ac_sdto_dac = ready ? sdto_to_codec : 1'b0;
     assign ac_mclk = mclk; //mclk must always be present for the thing to even work
-    assign ac_lrclk = lrclk;
-    assign ac_bclk = bclk;
+    assign ac_lrclk = ready ? lrclk : 1'b0;
+    assign ac_bclk = ready ? bclk : 1'b0;
     
     //i2c controller
     reg i2cstart=0;
@@ -95,7 +95,7 @@ output reg ready
     // 0x40F9=0x7F -> all modules power on
     // 0x40FA=0x3 -> enable both digital clocks
     */
-    reg [5:0] curstate=0;
+    reg [7:0] curstate=0;
     always @(posedge fsmclk)
     begin
         if (reset)
@@ -109,22 +109,22 @@ output reg ready
             begin
                 case(curstate)
                 `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h01, 0)
-                `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 1)
-                `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 2)
-                `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 3)
-                `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 4)
-                `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 5)
-                `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 6)
-                `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 7)
-                `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE8, 8)
-                `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 9)
-                `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 9)
-                `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 10)
-                `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 11)
-                `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 12)
-                `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 13)
-                `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 14)
-                `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 15)
+              //  `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 1)
+              //  `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 2)
+              //  `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 3)
+              //  `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 4)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 5)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 6)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 7)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE8, 8)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h00, 5)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 6)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 7)
+               // `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 8)
+                //`I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 9)
+                //`I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 10)
+                //`I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 11)
+                //`I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 12)
                 default: ready<=1;
                 endcase
             end
