@@ -66,8 +66,8 @@ output reg ready
     assign sdto_from_codec = ready ? ac_sdto_adc : 1'b0;
     assign ac_stdo_dac = ready ? sdto_to_codec : 1'b0;
     assign ac_mclk = mclk; //mclk must always be present for the thing to even work
-    assign ac_lrclk = ready ? lrclk : 1'b0;
-    assign ac_bclk = ready ? bclk : 1'b0;
+    assign ac_lrclk = lrclk;
+    assign ac_bclk = bclk;
     
     //i2c controller
     reg i2cstart=0;

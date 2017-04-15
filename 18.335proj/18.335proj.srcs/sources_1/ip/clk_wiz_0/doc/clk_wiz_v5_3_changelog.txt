@@ -1,3 +1,15 @@
+2016.4:
+ * Version 5.3 (Rev. 3)
+ * Bug Fix: Internal GUI issues are fixed.
+
+2016.3:
+ * Version 5.3 (Rev. 2)
+ * Feature Enhancement: Added new option "Auto" under PRIMITIVE selection for ultrascale and above devices. This option allows the Wizard to instantiate appropriate primitive for the user inputs.
+ * Feature Enhancement: Added Matched Routing Option for better timing solutions.
+ * Feature Enhancement: Options 'Buffer' and 'Buffer_with_CE' are added to the buffer selection list.
+ * Other: Source HDL files are concatenated into a single file to speed up synthesis and simulation. No changes required by the user
+ * Other: Added support for Spartan7 devices.
+
 2016.2:
  * Version 5.3 (Rev. 1)
  * Internal register bit update, no effect on customer designs.
@@ -90,7 +102,7 @@
  * Lower case ports for Verilog
  * Added Safe Clock Startup and Clock Sequencing
 
-(c) Copyright 2008 - 2016 Xilinx, Inc. All rights reserved.
+(c) Copyright 2008 - 2017 Xilinx, Inc. All rights reserved.
 
 This file contains confidential and proprietary information
 of Xilinx, Inc. and is protected under U.S. and

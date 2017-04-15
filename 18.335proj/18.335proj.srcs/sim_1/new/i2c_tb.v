@@ -56,5 +56,7 @@ module i2c_tb(
     reghi=8'h40;
     reglo=8'h2A;
     data=8'h03;
+    #100
+    start=1'b0;
     end
 endmodule
