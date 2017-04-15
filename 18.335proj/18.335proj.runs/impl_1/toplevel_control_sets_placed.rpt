@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-| Date         : Fri Apr 14 16:39:40 2017
+| Date         : Fri Apr 14 18:32:20 2017
 | Host         : asbestos running 64-bit Ubuntu 16.10
 | Command      : report_control_sets -verbose -file toplevel_control_sets_placed.rpt
 | Design       : toplevel
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     7 |
-| Unused register locations in slices containing registers |    26 |
+| Number of unique control sets                            |    10 |
+| Unused register locations in slices containing registers |    31 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,28 +33,31 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            3 |
+| No           | No                    | No                     |              19 |            8 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              35 |           11 |
+| No           | Yes                   | No                     |              33 |            8 |
 | Yes          | No                    | No                     |              15 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               8 |            5 |
+| Yes          | Yes                   | No                     |              14 |            8 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------+----------------------------------+------------------+------------------+----------------+
-|         Clock Signal        |           Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+-----------------------------+----------------------------------+------------------+------------------+----------------+
-|  fsmclkmon/CLK              |                                  |                  |                1 |              1 |
-| ~codec/serialclkmon/clk9600 | codec/configbus/sda_n_0          | led_OBUF[0]      |                1 |              1 |
-| ~codec/serialclkmon/clk9600 |                                  |                  |                2 |              3 |
-|  fsmclkmon/CLK              |                                  | led_OBUF[0]      |                2 |              5 |
-| ~codec/serialclkmon/clk9600 | codec/configbus/count[6]_i_1_n_0 | led_OBUF[0]      |                4 |              7 |
-|  fsmclkmon/CLK              | codec/data[7]_i_1_n_0            |                  |                6 |             15 |
-|  clkmon0/inst/clk_out1      |                                  | led_OBUF[0]      |                9 |             30 |
-+-----------------------------+----------------------------------+------------------+------------------+----------------+
++----------------------------------------------+---------------------------+--------------------------+------------------+----------------+
+|                 Clock Signal                 |       Enable Signal       |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
++----------------------------------------------+---------------------------+--------------------------+------------------+----------------+
+| ~codec/serialclkmon/clk9600                  | codec/configbus/sda_n_0   | led_OBUF[0]              |                1 |              1 |
+|  fsmclkmon/FSM_sequential_curstate_reg[5][0] |                           |                          |                2 |              2 |
+| ~codec/serialclkmon/clk9600                  |                           |                          |                1 |              3 |
+|  clkmon0/inst/clk_out1                       |                           | bclkmon/count[4]_i_1_n_0 |                1 |              5 |
+|  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/curstate__0         | led_OBUF[0]              |                3 |              6 |
+| ~codec/serialclkmon/clk9600                  | codec/configbus/count_n_0 | led_OBUF[0]              |                4 |              7 |
+| ~clkmon0/inst/clk_out1                       |                           | led_OBUF[0]              |                3 |             13 |
+|  clkmon0/inst/clk_out1                       |                           |                          |                5 |             14 |
+|  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/data[7]_i_1_n_0     |                          |                6 |             15 |
+|  clkmon0/inst/clk_out1                       |                           | fsmclkmon/output_reg     |                4 |             15 |
++----------------------------------------------+---------------------------+--------------------------+------------------+----------------+
 
 

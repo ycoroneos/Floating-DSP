@@ -63,8 +63,11 @@ output reg ready
     );
     
     //wire the i2s together
-    assign sdto_from_codec = ac_sdto_adc;
-    assign ac_stdo_dac = sdto_to_codec;
+    assign sdto_from_codec = ready ? ac_sdto_adc : 1'b0;
+    assign ac_stdo_dac = ready ? sdto_to_codec : 1'b0;
+    assign ac_mclk = mclk; //mclk must always be present for the thing to even work
+    assign ac_lrclk = ready ? lrclk : 1'b0;
+    assign ac_bclk = ready ? bclk : 1'b0;
     
     //i2c controller
     reg i2cstart=0;
@@ -92,7 +95,7 @@ output reg ready
     // 0x40F9=0x7F -> all modules power on
     // 0x40FA=0x3 -> enable both digital clocks
     */
-    reg [4:0] curstate=0;
+    reg [5:0] curstate=0;
     always @(posedge fsmclk)
     begin
         if (reset)
@@ -114,6 +117,7 @@ output reg ready
                 `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 6)
                 `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 7)
                 `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE8, 8)
+                `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 9)
                 `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 9)
                 `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 10)
                 `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 11)

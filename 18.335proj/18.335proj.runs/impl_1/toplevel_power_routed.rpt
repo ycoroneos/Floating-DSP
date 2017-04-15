@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-| Date             : Fri Apr 14 16:40:13 2017
+| Date             : Fri Apr 14 18:32:51 2017
 | Host             : asbestos running 64-bit Ubuntu 16.10
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
@@ -30,9 +30,9 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.277 |
-| Dynamic (W)              | 0.119 |
-| Device Static (W)        | 0.157 |
+| Total On-Chip Power (W)  | 0.280 |
+| Dynamic (W)              | 0.123 |
+| Device Static (W)        | 0.158 |
 | Effective TJA (C/W)      | 3.3   |
 | Max Ambient (C)          | 84.1  |
 | Junction Temperature (C) | 25.9  |
@@ -50,17 +50,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
-| Slice Logic    |    <0.001 |      170 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       80 |    133800 |            0.06 |
-|   Register     |    <0.001 |       62 |    267600 |            0.02 |
+| Slice Logic    |    <0.001 |      207 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       86 |    133800 |            0.06 |
+|   Register     |    <0.001 |       81 |    267600 |            0.03 |
 |   CARRY4       |    <0.001 |        7 |     33450 |            0.02 |
-|   Others       |     0.000 |       11 |       --- |             --- |
+|   Others       |     0.000 |       15 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |        2 |    133800 |           <0.01 |
-| Signals        |    <0.001 |      118 |       --- |             --- |
+| Signals        |    <0.001 |      131 |       --- |             --- |
 | MMCM           |     0.118 |        1 |        10 |           10.00 |
-| I/O            |    <0.001 |        6 |       285 |            2.11 |
-| Static Power   |     0.157 |          |           |                 |
-| Total          |     0.277 |          |           |                 |
+| I/O            |     0.003 |       15 |       285 |            5.26 |
+| Static Power   |     0.158 |          |           |                 |
+| Total          |     0.280 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.032 |       0.001 |      0.031 |
 | Vccaux    |       1.800 |     0.096 |       0.066 |      0.031 |
-| Vcco33    |       3.300 |     0.005 |       0.000 |      0.005 |
+| Vcco33    |       3.300 |     0.006 |       0.001 |      0.005 |
 | Vcco25    |       2.500 |     0.005 |       0.000 |      0.005 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -144,13 +144,15 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| toplevel         |     0.119 |
+| toplevel         |     0.123 |
+|   bclkmon        |    <0.001 |
 |   clkmon0        |     0.119 |
 |     inst         |     0.119 |
 |   codec          |    <0.001 |
 |     configbus    |    <0.001 |
 |     serialclkmon |    <0.001 |
 |   fsmclkmon      |    <0.001 |
+|   lrclkmon       |    <0.001 |
 +------------------+-----------+
 
 

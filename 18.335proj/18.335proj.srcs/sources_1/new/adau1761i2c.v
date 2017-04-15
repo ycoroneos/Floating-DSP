@@ -75,6 +75,8 @@ output reg sda
                         if (start)
                             begin
                             curstate<=OUTPUT_STATE;
+                            count<=count+1;
+                            sda<=outdata[DATACOUNT-count];
                             end
                     end
                 OUTPUT_STATE:
@@ -86,7 +88,7 @@ output reg sda
                             end
                         else
                             begin
-                                sda<=outdata[34-count];
+                                sda<=outdata[DATACOUNT-count];
                             end
                      end
                 WAITFOR_NOSTART:
