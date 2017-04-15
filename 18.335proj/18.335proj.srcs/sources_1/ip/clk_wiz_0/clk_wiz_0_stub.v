@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sat Apr 15 12:42:54 2017
+// Date        : Sat Apr 15 14:26:41 2017
 // Host        : asbestos running 64-bit Ubuntu 16.10
 // Command     : write_verilog -force -mode synth_stub
 //               /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v

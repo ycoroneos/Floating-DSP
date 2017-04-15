@@ -1,10 +1,7 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
-verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
+verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/new/adau1761plli2c.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
 verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/new/adau1761i2c.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
-verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/new/divider.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
 verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/new/adau1761_controller.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
-verilog xil_defaultlib  "../../../18.335proj.srcs/sources_1/new/toplevel.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
 verilog xil_defaultlib  "../../../18.335proj.srcs/sim_1/new/i2c_tb.v" --include "../../../18.335proj.srcs/sources_1/ip/clk_wiz_0"
 
 # compile glbl module

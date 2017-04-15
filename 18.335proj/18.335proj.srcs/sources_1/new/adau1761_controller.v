@@ -41,8 +41,8 @@ input wire reset,
 
 //input/output to device
 output wire ac_mclk,
-output wire ac_lrclk,
-output wire ac_bclk,
+input wire ac_lrclk,
+input wire ac_bclk,
 output wire ac_sdto_dac,
 input wire ac_sdto_adc,
 output wire ac_scl,
@@ -50,9 +50,10 @@ inout wire ac_sda,
 
 //input from clockgen
 input wire mclk, //i2s mclk
-input wire lrclk, //i2slrclk
-input wire bclk, //i2sbclk
+output wire lrclk, //i2slrclk
+output wire bclk, //i2sbclk
 input wire fsmclk, //state machine clock
+input wire serialclk, //scl clock for i2c
 
 //input/output from DSP modules
 input wire sdto_to_codec,
@@ -66,15 +67,23 @@ output reg ready
     assign sdto_from_codec = ready ? ac_sdto_adc : 1'b0;
     assign ac_sdto_dac = ready ? sdto_to_codec : 1'b0;
     assign ac_mclk = mclk; //mclk must always be present for the thing to even work
-    assign ac_lrclk = ready ? lrclk : 1'b0;
-    assign ac_bclk = ready ? bclk : 1'b0;
+    assign lrclk = ready ? ac_lrclk : 1'b0;
+    assign bclk = ready ? ac_bclk : 1'b0;
     
     //i2c controller
     reg i2cstart=0;
-    reg [7:0] addr, reghi, reglo, data;
-    wire clk9600;
-    divider #(.LOGLENGTH(11), .COUNTVAL(1280)) serialclkmon(.reset(reset), .inclk(mclk), .newclk(clk9600)); //makes 9.6khz clock from 12.288MHz clock
-    adau1761i2c configbus(.reset(reset), .serialclk(clk9600), .start(i2cstart), .addr(addr), .reghi(reghi), .reglo(reglo), .data(data), .scl(ac_scl), .sda(ac_sda));
+    reg i2cpllstart=0;
+    reg usepllcfg=0;
+    reg [7:0] addr = 8'h76;
+    reg [7:0] reghi, reglo, data, data1, data2, data3, data4, data5;
+    wire clk9600, regular_scl, regular_sda, pll_scl, pll_sda;
+    assign ac_scl = usepllcfg ? pll_scl : regular_scl;
+    assign ac_sda = usepllcfg ? pll_sda : regular_sda;
+    assign clk9600=serialclk;
+   // divider #(.LOGLENGTH(11), .COUNTVAL(1280)) serialclkmon(.reset(reset), .inclk(mclk), .newclk(clk9600)); //makes 9.6khz clock from 12.288MHz clock
+    adau1761i2c configbus(.reset(reset), .serialclk(clk9600), .start(i2cstart), .addr(addr), .reghi(reghi), .reglo(reglo), .data(data), .scl(regular_scl), .sda(regular_sda));
+    adau1761plli2c pllconfigbus(.reset(reset), .serialclk(clk9600), .start(i2cpllstart), .addr(addr), .reghi(reghi), .reglo(reglo), .data0(data), .data1(data1), .data2(data2), .data3(data3),
+    .data4(data4), .data5(data5), .scl(pll_scl), .sda(pll_sda));
     
     //fsm stuff
     /*
@@ -104,27 +113,65 @@ output reg ready
                 addr<=8'h76;
                 reghi<=8'h40;
                 ready<=0;
+                i2cstart<=0;
+                i2cpllstart<=0;
+                usepllcfg<=0;
             end
         else
             begin
                 case(curstate)
-                `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h01, 0)
-              //  `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 1)
-              //  `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 2)
-              //  `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 3)
-              //  `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 4)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 5)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 6)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 7)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE8, 8)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h00, 5)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 6)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 7)
-               // `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 8)
-                //`I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 9)
-                //`I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 10)
-                //`I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 11)
-                //`I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 12)
+                 `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0E, 0) // PLL mode
+                 
+                 //configure the PLL to work off of 24MHz input clock
+                2:
+                    begin
+                    usepllcfg<=1;
+                    curstate<=curstate+1;
+                    end
+                 
+                3:
+                    begin
+                    reglo<=8'h02;
+                    data<=8'h00;
+                    data1<=8'h7D;
+                    data2<=8'h00;
+                    data3<=8'h0C;
+                    data4<=8'h23;
+                    data5<=8'h01;
+                    i2cpllstart<=1;
+                    curstate<=curstate+1;
+                    end
+                4:
+                    begin
+                    i2cpllstart<=0;
+                    curstate<=curstate+1;
+                    end
+                5:
+                    begin
+                    usepllcfg<=0;
+                    curstate<=curstate+1;
+                    end
+                
+               //regular i2s commands
+               `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0F, 3) //enable the core
+               `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 4) //become i2s master
+               `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 5) //enable left mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 6) //left mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 7) //enable right mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 8) //right mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 9) //
+               `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 10)
+               `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 11)
+               `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE7, 12)
+               `I2C_WRITE(8'h76, 8'h40, 8'h25, 8'hE7, 13)
+               `I2C_WRITE(8'h76, 8'h40, 8'h26, 8'hE7, 14)
+               `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 15)
+               `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 16)
+               `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 17)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 18)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 19)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 20)
+               `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 21)
                 default: ready<=1;
                 endcase
             end

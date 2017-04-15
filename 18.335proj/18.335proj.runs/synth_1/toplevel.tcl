@@ -20,6 +20,7 @@ set_property ip_cache_permissions disable [current_project]
 add_files -quiet /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp
 set_property used_in_implementation false [get_files /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp]
 read_verilog -library xil_defaultlib {
+  /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v
   /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v
   /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v
   /home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761_controller.v
