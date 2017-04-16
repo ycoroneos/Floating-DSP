@@ -33,9 +33,14 @@ int led=13;
 
 void setup() {
   pinMode(led, OUTPUT);
+  pinMode(A5, OUTPUT);
+  digitalWrite(A5, LOW);
+  for (;;) {};
+  Wire.setClock(1000);
   Wire.begin();
   Serial.begin(9600);
   sendstuff(&regular_data[0][0], 2);
+  delay(5);
   sendstuff(&pll_data[0], 7);
   delay(100);
   for (int i=1; i<dcount; ++i) {

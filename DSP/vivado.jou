@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Sun Apr 16 14:09:28 2017
+# Process ID: 5256
+# Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3892 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
+# Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/vivado.log
+# Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr
+set_property source_mgmt_mode None [current_project]
+set_property source_mgmt_mode All [current_project]

@@ -1,0 +1,147 @@
+/*
+
+Vivado v2016.4 (64-bit)
+SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+Process ID: 5256
+
+Current time: 	4/16/17 2:09:42 PM EDT
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Windows 10
+Version: 10.0
+Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1707x1067
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Tahoma,name=Tahoma,style=plain,size=11
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	C:/Xilinx/Vivado/2016.4/tps/win64/jre
+
+User name: 	yanni
+User home directory: C:/Users/yanni
+User working directory: C:/Users/yanni/Documents/18.335/finalproj/DSP
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI base root directory: C:/Xilinx/Vivado
+RDI data directory: C:/Xilinx/Vivado/2016.4/data
+RDI bin directory: C:/Xilinx/Vivado/2016.4/bin
+
+Vivado preferences path: C:/Users/yanni/AppData/Roaming/Xilinx/Vivado/2016.4/vivado.ini
+Vivado layouts directory: C:/Users/yanni/AppData/Roaming/Xilinx/Vivado/2016.4/layouts
+
+GUI allocated memory:	209 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 521 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr. Version: Vivado v2016.4 
+// bt:g (cd:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// [GUI Memory]: 36 MB (+35714kb) [00:00:05]
+// [Engine Memory]: 424 MB (+292928kb) [00:00:05]
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 39 MB (+1231kb) [00:00:06]
+// [Engine Memory]: 475 MB (+30936kb) [00:00:06]
+// [GUI Memory]: 53 MB (+12161kb) [00:00:08]
+// [Engine Memory]: 505 MB (+7223kb) [00:00:08]
+// Tcl Message: open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.4/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 790.836 ; gain = 137.813 
+// Project name: DSP; location: C:/Users/yanni/Documents/18.335/finalproj/DSP; part: xc7a200tsbg484-1
+dismissDialog("Open Project"); // bt:g (cd:JFrame)
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking too long to process. Increasing delay to 3000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 521 MB. GUI used memory: 37 MB. Current time: 4/16/17 2:09:43 PM EDT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: SRC_MGMT_MODE_CHANGE
+// Tcl Message: set_property source_mgmt_mode None [current_project] 
+// Elapsed time: 77 seconds
+selectButton(PAResourceEtoH.FileSetPanel_RELOAD, "Reload..."); // h:k (JPanel:JComponent, cd:JFrame)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Y:JMenu (JidePopupMenu:JPopupMenu, cd:JFrame)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // Y:JMenu (JidePopupMenu:JPopupMenu, cd:JFrame)
+selectMenuItem(PAResourceOtoP.Project_AUTOMATIC_UPDATE_AND_COMPILE_ORDER, "Automatic Update and Compile Order"); // P:JCheckBoxMenuItem (JPopupMenu:JComponent, cd:JFrame)
+// TclEventType: SRC_MGMT_MODE_CHANGE
+// Tcl Message: set_property source_mgmt_mode All [current_project] 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v)]", 1); // y:i (D:JPanel, cd:JFrame)
+// Elapsed time: 23 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, adau1761_controller (adau1761_controller.v)]", 5); // y:i (D:JPanel, cd:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 542 MB. GUI used memory: 35 MB. Current time: 4/16/17 2:11:31 PM EDT
+// [Engine Memory]: 542 MB (+12215kb) [00:02:01]
+// PAPropertyPanels.initPanels (toplevel.v) elapsed time: 0.2s
+// Elapsed time: 23 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v)]", 1, true); // y:i (D:JPanel, cd:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v)]", 1, true, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click - Node
+selectCodeEditor("toplevel.v", 172, 235); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("toplevel.v", 113, 319); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 57 MB (+1275kb) [00:02:27]
+// Elapsed time: 27 seconds
+selectCodeEditor("toplevel.v", 275, 278); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("toplevel.v", 305, 295); // bF:I (JPanel:JComponent, cd:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // y:JideButton (g:CommandBar, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("toplevel.v", 231, 275); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 60 MB (+306kb) [00:03:46]
+// [GUI Memory]: 64 MB (+937kb) [00:04:01]
+// Elapsed time: 78 seconds
+selectCodeEditor("toplevel.v", 319, 279); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("toplevel.v", 303, 289); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("toplevel.v", 191, 289); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("toplevel.v", 43, 471); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("toplevel.v", 28, 454); // bF:I (JPanel:JComponent, cd:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // y:JideButton (g:CommandBar, cd:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("toplevel.v", 286, 423); // bF:I (JPanel:JComponent, cd:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // t:aE
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v)]", 1); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v)]", 5, true); // y:i (D:JPanel, cd:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v)]", 5, true, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click - Node
+// [GUI Memory]: 68 MB (+1271kb) [00:04:51]
+selectCodeEditor("adau1761_controller.v", 119, 221); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 73 MB (+747kb) [00:05:05]
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v), configbus - adau1761i2c (adau1761i2c.v)]", 6, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v), configbus - adau1761i2c (adau1761i2c.v)]", 6, false, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click
+selectCodeEditor("adau1761i2c.v", 174, 236); // bF:I (JPanel:JComponent, cd:JFrame)
+// Elapsed time: 21 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v), pllconfigbus - adau1761plli2c (adau1761plli2c.v)]", 7, false); // y:i (D:JPanel, cd:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toplevel (toplevel.v), codec - adau1761_controller (adau1761_controller.v), pllconfigbus - adau1761plli2c (adau1761plli2c.v)]", 7, false, false, false, false, false, true); // y:i (D:JPanel, cd:JFrame) - Double Click
+// [GUI Memory]: 77 MB (+449kb) [00:05:28]
+selectCodeEditor("adau1761plli2c.v", 312, 238); // bF:I (JPanel:JComponent, cd:JFrame)
+selectCodeEditor("adau1761plli2c.v", 312, 237); // bF:I (JPanel:JComponent, cd:JFrame)
+// [GUI Memory]: 81 MB (+202kb) [00:10:24]
