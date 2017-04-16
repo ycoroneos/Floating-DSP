@@ -36,25 +36,32 @@ void setup() {
   Wire.begin();
   Serial.begin(9600);
   sendstuff(&regular_data[0][0], 2);
-  sendstuff(pll_data, 7);
-  for (int i=0; i<dcount-1; ++i) {
+  sendstuff(&pll_data[0], 7);
+  delay(100);
+  for (int i=1; i<dcount; ++i) {
     sendstuff(&regular_data[i][0], 2);
+    delay(5);
   }
   Serial.println("Done i2c\n");
 }
 
 void sendstuff(uint8_t *bytes, int count) {
-  Wire.beginTransmission(0x76);
+  //Serial.printf("begin transmit\n");
+  digitalWrite(led, HIGH);
+  Wire.beginTransmission(0x3b);
   Wire.write(0x40);
   for (int i=0; i<count; ++i) {
     Wire.write(bytes[i]);
+    Serial.print(bytes[i], HEX);
+    Serial.println();
   }
   Wire.endTransmission();
+  digitalWrite(led, LOW);
 }
 
 void loop() {
-  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
+  //digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(100);               // wait for a second
   digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
+  delay(100);               // wait for a second
 }

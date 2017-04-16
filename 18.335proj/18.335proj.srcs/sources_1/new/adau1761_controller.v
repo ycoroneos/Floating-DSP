@@ -23,6 +23,7 @@
 ((NUM*2)+0):\
 begin\
 i2cstart<=1; \
+addr<=ADDR; \
 reglo<=REGLO; \
 reghi<=REGHI; \
 data<=DATA; \
@@ -46,7 +47,7 @@ input wire ac_bclk,
 output wire ac_sdto_dac,
 input wire ac_sdto_adc,
 output wire ac_scl,
-inout wire ac_sda,
+output wire ac_sda,
 
 //input from clockgen
 input wire mclk, //i2s mclk
@@ -60,15 +61,15 @@ input wire sdto_to_codec,
 output wire sdto_from_codec,
 
 //indicators
-output reg ready
+output reg ready=0
     );
     
     //wire the i2s together
-    assign sdto_from_codec = ready ? ac_sdto_adc : 1'b0;
-    assign ac_sdto_dac = ready ? sdto_to_codec : 1'b0;
+    assign sdto_from_codec = ac_sdto_adc;
+    assign ac_sdto_dac = sdto_to_codec;
     assign ac_mclk = mclk; //mclk must always be present for the thing to even work
-    assign lrclk = ready ? ac_lrclk : 1'b0;
-    assign bclk = ready ? ac_bclk : 1'b0;
+    assign lrclk = ac_lrclk;
+    assign bclk = ac_bclk;
     
     //i2c controller
     reg i2cstart=0;
@@ -104,7 +105,7 @@ output reg ready
     // 0x40F9=0x7F -> all modules power on
     // 0x40FA=0x3 -> enable both digital clocks
     */
-    reg [7:0] curstate=0;
+   reg [7:0] curstate=0;
     always @(posedge fsmclk)
     begin
         if (reset)
@@ -153,27 +154,31 @@ output reg ready
                     end
                 
                //regular i2s commands
-               `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0F, 3) //enable the core
-               `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 4) //become i2s master
-               `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 5) //enable left mixer
-               `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 6) //left mixer gain=0db
-               `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 7) //enable right mixer
-               `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 8) //right mixer gain=0db
-               `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 9) //
-               `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 10)
-               `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 11)
-               `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE7, 12)
-               `I2C_WRITE(8'h76, 8'h40, 8'h25, 8'hE7, 13)
-               `I2C_WRITE(8'h76, 8'h40, 8'h26, 8'hE7, 14)
-               `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 15)
-               `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 16)
-               `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 17)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 18)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 19)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 20)
-               `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 21)
+               `I2C_WRITE(8'h00, 8'h00, 8'h00, 8'h00, 3) //wait
+               `I2C_WRITE(8'h00, 8'h00, 8'h00, 8'h00, 4) //wait
+               `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0F, 5) //enable the core
+               `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 6) //become i2s master
+               `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 7) //enable left mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 8) //left mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 9) //enable right mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 10) //right mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 11) //
+               `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 12)
+               `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 13)
+               `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE7, 14)
+               `I2C_WRITE(8'h76, 8'h40, 8'h25, 8'hE7, 15)
+               `I2C_WRITE(8'h76, 8'h40, 8'h26, 8'hE7, 16)
+               `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 17)
+               `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 18)
+               `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 19)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 20)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 21)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 22)
+               `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 23)
+               `I2C_WRITE(8'h00, 8'h00, 8'h00, 8'h00, 24) //wait
                 default: ready<=1;
                 endcase
             end
     end
+    
 endmodule

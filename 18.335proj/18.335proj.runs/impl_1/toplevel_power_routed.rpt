@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date             : Sat Apr 15 17:37:57 2017
-| Host             : asbestos running 64-bit Ubuntu 16.10
+| Tool Version     : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date             : Sun Apr 16 00:56:54 2017
+| Host             : DESKTOP-H30IADK running 64-bit major release  (build 9200)
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
 | Device           : xc7a200tsbg484-1
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.289 |
-| Dynamic (W)              | 0.132 |
-| Device Static (W)        | 0.158 |
+| Total On-Chip Power (W)  | 0.265 |
+| Dynamic (W)              | 0.108 |
+| Device Static (W)        | 0.157 |
 | Effective TJA (C/W)      | 3.3   |
-| Max Ambient (C)          | 84.0  |
-| Junction Temperature (C) | 26.0  |
+| Max Ambient (C)          | 84.1  |
+| Junction Temperature (C) | 25.9  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,17 +49,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        6 |       --- |             --- |
-| Slice Logic    |    <0.001 |       68 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       19 |    133800 |            0.01 |
-|   Register     |    <0.001 |       33 |    267600 |            0.01 |
-|   CARRY4       |    <0.001 |        6 |     33450 |            0.02 |
-|   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |    <0.001 |       56 |       --- |             --- |
-| MMCM           |     0.122 |        1 |        10 |           10.00 |
-| I/O            |     0.009 |       23 |       285 |            8.07 |
-| Static Power   |     0.158 |          |           |                 |
-| Total          |     0.289 |          |           |                 |
+| Clocks         |    <0.001 |        8 |       --- |             --- |
+| Slice Logic    |    <0.001 |      225 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      100 |    133800 |            0.07 |
+|   Register     |    <0.001 |       89 |    267600 |            0.03 |
+|   CARRY4       |    <0.001 |       10 |     33450 |            0.03 |
+|   F7/F8 Muxes  |    <0.001 |        5 |    133800 |           <0.01 |
+|   Others       |     0.000 |       14 |       --- |             --- |
+| Signals        |    <0.001 |      152 |       --- |             --- |
+| PLL            |     0.098 |        1 |        10 |           10.00 |
+| I/O            |     0.008 |       16 |       285 |            5.61 |
+| Static Power   |     0.157 |          |           |                 |
+| Total          |     0.265 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,10 +70,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.033 |       0.002 |      0.031 |
-| Vccaux    |       1.800 |     0.098 |       0.068 |      0.031 |
-| Vcco33    |       3.300 |     0.007 |       0.002 |      0.005 |
-| Vcco25    |       2.500 |     0.005 |       0.000 |      0.005 |
+| Vccint    |       1.000 |     0.041 |       0.011 |      0.031 |
+| Vccaux    |       1.800 |     0.081 |       0.050 |      0.031 |
+| Vcco33    |       3.300 |     0.006 |       0.001 |      0.005 |
+| Vcco25    |       2.500 |     0.006 |       0.001 |      0.005 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -88,17 +89,17 @@ Table of Contents
 1.3 Confidence Level
 --------------------
 
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
-| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
-| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
-| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
-| Device models               | High       | Device models are Production                           |                                                                                                                    |
-|                             |            |                                                        |                                                                                                                    |
-| Overall confidence level    | Low        |                                                        |                                                                                                                    |
-+-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
++-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                               | Action                                                                                                             |
++-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                      |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                          |                                                                                                                    |
+|                             |            |                                                       |                                                                                                                    |
+| Overall confidence level    | Low        |                                                       |                                                                                                                    |
++-----------------------------+------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 2. Settings
@@ -122,14 +123,16 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+--------------------+---------------------------------+-----------------+
-| Clock              | Domain                          | Constraint (ns) |
-+--------------------+---------------------------------+-----------------+
-| clk_out1_clk_wiz_0 | clkmon0/inst/clk_out1_clk_wiz_0 |            41.7 |
-| clkfbout_clk_wiz_0 | clkmon0/inst/clkfbout_clk_wiz_0 |            50.0 |
-| sys_clk_pin        | sysclk                          |            10.0 |
-| sys_clk_pin        | sysclk_IBUF                     |            10.0 |
-+--------------------+---------------------------------+-----------------+
++----------------------+---------------------------------+-----------------+
+| Clock                | Domain                          | Constraint (ns) |
++----------------------+---------------------------------+-----------------+
+| clk_out1_clk_wiz_0   | clkmon0/inst/clk_out1_clk_wiz_0 |            41.7 |
+| clk_out1_clk_wiz_0_1 | clkmon0/inst/clk_out1_clk_wiz_0 |            41.7 |
+| clkfbout_clk_wiz_0   | clkmon0/inst/clkfbout_clk_wiz_0 |            50.0 |
+| clkfbout_clk_wiz_0_1 | clkmon0/inst/clkfbout_clk_wiz_0 |            50.0 |
+| sys_clk_pin          | sysclk                          |            10.0 |
+| sysclk               | sysclk                          |            10.0 |
++----------------------+---------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -138,14 +141,17 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------+-----------+
-| Name        | Power (W) |
-+-------------+-----------+
-| toplevel    |     0.132 |
-|   clkmon0   |     0.122 |
-|     inst    |     0.122 |
-|   codec     |    <0.001 |
-|   fsmclkmon |     0.001 |
-+-------------+-----------+
++------------------+-----------+
+| Name             | Power (W) |
++------------------+-----------+
+| toplevel         |     0.108 |
+|   clkmon0        |     0.099 |
+|     inst         |     0.099 |
+|   codec          |    <0.001 |
+|     configbus    |    <0.001 |
+|     pllconfigbus |    <0.001 |
+|   fsmclkmon      |    <0.001 |
+|   serialclkmon   |    <0.001 |
++------------------+-----------+
 
 

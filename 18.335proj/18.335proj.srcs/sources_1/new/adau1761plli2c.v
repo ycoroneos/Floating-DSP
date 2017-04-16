@@ -32,7 +32,7 @@ input wire[7:0] addr, reghi, reglo, data0, data1, data2, data3, data4, data5,
 output reg scl,
 output reg sda
     );
-     parameter DATACOUNT=80;
+     parameter DATACOUNT=81;
      parameter RESET_STATE=3'b000;
      parameter WAITFOR_START_STATE=3'b001;
      parameter OUTPUT_STATE=3'b011;
@@ -42,7 +42,7 @@ output reg sda
      reg [6:0] count=DATACOUNT;
      
      //heres the hack!
-     wire[80:0] outdata = {addr[7:0], 1'b0, reghi[7:0], 1'b0, reglo[7:0], 1'b0, data0[7:0], 1'b0, data1[7:0], 1'b0, data2[7:0], 1'b0, data3[7:0], 1'b0, data4[7:0], 1'b0, data5[7:0], 1'b0};
+     wire[81:0] outdata = {addr[7:0], 1'b0, reghi[7:0], 1'b0, reglo[7:0], 1'b0, data0[7:0], 1'b0, data1[7:0], 1'b0, data2[7:0], 1'b0, data3[7:0], 1'b0, data4[7:0], 1'b0, data5[7:0], 1'b0, 1'b0};
      
      //scl idles high
     always @*

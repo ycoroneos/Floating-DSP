@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2016.4 (64-bit)
-# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sat Apr 15 17:36:37 2017
-# Process ID: 9067
-# Current directory: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1
-# Command line: vivado -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
-# Log file: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.vds
-# Journal file: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/vivado.jou
+# Start of session at: Sun Apr 16 00:54:31 2017
+# Process ID: 6220
+# Current directory: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1
+# Command line: vivado.exe -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
+# Log file: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.vds
+# Journal file: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source toplevel.tcl -notrace

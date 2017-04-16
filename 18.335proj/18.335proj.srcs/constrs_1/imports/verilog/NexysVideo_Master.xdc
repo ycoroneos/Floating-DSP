@@ -12,7 +12,8 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports {sy
 ## Note: This clock is attached to a MGTREFCLK pin
 #set_property -dict { PACKAGE_PIN E6 } [get_ports { GTP_CLK_N }];
 #set_property -dict { PACKAGE_PIN F6 } [get_ports { GTP_CLK_P }];
-#create_clock -add -name gtpclk0_pin -period 6.400 -waveform {0 3.200} [get_ports {GTP_CLK_P}];
+#create_clock -add -name gtpclk0_pin -period 6
+.400 -waveform {0 3.200} [get_ports {GTP_CLK_P}];
 #set_property -dict { PACKAGE_PIN E10 } [get_ports { FMC_MGT_CLK_N }];
 #set_property -dict { PACKAGE_PIN F10 } [get_ports { FMC_MGT_CLK_P }];
 #create_clock -add -name mgtclk1_pin -period 6.400 -waveform {0 3.200} [get_ports {FMC_MGT_CLK_P}]; 

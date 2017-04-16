@@ -1,13 +1,13 @@
 #-----------------------------------------------------------
 # Vivado v2016.4 (64-bit)
-# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sat Apr 15 17:36:37 2017
-# Process ID: 9067
-# Current directory: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1
-# Command line: vivado -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
-# Log file: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.vds
-# Journal file: /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/vivado.jou
+# Start of session at: Sun Apr 16 00:54:31 2017
+# Process ID: 6220
+# Current directory: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1
+# Command line: vivado.exe -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
+# Log file: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.vds
+# Journal file: C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source toplevel.tcl -notrace
 Command: synth_design -top toplevel -part xc7a200tsbg484-1
@@ -15,50 +15,89 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9070 
+INFO: Helper process launched with PID 5728 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1058.547 ; gain = 128.086 ; free physical = 35369 ; free virtual = 57281
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 305.730 ; gain = 95.484
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'toplevel' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:23]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-638] synthesizing module 'divider' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
+INFO: [Synth 8-638] synthesizing module 'toplevel' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:23]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_clk_wiz' [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
+INFO: [Synth 8-638] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
+	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
+	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-256] done synthesizing module 'IBUF' (1#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
+INFO: [Synth 8-638] synthesizing module 'PLLE2_ADV' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:32674]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT bound to: 42 - type: integer 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: float 
+	Parameter CLKIN2_PERIOD bound to: 0.000000 - type: float 
+	Parameter CLKOUT0_DIVIDE bound to: 35 - type: integer 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT1_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: float 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 5 - type: integer 
+	Parameter IS_CLKINSEL_INVERTED bound to: 1'b0 
+	Parameter IS_PWRDWN_INVERTED bound to: 1'b0 
+	Parameter IS_RST_INVERTED bound to: 1'b0 
+	Parameter REF_JITTER1 bound to: 0.010000 - type: float 
+	Parameter REF_JITTER2 bound to: 0.010000 - type: float 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-256] done synthesizing module 'PLLE2_ADV' (2#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:32674]
+INFO: [Synth 8-638] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-256] done synthesizing module 'BUFG' (3#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0_clk_wiz' (4#1) [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (5#1) [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
+WARNING: [Synth 8-350] instance 'clkmon0' of module 'clk_wiz_0' requires 4 connections, but only 3 given [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:56]
+INFO: [Synth 8-638] synthesizing module 'divider' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
 	Parameter LOGLENGTH bound to: 24 - type: integer 
-	Parameter COUNTVAL bound to: 5000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider' (2#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
-INFO: [Synth 8-638] synthesizing module 'divider__parameterized0' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
+	Parameter COUNTVAL bound to: 120000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'divider' (6#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
+INFO: [Synth 8-638] synthesizing module 'divider__parameterized0' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
 	Parameter LOGLENGTH bound to: 14 - type: integer 
-	Parameter COUNTVAL bound to: 5200 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider__parameterized0' (2#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
-INFO: [Synth 8-638] synthesizing module 'adau1761_controller' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761_controller.v:37]
-INFO: [Synth 8-638] synthesizing module 'adau1761i2c' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:26]
+	Parameter COUNTVAL bound to: 1250 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'divider__parameterized0' (6#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/divider.v:22]
+INFO: [Synth 8-638] synthesizing module 'adau1761_controller' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761_controller.v:37]
+INFO: [Synth 8-638] synthesizing module 'adau1761i2c' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:26]
 	Parameter DATACOUNT bound to: 35 - type: integer 
 	Parameter RESET_STATE bound to: 3'b000 
 	Parameter WAITFOR_START_STATE bound to: 3'b001 
 	Parameter OUTPUT_STATE bound to: 3'b011 
 	Parameter WAITFOR_NOSTART bound to: 3'b100 
 	Parameter END_CONDITION bound to: 3'b110 
-INFO: [Synth 8-155] case statement is not full and has no default [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:66]
-INFO: [Synth 8-256] done synthesizing module 'adau1761i2c' (3#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:26]
-INFO: [Synth 8-638] synthesizing module 'adau1761plli2c' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:26]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:66]
+INFO: [Synth 8-256] done synthesizing module 'adau1761i2c' (7#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761i2c.v:26]
+INFO: [Synth 8-638] synthesizing module 'adau1761plli2c' [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:26]
 	Parameter DATACOUNT bound to: 80 - type: integer 
 	Parameter RESET_STATE bound to: 3'b000 
 	Parameter WAITFOR_START_STATE bound to: 3'b001 
 	Parameter OUTPUT_STATE bound to: 3'b011 
 	Parameter WAITFOR_NOSTART bound to: 3'b100 
 	Parameter END_CONDITION bound to: 3'b110 
-INFO: [Synth 8-155] case statement is not full and has no default [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:66]
-INFO: [Synth 8-256] done synthesizing module 'adau1761plli2c' (4#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:26]
-INFO: [Synth 8-256] done synthesizing module 'adau1761_controller' (5#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761_controller.v:37]
-INFO: [Synth 8-256] done synthesizing module 'toplevel' (6#1) [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:66]
+INFO: [Synth 8-256] done synthesizing module 'adau1761plli2c' (8#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761plli2c.v:26]
+INFO: [Synth 8-256] done synthesizing module 'adau1761_controller' (9#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/adau1761_controller.v:37]
+INFO: [Synth 8-256] done synthesizing module 'toplevel' (10#1) [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:23]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[5]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[4]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[3]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[2]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[5]
@@ -66,8 +105,16 @@ WARNING: [Synth 8-3331] design toplevel has unconnected port sw[4]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[3]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[1]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[5]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[4]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[3]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[2]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[1]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1100.016 ; gain = 169.555 ; free physical = 35326 ; free virtual = 57238
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 343.199 ; gain = 132.953
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -77,43 +124,54 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1100.016 ; gain = 169.555 ; free physical = 35326 ; free virtual = 57238
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 343.199 ; gain = 132.953
 ---------------------------------------------------------------------------------
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'clkmon0' [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/new/toplevel.v:54]
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/dcp/clk_wiz_0_in_context.xdc] for cell 'clkmon0'
-Finished Parsing XDC File [/home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/dcp/clk_wiz_0_in_context.xdc] for cell 'clkmon0'
-Parsing XDC File [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
-Finished Parsing XDC File [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/yanni/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
+Finished Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
+Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
+Finished Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
+Finished Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1514.473 ; gain = 0.000 ; free physical = 35042 ; free virtual = 56954
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 687.684 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35041 ; free virtual = 56953
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35041 ; free virtual = 56953
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for sysclk. (constraint file  /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/dcp/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sysclk. (constraint file  /home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/.Xil/Vivado-9067-asbestos/dcp/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for clkmon0/inst. (constraint file  C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/dont_touch.xdc, line 10).
+Applied set_property DONT_TOUCH = true for clkmon0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35041 ; free virtual = 56953
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
@@ -201,7 +259,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'curstate_reg' using encodi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'curstate_reg' using encoding 'sequential' in module 'adau1761_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35038 ; free virtual = 56950
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -314,12 +372,6 @@ INFO: [Synth 8-5546] ROM "fsmclkmon/output_reg" won't be mapped to RAM because i
 INFO: [Synth 8-5546] ROM "serialclkmon/output_reg" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[5]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[4]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[3]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[2]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[5]
@@ -327,83 +379,80 @@ WARNING: [Synth 8-3331] design toplevel has unconnected port sw[4]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[3]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[1]
-WARNING: [Synth 8-3332] Sequential element (codec/configbus/sda_reg) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/pllconfigbus/sda_reg) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/usepllcfg_reg) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data4_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data3_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data2_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data1_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/data_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[1]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reglo_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[7]) is unused and will be removed from module toplevel.
+WARNING: [Synth 8-3331] design toplevel has unconnected port AC_BCLK
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[5]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[4]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[3]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[2]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[1]
+WARNING: [Synth 8-3331] design toplevel has unconnected port ja[0]
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[7]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[6]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[5]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[4]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[3]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[2]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[1]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data1_reg[0]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[7]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[6]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[5]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[4]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[3]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[2]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[1]' (FDE) to 'codec/data2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data2_reg[0]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[7]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[6]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[5]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[4]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[3]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[2]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[1]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data3_reg[0]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[7]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[6]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[5]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[4]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[3]' (FDE) to 'codec/data4_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[2]' (FDE) to 'codec/data5_reg[7]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[1]' (FDE) to 'codec/data4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data4_reg[0]' (FDE) to 'codec/data5_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[7]' (FDE) to 'codec/data5_reg[6]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[6]' (FDE) to 'codec/data5_reg[5]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[5]' (FDE) to 'codec/data5_reg[4]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[4]' (FDE) to 'codec/data5_reg[3]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[3]' (FDE) to 'codec/data5_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/data5_reg[2]' (FDE) to 'codec/data5_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\codec/data5_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\codec/data5_reg[0] )
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[7]' (FDRE) to 'codec/addr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[6]' (FDSE) to 'codec/addr_reg[5]'
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[5]' (FDSE) to 'codec/addr_reg[4]'
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[4]' (FDSE) to 'codec/addr_reg[2]'
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[3]' (FDRE) to 'codec/addr_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/addr_reg[2]' (FDSE) to 'codec/addr_reg[1]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\codec/addr_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\codec/addr_reg[0] )
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[7]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\codec/reghi_reg[6] )
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[5]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[4]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[3]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[2]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3886] merging instance 'codec/reghi_reg[1]' (FDRE) to 'codec/reghi_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\codec/reghi_reg[0] )
+INFO: [Synth 8-3886] merging instance 'codec/reglo_reg[7]' (FDE) to 'codec/reglo_reg[6]'
 WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[2]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[1]) is unused and will be removed from module toplevel.
 WARNING: [Synth 8-3332] Sequential element (codec/reghi_reg[0]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[7]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[6]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[5]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[4]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[3]) is unused and will be removed from module toplevel.
-WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[2]) is unused and will be removed from module toplevel.
 WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[1]) is unused and will be removed from module toplevel.
 WARNING: [Synth 8-3332] Sequential element (codec/addr_reg[0]) is unused and will be removed from module toplevel.
+WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[0]) is unused and will be removed from module toplevel.
+WARNING: [Synth 8-3332] Sequential element (codec/data5_reg[1]) is unused and will be removed from module toplevel.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35038 ; free virtual = 56950
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -432,13 +481,11 @@ Start Timing Optimization
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5578] Moved timing constraint from pin 'clkmon0/clk_out1' to pin 'clkmon0/bbstub_clk_out1/O {ja[3]}'
-INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35030 ; free virtual = 56942
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35022 ; free virtual = 56934
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -450,7 +497,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56934
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -474,7 +521,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56934
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -487,7 +534,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56934
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -499,85 +546,88 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56934
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56934
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56933
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56933
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |clk_wiz_0     |         1|
-+------+--------------+----------+
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
 
 Report Cell Usage: 
 +------+----------+------+
 |      |Cell      |Count |
 +------+----------+------+
-|1     |clk_wiz_0 |     1|
+|1     |BUFG      |     2|
 |2     |CARRY4    |    10|
-|3     |LUT1      |    42|
-|4     |LUT2      |     8|
-|5     |LUT3      |     5|
-|6     |LUT4      |    22|
-|7     |LUT5      |    10|
-|8     |LUT6      |    17|
-|9     |FDRE      |    71|
-|10    |IBUF      |     6|
-|11    |OBUF      |    10|
-|12    |OBUFT     |     6|
+|3     |LUT1      |    40|
+|4     |LUT2      |    11|
+|5     |LUT3      |     8|
+|6     |LUT4      |    19|
+|7     |LUT5      |    13|
+|8     |LUT6      |    56|
+|9     |MUXF7     |     4|
+|10    |MUXF8     |     1|
+|11    |PLLE2_ADV |     1|
+|12    |FDRE      |    89|
+|13    |IBUF      |     4|
+|14    |OBUF      |    10|
+|15    |OBUFT     |     2|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+-----------------+------------------------+------+
 |      |Instance         |Module                  |Cells |
 +------+-----------------+------------------------+------+
-|1     |top              |                        |   208|
-|2     |  codec          |adau1761_controller     |    78|
-|3     |    configbus    |adau1761i2c             |    27|
-|4     |    pllconfigbus |adau1761plli2c          |    27|
-|5     |  fsmclkmon      |divider                 |    66|
-|6     |  serialclkmon   |divider__parameterized0 |    41|
+|1     |top              |                        |   270|
+|2     |  clkmon0        |clk_wiz_0               |     4|
+|3     |    inst         |clk_wiz_0_clk_wiz       |     4|
+|4     |  codec          |adau1761_controller     |   145|
+|5     |    configbus    |adau1761i2c             |    41|
+|6     |    pllconfigbus |adau1761plli2c          |    49|
+|7     |  fsmclkmon      |divider                 |    66|
+|8     |  serialclkmon   |divider__parameterized0 |    40|
 +------+-----------------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56933
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 90 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.473 ; gain = 89.465 ; free physical = 35021 ; free virtual = 56933
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.473 ; gain = 584.012 ; free physical = 35021 ; free virtual = 56933
+Synthesis finished with 0 errors, 0 critical warnings and 24 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 687.684 ; gain = 112.309
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 687.684 ; gain = 477.438
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 15 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
+130 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1514.473 ; gain = 516.508 ; free physical = 35016 ; free virtual = 56928
-INFO: [Common 17-1381] The checkpoint '/home/yanni/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1538.484 ; gain = 0.000 ; free physical = 35015 ; free virtual = 56928
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 15 17:37:02 2017...
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 687.684 ; gain = 461.359
+INFO: [Common 17-1381] The checkpoint 'C:/Users/yanni/Documents/18.335/finalproj/18.335proj/18.335proj.runs/synth_1/toplevel.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 687.684 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 16 00:55:03 2017...
