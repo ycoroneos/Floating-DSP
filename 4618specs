@@ -1,0 +1,9 @@
+
+#Slave Mode, ust provide MCLK, LRCLK, and BICK
+LRCLK - 192.0 kHz
+MCLK - 24.5760 MHz
+BICK - 12.2880 MHz
+
+LRCLK - 48 KHz
+MCLK - 12.2880 MHz
+BICK - 3.0720 MHz
