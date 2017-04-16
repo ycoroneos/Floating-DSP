@@ -2,20 +2,364 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sun Apr 16 14:09:28 2017
-# Process ID: 5256
+# Start of session at: Sun Apr 16 17:28:05 2017
+# Process ID: 2604
 # Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3892 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5384 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
 # Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/vivado.log
 # Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr
+INFO: [Project 1-313] Project file moved from '/home/yanni/18.335/finalproj/DSP' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.4/data/ip'.
-open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 790.836 ; gain = 137.813
-set_property source_mgmt_mode None [current_project]
-set_property source_mgmt_mode All [current_project]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 17:28:22 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 17:28:22 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2016.4
+  **** Build date : Jan 23 2017-19:37:29
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210276689948B
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+current_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 894.234 ; gain = 17.855
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210276689948B.
+Check cable connectivity and that the target board is powered up then
+use the disconnect_hw_server and connect_hw_server to re-register this hardware target.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 894.234 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 17:42:39 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 17:42:39 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 911.949 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+launch_simulation
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2016.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav'
+INFO: [USF-XSim-37] Inspecting design source files for 'i2c_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav'
+"xvlog -m64 --relax -prj i2c_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2cmaster
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adau1761_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sim_1/imports/new/i2c_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav'
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.4/bin/unwrapped/win64.o/xelab.exe -wto 9b562c261b20467093d14aa91dfb8cb9 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot i2c_tb_behav xil_defaultlib.i2c_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.i2cmaster
+Compiling module xil_defaultlib.adau1761_controller
+Compiling module xil_defaultlib.i2c_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot i2c_tb_behav
+
+****** Webtalk v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2c_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2c_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Apr 16 17:50:04 2017. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun Apr 16 17:50:04 2017...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "i2c_tb_behav -key {Behavioral:sim_1:Functional:i2c_tb} -tclbatch {i2c_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+source i2c_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'i2c_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 958.965 ; gain = 25.691
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 1000 us
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 17:51:01 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 17:51:01 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 958.965 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 18:16:24 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 18:16:24 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 958.965 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+set_property -dict [list CONFIG.PRIMITIVE {MMCM} CONFIG.JITTER_SEL {Min_O_Jitter} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {12.288} CONFIG.USE_SAFE_CLOCK_STARTUP {true} CONFIG.USE_LOCKED {false} CONFIG.CLKOUT1_DRIVES {BUFGCE} CONFIG.CLKOUT2_DRIVES {BUFGCE} CONFIG.CLKOUT3_DRIVES {BUFGCE} CONFIG.CLKOUT4_DRIVES {BUFGCE} CONFIG.CLKOUT5_DRIVES {BUFGCE} CONFIG.CLKOUT6_DRIVES {BUFGCE} CONFIG.CLKOUT7_DRIVES {BUFGCE} CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_BANDWIDTH {HIGH} CONFIG.MMCM_CLKFBOUT_MULT_F {10.875} CONFIG.MMCM_COMPENSATION {ZHOLD} CONFIG.MMCM_CLKOUT0_DIVIDE_F {88.500} CONFIG.CLKOUT1_JITTER {190.154} CONFIG.CLKOUT1_PHASE_ERROR {92.529}] [get_ips clk_wiz_0]
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'clk_wiz_0'. Target already exists and is up to date.
+[Sun Apr 16 18:38:02 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 18:38:02 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 18:42:21 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 18:42:21 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210276689948B.
+Check cable connectivity and that the target board is powered up then
+use the disconnect_hw_server and connect_hw_server to re-register this hardware target.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1193.871 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 18:51:51 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 18:51:51 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210276689948B.
+Check cable connectivity and that the target board is powered up then
+use the disconnect_hw_server and connect_hw_server to re-register this hardware target.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1193.871 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 19:00:10 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 19:00:10 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1193.871 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210276689948B.
+Check cable connectivity and that the target board is powered up then
+use the disconnect_hw_server and connect_hw_server to re-register this hardware target.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210276689948B
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+WARNING: [Labtoolstcl 44-130] No matching hw_ilas were found.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Sun Apr 16 19:09:11 2017] Launched synth_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/runme.log
+[Sun Apr 16 19:09:11 2017] Launched impl_1...
+Run output will be captured here: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/runme.log

@@ -2,14 +2,82 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sun Apr 16 14:09:28 2017
-# Process ID: 5256
+# Start of session at: Sun Apr 16 17:28:05 2017
+# Process ID: 2604
 # Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3892 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5384 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
 # Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/vivado.log
 # Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr
-set_property source_mgmt_mode None [current_project]
-set_property source_mgmt_mode All [current_project]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+current_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+launch_simulation
+source i2c_tb.tcl
+restart
+run 1000 us
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+set_property -dict [list CONFIG.PRIMITIVE {MMCM} CONFIG.JITTER_SEL {Min_O_Jitter} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {12.288} CONFIG.USE_SAFE_CLOCK_STARTUP {true} CONFIG.USE_LOCKED {false} CONFIG.CLKOUT1_DRIVES {BUFGCE} CONFIG.CLKOUT2_DRIVES {BUFGCE} CONFIG.CLKOUT3_DRIVES {BUFGCE} CONFIG.CLKOUT4_DRIVES {BUFGCE} CONFIG.CLKOUT5_DRIVES {BUFGCE} CONFIG.CLKOUT6_DRIVES {BUFGCE} CONFIG.CLKOUT7_DRIVES {BUFGCE} CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_BANDWIDTH {HIGH} CONFIG.MMCM_CLKFBOUT_MULT_F {10.875} CONFIG.MMCM_COMPENSATION {ZHOLD} CONFIG.MMCM_CLKOUT0_DIVIDE_F {88.500} CONFIG.CLKOUT1_JITTER {190.154} CONFIG.CLKOUT1_PHASE_ERROR {92.529}] [get_ips clk_wiz_0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a200t_0] 0]
+set_property PROGRAM.FILE {C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.bit} [lindex [get_hw_devices xc7a200t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a200t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a200t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1

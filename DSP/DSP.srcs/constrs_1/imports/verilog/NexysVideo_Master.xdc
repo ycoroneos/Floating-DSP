@@ -199,7 +199,7 @@ set_property -dict { PACKAGE_PIN AA18  IOSTANDARD LVCMOS33 } [get_ports { ja[7] 
 #set_property -dict { PACKAGE_PIN R22   IOSTANDARD LVCMOS33 } [get_ports { qspi_dq[1] }]; #IO_L1N_T0_D01_DIN_14 Sch=qspi_dq[1]
 #set_property -dict { PACKAGE_PIN P21   IOSTANDARD LVCMOS33 } [get_ports { qspi_dq[2] }]; #IO_L2P_T0_D02_14 Sch=qspi_dq[2]
 #set_property -dict { PACKAGE_PIN R21   IOSTANDARD LVCMOS33 } [get_ports { qspi_dq[3] }]; #IO_L2N_T0_D03_14 Sch=qspi_dq[3]
-set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 } [get_ports { AC_SCL }]; #IO_L15N_T2_DQS_34 Sch=scl
+set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports { AC_SCL }]; #IO_L15N_T2_DQS_34 Sch=scl
 
 
 ## SD card
@@ -211,7 +211,7 @@ set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 } [get_ports { AC_SCL
 #set_property -dict { PACKAGE_PIN T20   IOSTANDARD LVCMOS33 } [get_ports { sd_d[2] }]; #IO_L6N_T0_D08_VREF_14 Sch=sd_d[2]
 #set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports { sd_d[3] }]; #IO_L18N_T2_A11_D27_14 Sch=sd_d[3]
 #set_property -dict { PACKAGE_PIN V20   IOSTANDARD LVCMOS33 } [get_ports { sd_reset }]; #IO_L11N_T1_SRCC_14 Sch=sd_reset
-set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 } [get_ports { AC_SDA }]; #IO_L16N_T2_34 Sch=sda
+set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports { AC_SDA }]; #IO_L16N_T2_34 Sch=sda
 
 
 ## Voltage Adjust

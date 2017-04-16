@@ -41,7 +41,7 @@ output reg sda=1     //i2c sda
     
     always @*
         begin
-            if(curstate==SHIFT_OUT)
+            if(curstate==SHIFT_OUT || curstate==STOP_CONDITION)
                 begin
                 scl=clk;
                 end
@@ -80,14 +80,16 @@ output reg sda=1     //i2c sda
                     end
                 SHIFT_OUT:
                     begin
+                    sda<=data[80 - (datacount - curbit)];
                         if (curbit==0)
                             begin
-                                curstate<=RESET;
+                                curstate<=STOP_CONDITION;
+                                
                                 //sda<=1;
                             end
                         else
                             begin
-                                sda<=data[80 - (datacount - curbit)];
+                                //sda<=data[80 - (datacount - curbit)];
                                 curbit<=curbit-1;
                             end
                     end

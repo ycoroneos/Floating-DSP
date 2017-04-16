@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc rfile:../../../DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc id:1 order:EARLY scoped_inst:clkmon0/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:/home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc rfile:../../../DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc rfile:../../../DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc id:1 order:EARLY scoped_inst:clkmon0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc rfile:../../../DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc id:2} [current_design]
 set_property src_info {type:SCOPED_XDC file:1 line:57 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter [get_clocks -of_objects [get_ports clk_in1]] 0.1
 set_property src_info {type:XDC file:2 line:8 export:INPUT save:INPUT read:READ} [current_design]
@@ -63,6 +63,6 @@ set_property -dict { PACKAGE_PIN AA20  IOSTANDARD LVCMOS33 } [get_ports { ja[6] 
 set_property src_info {type:XDC file:2 line:107 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN AA18  IOSTANDARD LVCMOS33 } [get_ports { ja[7] }]; #IO_L17P_T2_A14_D30_14 Sch=ja[10]
 set_property src_info {type:XDC file:2 line:202 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 } [get_ports { AC_SCL }]; #IO_L15N_T2_DQS_34 Sch=scl
+set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports { AC_SCL }]; #IO_L15N_T2_DQS_34 Sch=scl
 set_property src_info {type:XDC file:2 line:214 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 } [get_ports { AC_SDA }]; #IO_L16N_T2_34 Sch=sda
+set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 PULLTYPE PULLUP} [get_ports { AC_SDA }]; #IO_L16N_T2_34 Sch=sda
