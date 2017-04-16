@@ -40,7 +40,7 @@ module i2c_tb(
     end
     
     initial begin
-    forever #100 serialclk = ~serialclk;
+    forever #10 serialclk = ~serialclk;
     end
     
     initial begin

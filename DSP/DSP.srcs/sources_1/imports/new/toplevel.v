@@ -49,25 +49,22 @@ inout wire [7:0] ja
     assign led[0]=reset;
     
     //clocks we make
-    wire mclk, fsmclk, serialclk;
+    wire mclk, fsmclk, serialclk, codec24;
     
     //clocks we receive from codec
     wire lrclk, bclk;
-    clk_wiz_0 clkmon0(.reset(1'b0), .clk_in1(sysclk), .clk_out1(mclk)); //24mhz clock
-   // divider #(.LOGLENGTH(4), .COUNTVAL(4/2)) bclkmon(.reset(1'b0), .inclk(mclk), .newclk(bclk)); //makes 3.072MHz clock from 12.288MHz clock
-   // divider #(.LOGLENGTH(9), .COUNTVAL(256/2)) lrclkmon(.reset(1'b0), .inclk(mclk), .newclk(lrclk)); //makes 48KHz clock from 12.288MHz clock
-    divider #(.LOGLENGTH(24), .COUNTVAL(2400000/2)) fsmclkmon(.reset(1'b0), .inclk(mclk), .newclk(fsmclk)); //makes 100Hz clock from 100MHz clock
-    divider #(.LOGLENGTH(14), .COUNTVAL(2500/2)) serialclkmon(.reset(1'b0), .inclk(mclk), .newclk(serialclk)); //makes 100Hz clock from 100MHz clock
+    clk_wiz_0 clkmon0(.reset(1'b0), .clk_in1(sysclk), .clk_out1(mclk)); //48MHz clock
+    divider #(.LOGLENGTH(2), .COUNTVAL(1)) cdecmclkmon(.reset(1'b0), .inclk(mclk), .newclk(codec24));
+    divider #(.LOGLENGTH(24), .COUNTVAL(4800000/2)) fsmclkmon(.reset(1'b0), .inclk(mclk), .newclk(fsmclk)); //makes 100Hz clock from 100MHz clock
+    divider #(.LOGLENGTH(14), .COUNTVAL(5000/2)) serialclkmon(.reset(1'b0), .inclk(mclk), .newclk(serialclk)); //makes 100Hz clock from 100MHz clock
     
     //codec module
-    //wire junk1, junk2;
     wire sda, scl;
     assign AC_SCL = scl;
     assign AC_SDA= sda;
     wire input_data, output_data;
     assign output_data=input_data;
-    //assign AC_MCLK=mclk;
-    adau1761_controller codec(.reset(reset), .ac_mclk(AC_MCLK), .ac_bclk(AC_BCLK), .ac_lrclk(AC_LRCLK), .ac_sdto_dac(AC_DAC_SDATA), .ac_sdto_adc(AC_ADC_SDATA), .mclk(mclk), .lrclk(lrclk), .bclk(bclk), .fsmclk(fsmclk),
+    adau1761_controller codec(.reset(reset), .ac_mclk(AC_MCLK), .ac_bclk(AC_BCLK), .ac_lrclk(AC_LRCLK), .ac_sdto_dac(AC_DAC_SDATA), .ac_sdto_adc(AC_ADC_SDATA), .mclk(codec24), .lrclk(lrclk), .bclk(bclk), .fsmclk(fsmclk),
     .serialclk(serialclk), .sdto_from_codec(input_data), .sdto_to_codec(output_data), .ac_scl(scl), .ac_sda(sda), .ready(led[1]));
     
     //assign sda=ja[1];
@@ -80,11 +77,9 @@ inout wire [7:0] ja
     assign led[4] = AC_SCL;
     assign led[5] = AC_MCLK;
     
-    assign AC_SDA=ja[0];
-    assign AC_SCL=ja[1];
     
-   //assign ja[0]=sda;
-    //assign ja[1]=scl;
+   assign ja[0]=sda;
+    assign ja[1]=scl;
     //assign ja[0]=fsmclk;
     //assign ja[1]=lrclk;
     //assign ja[2]=bclk;

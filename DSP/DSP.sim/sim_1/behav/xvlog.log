@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2cmaster
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adau1761_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/DSP.srcs/sim_1/imports/new/i2c_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
