@@ -44,8 +44,8 @@ input wire reset,
 
 //input/output to device
 output wire ac_mclk,
-input wire ac_lrclk,
-input wire ac_bclk,
+output wire ac_lrclk,
+output wire ac_bclk,
 output wire ac_sdto_dac,
 input wire ac_sdto_adc,
 output wire ac_scl,
@@ -70,8 +70,8 @@ output reg ready=0
     assign sdto_from_codec = ac_sdto_adc;
     assign ac_sdto_dac = sdto_to_codec;
     assign ac_mclk = mclk;
-    assign lrclk = ac_lrclk;
-    assign bclk = ac_bclk;
+    assign ac_lrclk = lrclk;
+    assign ac_bclk = bclk;
     
     //i2c controller
     reg i2cstart=1; //active low
@@ -110,29 +110,30 @@ output reg ready=0
         else
             begin
                 case(curstate)
-                 
-                 
-                 
                `I2C_WAIT(0)
                `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 1) //enable the core
-               `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,2) //enable left mixer
-               `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,3) //left mixer gain=0db
-               `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,4) //enable right mixer
-               `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,5) //right mixer gain=0db
-               `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,6) //
-               `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,7)
-               `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,8)
-               `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,9)
-               `I2C_WRITE(8'h76, 8'h40, 8'h25, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,10)
-               `I2C_WRITE(8'h76, 8'h40, 8'h26, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,11)
-               `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,12)
-               `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,13)
-               `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,14)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,15)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,16)
-               `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,17)
-               `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,18)
-               `I2C_WAIT(19)
+               `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 2)
+               `I2C_WRITE(8'h76, 8'h40, 8'h16, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 3)
+               `I2C_WRITE(8'h76, 8'h40, 8'h17, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 4)
+               `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,5) //enable left mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,6) //left mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,7) //enable right mixer
+               `I2C_WRITE(8'h76, 8'h40, 8'h0D, 8'h05, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,8) //right mixer gain=0db
+               `I2C_WRITE(8'h76, 8'h40, 8'h1C, 8'h21, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,9) //
+               `I2C_WRITE(8'h76, 8'h40, 8'h1E, 8'h41, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,10)
+               `I2C_WRITE(8'h76, 8'h40, 8'h23, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,11)
+               `I2C_WRITE(8'h76, 8'h40, 8'h24, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,12)
+               `I2C_WRITE(8'h76, 8'h40, 8'h25, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,13)
+               `I2C_WRITE(8'h76, 8'h40, 8'h26, 8'hE7, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,14)
+               `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,15)
+               `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,16)
+               `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,17)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,18)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,19)
+               `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,20)
+               `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,21)
+               `I2C_WAIT(22)
+               
                 default: ready<=1;
                 endcase
             end

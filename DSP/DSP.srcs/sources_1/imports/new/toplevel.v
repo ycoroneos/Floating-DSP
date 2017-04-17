@@ -48,7 +48,7 @@ inout wire [7:0] ja
     
     //clocks we make
     wire mclk, lrclk, bclk, fsmclk, serialclk;
-    clk_wiz_0 clkmon0(.reset(1'b0), .clk_in1(sysclk), .clk_out1(mclk)); //48mhz clock
+    clk_wiz_0 clkmon0(.reset(1'b0), .clk_in1(sysclk), .clk_out1(mclk)); //12.288mhz clock
     
     alt_divider #(.LOGLENGTH(4), .DIV_RATE(4)) bclkmon(.reset(1'b0), .inclk(mclk), .outclk(bclk));
     alt_divider #(.LOGLENGTH(9), .DIV_RATE(256)) lrclkmon(.reset(1'b0), .inclk(mclk), .outclk(lrclk));
@@ -56,9 +56,11 @@ inout wire [7:0] ja
     alt_divider #(.LOGLENGTH(18), .DIV_RATE(122880)) fsmclkmon(.reset(1'b0), .inclk(mclk), .outclk(fsmclk));
     
     //codec module
+    wire output_data, input_data;
     assign output_data=input_data;
     adau1761_controller codec(.reset(reset), .ac_mclk(AC_MCLK), .ac_bclk(AC_BCLK), .ac_lrclk(AC_LRCLK), .ac_sdto_dac(AC_DAC_SDATA), .ac_sdto_adc(AC_ADC_SDATA), .mclk(~mclk), .lrclk(~lrclk), .bclk(~bclk), .fsmclk(fsmclk),
     .serialclk(serialclk), .sdto_from_codec(input_data), .sdto_to_codec(output_data), .ac_scl(AC_SCL), .ac_sda(AC_SDA), .ready(led[1]));
+    
     
     
     assign led[2] = AC_LRCLK;
@@ -74,4 +76,5 @@ inout wire [7:0] ja
     assign ja[4] = AC_BCLK;
     assign ja[5] = fsmclk;
     assign ja[6] = serialclk;
+    
 endmodule

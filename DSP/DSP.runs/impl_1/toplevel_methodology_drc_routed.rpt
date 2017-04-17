@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Mon Apr 17 15:12:05 2017
+| Date         : Mon Apr 17 15:49:12 2017
 | Host         : asbestos running 64-bit Ubuntu 16.10
 | Command      : report_methodology -file toplevel_methodology_drc_routed.rpt -rpx toplevel_methodology_drc_routed.rpx
 | Design       : toplevel
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 57
+             Violations found: 58
 +-----------+----------+--------------------------------------------------------+------------+
 | Rule      | Severity | Description                                            | Violations |
 +-----------+----------+--------------------------------------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell                            | 38         |
+| TIMING-17 | Warning  | Non-clocked sequential cell                            | 39         |
 | TIMING-18 | Warning  | Missing input or output delay                          | 18         |
 | XDCC-1    | Warning  | Scoped Clock constraint overwritten with the same name | 1          |
 +-----------+----------+--------------------------------------------------------+------------+
@@ -146,80 +146,85 @@ Related violations: <none>
 
 TIMING-17#23 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[47]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[46]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#24 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[48]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[47]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#25 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[49]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[48]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#26 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[51]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[49]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#27 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[52]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[51]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#28 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[53]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[52]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#29 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[55]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[53]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#30 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[56]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[55]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#31 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[57]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[56]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#32 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[58]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[57]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#33 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[59]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[58]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#34 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[60]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[59]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#35 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdata_reg[61]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[60]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#36 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cdatacount_reg[5]/C is not reached by a timing clock
+The clock pin codec/i2cdata_reg[61]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#37 Warning
 Non-clocked sequential cell  
-The clock pin codec/i2cstart_reg/C is not reached by a timing clock
+The clock pin codec/i2cdatacount_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#38 Warning
+Non-clocked sequential cell  
+The clock pin codec/i2cstart_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Warning
 Non-clocked sequential cell  
 The clock pin codec/ready_reg/C is not reached by a timing clock
 Related violations: <none>
