@@ -54,19 +54,19 @@ set rc [catch {
   set_property board_part digilentinc.com:nexys_video:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.cache/wt [current_project]
-  set_property parent.project_path C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr [current_project]
-  set_property ip_output_repo C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/yanni/18.335/finalproj/DSP/DSP.cache/wt [current_project]
+  set_property parent.project_path /home/yanni/18.335/finalproj/DSP/DSP.xpr [current_project]
+  set_property ip_output_repo /home/yanni/18.335/finalproj/DSP/DSP.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
-  read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
-  set_property processing_order EARLY [get_files c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-  read_xdc -ref clk_wiz_0 -cells inst c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
-  set_property processing_order EARLY [get_files c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-  read_xdc C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
-  read_xdc -ref clk_wiz_0 -cells inst c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc
-  set_property processing_order LATE [get_files c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc]
+  add_files -quiet /home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
+  read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
+  set_property processing_order EARLY [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+  read_xdc -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
+  set_property processing_order EARLY [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+  read_xdc /home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
+  read_xdc -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc
+  set_property processing_order LATE [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc]
   link_design -top toplevel -part xc7a200tsbg484-1
   write_hwdef -file toplevel.hwdef
   close_msg_db -file init_design.pb

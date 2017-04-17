@@ -2,9 +2,10 @@
 *** Running vivado
     with args -log toplevel.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
 
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
 
 ****** Vivado v2016.4 (64-bit)
-  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
   **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
     ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 
@@ -14,114 +15,89 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7800 
+INFO: Helper process launched with PID 30557 
+awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 305.215 ; gain = 95.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.547 ; gain = 138.086 ; free physical = 35139 ; free virtual = 57451
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'toplevel' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_clk_wiz' [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
-INFO: [Synth 8-5534] Detected attribute (* KEEP = "TRUE" *) [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:123]
-INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:123]
-INFO: [Synth 8-638] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
+INFO: [Synth 8-638] synthesizing module 'toplevel' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_clk_wiz' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
+INFO: [Synth 8-5534] Detected attribute (* KEEP = "TRUE" *) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:120]
+INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:120]
+INFO: [Synth 8-638] synthesizing module 'IBUF' [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-256] done synthesizing module 'IBUF' (1#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
-INFO: [Synth 8-638] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:20414]
-	Parameter BANDWIDTH bound to: HIGH - type: string 
-	Parameter CLKFBOUT_MULT_F bound to: 10.875000 - type: float 
+INFO: [Synth 8-256] done synthesizing module 'IBUF' (1#1) [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:14146]
+INFO: [Synth 8-638] synthesizing module 'PLLE2_ADV' [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:32674]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT bound to: 42 - type: integer 
 	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: float 
 	Parameter CLKIN2_PERIOD bound to: 0.000000 - type: float 
-	Parameter CLKOUT0_DIVIDE_F bound to: 88.500000 - type: float 
+	Parameter CLKOUT0_DIVIDE bound to: 35 - type: integer 
 	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT1_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT2_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT3_USE_FINE_PS bound to: FALSE - type: string 
-	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
 	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT4_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT5_USE_FINE_PS bound to: FALSE - type: string 
-	Parameter CLKOUT6_DIVIDE bound to: 1 - type: integer 
-	Parameter CLKOUT6_DUTY_CYCLE bound to: 0.500000 - type: float 
-	Parameter CLKOUT6_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT6_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter COMPENSATION bound to: ZHOLD - type: string 
-	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter DIVCLK_DIVIDE bound to: 5 - type: integer 
 	Parameter IS_CLKINSEL_INVERTED bound to: 1'b0 
-	Parameter IS_PSEN_INVERTED bound to: 1'b0 
-	Parameter IS_PSINCDEC_INVERTED bound to: 1'b0 
 	Parameter IS_PWRDWN_INVERTED bound to: 1'b0 
 	Parameter IS_RST_INVERTED bound to: 1'b0 
 	Parameter REF_JITTER1 bound to: 0.010000 - type: float 
 	Parameter REF_JITTER2 bound to: 0.010000 - type: float 
-	Parameter SS_EN bound to: FALSE - type: string 
-	Parameter SS_MODE bound to: CENTER_HIGH - type: string 
-	Parameter SS_MOD_PERIOD bound to: 10000 - type: integer 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-256] done synthesizing module 'MMCME2_ADV' (2#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:20414]
-INFO: [Synth 8-638] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
-INFO: [Synth 8-256] done synthesizing module 'BUFG' (3#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
-INFO: [Synth 8-638] synthesizing module 'BUFGCE' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:617]
+INFO: [Synth 8-256] done synthesizing module 'PLLE2_ADV' (2#1) [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:32674]
+INFO: [Synth 8-638] synthesizing module 'BUFG' [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-256] done synthesizing module 'BUFG' (3#1) [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:607]
+INFO: [Synth 8-638] synthesizing module 'BUFGCE' [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:617]
 	Parameter CE_TYPE bound to: SYNC - type: string 
 	Parameter IS_CE_INVERTED bound to: 1'b0 
 	Parameter IS_I_INVERTED bound to: 1'b0 
-INFO: [Synth 8-256] done synthesizing module 'BUFGCE' (4#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:617]
-INFO: [Synth 8-638] synthesizing module 'BUFH' [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:806]
-INFO: [Synth 8-256] done synthesizing module 'BUFH' (5#1) [C:/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:806]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0_clk_wiz' (6#1) [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (7#1) [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
-INFO: [Synth 8-638] synthesizing module 'divider' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-	Parameter LOGLENGTH bound to: 10 - type: integer 
-	Parameter COUNTVAL bound to: 128 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider' (8#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-INFO: [Synth 8-638] synthesizing module 'divider__parameterized0' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-	Parameter LOGLENGTH bound to: 10 - type: integer 
-	Parameter COUNTVAL bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider__parameterized0' (8#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-INFO: [Synth 8-638] synthesizing module 'divider__parameterized1' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
+INFO: [Synth 8-256] done synthesizing module 'BUFGCE' (4#1) [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:617]
+INFO: [Synth 8-638] synthesizing module 'BUFH' [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:806]
+INFO: [Synth 8-256] done synthesizing module 'BUFH' (5#1) [/opt/Xilinx/Vivado/2016.4/scripts/rt/data/unisim_comp.v:806]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0_clk_wiz' (6#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v:68]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (7#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v:70]
+WARNING: [Synth 8-350] instance 'clkmon0' of module 'clk_wiz_0' requires 4 connections, but only 3 given [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:56]
+INFO: [Synth 8-638] synthesizing module 'divider' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
 	Parameter LOGLENGTH bound to: 18 - type: integer 
-	Parameter COUNTVAL bound to: 61440 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider__parameterized1' (8#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-INFO: [Synth 8-638] synthesizing module 'divider__parameterized2' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-	Parameter LOGLENGTH bound to: 10 - type: integer 
-	Parameter COUNTVAL bound to: 640 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'divider__parameterized2' (8#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
-WARNING: [Synth 8-3848] Net scl in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:65]
-WARNING: [Synth 8-3848] Net sda in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:65]
-WARNING: [Synth 8-3848] Net AC_LRCLK in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:36]
-WARNING: [Synth 8-3848] Net AC_BCLK in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:35]
-INFO: [Synth 8-256] done synthesizing module 'toplevel' (9#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
+	Parameter COUNTVAL bound to: 120000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'divider' (8#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
+INFO: [Synth 8-638] synthesizing module 'divider__parameterized0' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
+	Parameter LOGLENGTH bound to: 12 - type: integer 
+	Parameter COUNTVAL bound to: 1200 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'divider__parameterized0' (8#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/divider.v:22]
+INFO: [Synth 8-638] synthesizing module 'adau1761_controller' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v:40]
+INFO: [Synth 8-638] synthesizing module 'i2cmaster' [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v:23]
+	Parameter RESET bound to: 0 - type: integer 
+	Parameter START_CONDITION bound to: 1 - type: integer 
+	Parameter SHIFT_OUT bound to: 2 - type: integer 
+	Parameter STOP_CONDITION bound to: 3 - type: integer 
+	Parameter WAIT_STATE bound to: 4 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v:64]
+INFO: [Synth 8-256] done synthesizing module 'i2cmaster' (9#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v:23]
+INFO: [Synth 8-256] done synthesizing module 'adau1761_controller' (10#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v:40]
+INFO: [Synth 8-256] done synthesizing module 'toplevel' (11#1) [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[1]
-WARNING: [Synth 8-3331] design toplevel has unconnected port AC_BCLK
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[5]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[4]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[3]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[5]
@@ -130,7 +106,7 @@ WARNING: [Synth 8-3331] design toplevel has unconnected port sw[3]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 342.691 ; gain = 132.477
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1109.016 ; gain = 178.555 ; free physical = 35105 ; free virtual = 57418
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -140,7 +116,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 342.691 ; gain = 132.477
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1109.016 ; gain = 178.555 ; free physical = 35106 ; free virtual = 57418
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -149,55 +125,139 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
-Finished Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
-Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
-Finished Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
+Finished Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'clkmon0/inst'
+Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
+Finished Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'clkmon0/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Timing 38-2] Deriving generated clocks
-Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
-Finished Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
+Finished Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
+Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/toplevel_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/toplevel_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Timing 38-2] Deriving generated clocks
-Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc] for cell 'clkmon0/inst'
-Finished Parsing XDC File [c:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc] for cell 'clkmon0/inst'
+Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc] for cell 'clkmon0/inst'
+Finished Parsing XDC File [/home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc] for cell 'clkmon0/inst'
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   BUFGCE => BUFGCTRL: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 659.316 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1522.480 ; gain = 0.000 ; free physical = 34826 ; free virtual = 57122
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34630 ; free virtual = 57052
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34630 ; free virtual = 57052
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for clkmon0/inst. (constraint file  C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc, line 10).
+Applied set_property DONT_TOUCH = true for clkmon0/inst. (constraint file  /home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc, line 10).
 Applied set_property DONT_TOUCH = true for clkmon0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34630 ; free virtual = 57052
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "output_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'curstate_reg' in module 'i2cmaster'
+INFO: [Synth 8-5546] ROM "curstate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "curbit" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sda" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'curstate_reg' in module 'adau1761_controller'
+INFO: [Synth 8-5546] ROM "curstate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "i2cdatacount" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+         START_CONDITION |                            00001 |                           000001
+              WAIT_STATE |                            00010 |                           000100
+               SHIFT_OUT |                            00100 |                           000010
+          STOP_CONDITION |                            01000 |                           000011
+                   RESET |                            10000 |                           000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'curstate_reg' using encoding 'one-hot' in module 'i2cmaster'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                           000000 |                         00000000
+                 iSTATE0 |                           000001 |                         00000001
+                 iSTATE1 |                           000010 |                         00000010
+                 iSTATE2 |                           000011 |                         00000011
+                 iSTATE3 |                           000100 |                         00000100
+                 iSTATE4 |                           000101 |                         00000101
+                 iSTATE5 |                           000110 |                         00000110
+                 iSTATE6 |                           000111 |                         00000111
+                 iSTATE7 |                           001000 |                         00001000
+                 iSTATE8 |                           001001 |                         00001001
+                 iSTATE9 |                           001010 |                         00001010
+                iSTATE10 |                           001011 |                         00001011
+                iSTATE11 |                           001100 |                         00001100
+                iSTATE12 |                           001101 |                         00001101
+                iSTATE13 |                           001110 |                         00001110
+                iSTATE14 |                           001111 |                         00001111
+                iSTATE15 |                           010000 |                         00010000
+                iSTATE16 |                           010001 |                         00010001
+                iSTATE17 |                           010010 |                         00010010
+                iSTATE18 |                           010011 |                         00010011
+                iSTATE19 |                           010100 |                         00010100
+                iSTATE20 |                           010101 |                         00010101
+                iSTATE21 |                           010110 |                         00010110
+                iSTATE22 |                           010111 |                         00010111
+                iSTATE23 |                           011000 |                         00011000
+                iSTATE24 |                           011001 |                         00011001
+                iSTATE25 |                           011010 |                         00011010
+                iSTATE26 |                           011011 |                         00011011
+                iSTATE27 |                           011100 |                         00011100
+                iSTATE28 |                           011101 |                         00011101
+                iSTATE29 |                           011110 |                         00011110
+                iSTATE30 |                           011111 |                         00011111
+                iSTATE31 |                           100000 |                         00100000
+                iSTATE32 |                           100001 |                         00100001
+                iSTATE33 |                           100010 |                         00100010
+                iSTATE34 |                           100011 |                         00100011
+                iSTATE35 |                           100100 |                         00100100
+                iSTATE36 |                           100101 |                         00100101
+                iSTATE37 |                           100110 |                         00100110
+                iSTATE38 |                           100111 |                         00100111
+                iSTATE39 |                           101000 |                         00101000
+                iSTATE40 |                           101001 |                         00101001
+                iSTATE41 |                           101010 |                         00101010
+                iSTATE42 |                           101011 |                         00101011
+                iSTATE43 |                           101100 |                         00101100
+                iSTATE44 |                           101101 |                         00101101
+                iSTATE45 |                           101110 |                         00101110
+                iSTATE46 |                           101111 |                         00101111
+                iSTATE47 |                           110000 |                         00110000
+                iSTATE48 |                           110001 |                         00110001
+                iSTATE49 |                           110010 |                         00110010
+                iSTATE50 |                           110011 |                         00110011
+                iSTATE51 |                           110100 |                         00110100
+                iSTATE52 |                           110101 |                         00110101
+                iSTATE53 |                           110110 |                         00110110
+                iSTATE54 |                           110111 |                         00110111
+                iSTATE55 |                           111000 |                         00111000
+                iSTATE56 |                           111001 |                         00111001
+                iSTATE57 |                           111010 |                         00111010
+                iSTATE58 |                           111011 |                         00111011
+                iSTATE59 |                           111100 |                         00111100
+                iSTATE60 |                           111101 |                         00111101
+                iSTATE61 |                           111110 |                         00111110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'curstate_reg' using encoding 'sequential' in module 'adau1761_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34629 ; free virtual = 57051
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -211,16 +271,26 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     19 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 3     
+	   2 Input     13 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
+	   3 Input      7 Bit       Adders := 1     
 +---Registers : 
+	               81 Bit    Registers := 1     
 	               19 Bit    Registers := 1     
-	               11 Bit    Registers := 3     
-	                8 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
 	                1 Bit    Registers := 4     
 +---Muxes : 
+	  63 Input     81 Bit        Muxes := 1     
 	   2 Input     19 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input     13 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	  63 Input      8 Bit        Muxes := 1     
+	  62 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	   5 Input      1 Bit        Muxes := 4     
+	  63 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -235,26 +305,6 @@ Detailed RTL Component Info :
 Module divider 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 1     
-+---Registers : 
-	               11 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module divider__parameterized0 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 1     
-+---Registers : 
-	               11 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module divider__parameterized1 
-Detailed RTL Component Info : 
-+---Adders : 
 	   2 Input     19 Bit       Adders := 1     
 +---Registers : 
 	               19 Bit    Registers := 1     
@@ -262,16 +312,37 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     19 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-Module divider__parameterized2 
+Module divider__parameterized0 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 1     
+	   2 Input     13 Bit       Adders := 1     
 +---Registers : 
-	               11 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
+Module i2cmaster 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   3 Input      7 Bit       Adders := 1     
++---Muxes : 
+	   5 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 4     
+Module adau1761_controller 
+Detailed RTL Component Info : 
++---Registers : 
+	               81 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	  63 Input     81 Bit        Muxes := 1     
+	  63 Input      8 Bit        Muxes := 1     
+	  62 Input      6 Bit        Muxes := 1     
+	  63 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -287,16 +358,14 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "fsmclkmon/output_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "serialclkmon/output_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "codec/adaui2c/curbit" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "codec/adaui2c/curstate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fsmclkmon/output_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "serialclkmon/output_reg" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port led[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port led[1]
-WARNING: [Synth 8-3331] design toplevel has unconnected port AC_BCLK
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[7]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[6]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[5]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[4]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[3]
-WARNING: [Synth 8-3331] design toplevel has unconnected port ja[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[7]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[6]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[5]
@@ -304,8 +373,83 @@ WARNING: [Synth 8-3331] design toplevel has unconnected port sw[4]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[3]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[2]
 WARNING: [Synth 8-3331] design toplevel has unconnected port sw[1]
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[7]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[0]' (FDE) to 'codec/i2cdatacount_reg[4]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[80]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[79]' (FDE) to 'codec/i2cdata_reg[78]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[78]' (FDE) to 'codec/i2cdata_reg[77]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[77]' (FDE) to 'codec/i2cdata_reg[75]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[76]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[75]' (FDE) to 'codec/i2cdata_reg[74]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[74]' (FDE) to 'codec/i2cdata_reg[70]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[73]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[72]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[71]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[69]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[68]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[67]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[66]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[65]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[64]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[63]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[62]' (FDE) to 'codec/i2cdata_reg[61]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[54]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[53]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[52]' (FDE) to 'codec/i2cdata_reg[51]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[51]' (FDE) to 'codec/i2cdata_reg[50]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[49]' (FDE) to 'codec/i2cdata_reg[48]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[45]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[44]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[43]' (FDE) to 'codec/i2cdata_reg[42]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[42]' (FDE) to 'codec/i2cdata_reg[41]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[41]' (FDE) to 'codec/i2cdata_reg[40]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[40]' (FDE) to 'codec/i2cdata_reg[39]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[39]' (FDE) to 'codec/i2cdata_reg[37]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[38]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[37]' (FDE) to 'codec/i2cdata_reg[22]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[36]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[35]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[34]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[33]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[32]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[31]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[30]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[29]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[28]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[27]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[26]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[25]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[24]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[23]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[22]' (FDE) to 'codec/i2cdata_reg[21]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[21]' (FDE) to 'codec/i2cdata_reg[15]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[20]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[19]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[18]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[17]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[16]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[15]' (FDE) to 'codec/i2cdata_reg[11]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[14]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[13]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[12]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[11]' (FDE) to 'codec/i2cdata_reg[10]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[10]' (FDE) to 'codec/i2cdata_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[9]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[8]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[7]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[6]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[5]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[4]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[3]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[2]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[0]' (FDE) to 'codec/i2cdatacount_reg[1]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[1]' (FDE) to 'codec/i2cdatacount_reg[3]'
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[2]' (FDE) to 'codec/i2cdatacount_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\codec/i2cdatacount_reg[3] )
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[4]' (FDE) to 'codec/i2cdatacount_reg[6]'
+WARNING: [Synth 8-3332] Sequential element (codec/i2cdatacount_reg[3]) is unused and will be removed from module toplevel.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34657 ; free virtual = 57080
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -320,10 +464,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34692 ; free virtual = 57114
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34692 ; free virtual = 57114
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -334,8 +478,9 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'codec/i2cdatacount_reg[6]' (FDE) to 'codec/i2cdata_reg[1]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34692 ; free virtual = 57114
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -359,7 +504,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34670 ; free virtual = 57092
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -372,7 +517,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34666 ; free virtual = 57088
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -384,25 +529,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34689 ; free virtual = 57111
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34685 ; free virtual = 57107
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34680 ; free virtual = 57102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34678 ; free virtual = 57100
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -415,36 +560,47 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |BUFG       |     1|
-|2     |BUFGCE     |     1|
-|3     |BUFH       |     1|
-|4     |LUT1       |     1|
-|5     |MMCME2_ADV |     1|
-|6     |FDRE       |     8|
-|7     |IBUF       |     5|
-|8     |OBUF       |    10|
-|9     |OBUFT      |     4|
-+------+-----------+------+
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |     1|
+|2     |BUFGCE    |     1|
+|3     |BUFH      |     1|
+|4     |CARRY4    |    10|
+|5     |LUT1      |    36|
+|6     |LUT2      |    10|
+|7     |LUT3      |     8|
+|8     |LUT4      |    12|
+|9     |LUT5      |    13|
+|10    |LUT6      |    29|
+|11    |PLLE2_ADV |     1|
+|12    |FDRE      |    76|
+|13    |FDSE      |     2|
+|14    |IBUF      |     5|
+|15    |OBUF      |    18|
+|16    |OBUFT     |     2|
++------+----------+------+
 
 Report Instance Areas: 
-+------+----------+------------------+------+
-|      |Instance  |Module            |Cells |
-+------+----------+------------------+------+
-|1     |top       |                  |    32|
-|2     |  clkmon0 |clk_wiz_0         |    13|
-|3     |    inst  |clk_wiz_0_clk_wiz |    13|
-+------+----------+------------------+------+
++------+---------------+------------------------+------+
+|      |Instance       |Module                  |Cells |
++------+---------------+------------------------+------+
+|1     |top            |                        |   225|
+|2     |  clkmon0      |clk_wiz_0               |    13|
+|3     |    inst       |clk_wiz_0_clk_wiz       |    13|
+|4     |  codec        |adau1761_controller     |   104|
+|5     |    adaui2c    |i2cmaster               |    55|
+|6     |  fsmclkmon    |divider                 |    50|
+|7     |  serialclkmon |divider__parameterized0 |    34|
++------+---------------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 659.316 ; gain = 449.102
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34676 ; free virtual = 57098
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 659.316 ; gain = 112.273
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 659.316 ; gain = 449.102
+Synthesis finished with 0 errors, 0 critical warnings and 10 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1522.480 ; gain = 98.465 ; free physical = 34676 ; free virtual = 57098
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1522.480 ; gain = 592.020 ; free physical = 34674 ; free virtual = 57096
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -453,9 +609,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   BUFGCE => BUFGCTRL: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-50 Infos, 38 Warnings, 0 Critical Warnings and 0 Errors encountered.
+142 Infos, 20 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 659.672 ; gain = 433.406
-INFO: [Common 17-1381] The checkpoint 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 659.672 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 16 19:09:47 2017...
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1522.480 ; gain = 524.516 ; free physical = 34673 ; free virtual = 57095
+INFO: [Common 17-1381] The checkpoint '/home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1546.492 ; gain = 0.000 ; free physical = 34664 ; free virtual = 57086
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 16 23:56:53 2017...

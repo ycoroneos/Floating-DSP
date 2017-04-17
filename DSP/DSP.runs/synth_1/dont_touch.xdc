@@ -12,7 +12,7 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: ip/clk_wiz_0/clk_wiz_0.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}] {/inst }]/inst ]]
 
-# XDC: ip/clk_wiz_0/clk_wiz_0_ooc.xdc
-
 # XDC: ip/clk_wiz_0/clk_wiz_0_late.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==clk_wiz_0 || ORIG_REF_NAME==clk_wiz_0}] {/inst }]/inst ]]
+
+# XDC: ip/clk_wiz_0/clk_wiz_0_ooc.xdc
