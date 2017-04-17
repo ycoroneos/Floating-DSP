@@ -21,8 +21,10 @@ set_property ip_output_repo /home/yanni/18.335/finalproj/DSP/DSP.cache/ip [curre
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
   /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v
-  /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v
+  /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2s_tx.v
+  /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2s_rx.v
   /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/new/alt_divider.v
+  /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v
   /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v
 }
 read_ip -quiet /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

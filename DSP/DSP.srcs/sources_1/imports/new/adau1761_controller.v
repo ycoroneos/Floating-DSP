@@ -111,7 +111,7 @@ output reg ready=0
             begin
                 case(curstate)
                `I2C_WAIT(0)
-               `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 1) //enable the core
+               `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 1) //enable the core
                `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 2)
                `I2C_WRITE(8'h76, 8'h40, 8'h16, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 3)
                `I2C_WRITE(8'h76, 8'h40, 8'h17, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 4)

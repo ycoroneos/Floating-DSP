@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Mon Apr 17 15:49:11 2017
+| Date         : Mon Apr 17 18:14:34 2017
 | Host         : asbestos running 64-bit Ubuntu 16.10
 | Command      : report_drc -file toplevel_drc_routed.rpt -pb toplevel_drc_routed.pb -rpx toplevel_drc_routed.rpx
 | Design       : toplevel

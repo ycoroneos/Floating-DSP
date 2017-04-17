@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Mon Apr 17 15:48:40 2017
+| Date         : Mon Apr 17 18:14:02 2017
 | Host         : asbestos running 64-bit Ubuntu 16.10
 | Command      : report_control_sets -verbose -file toplevel_control_sets_placed.rpt
 | Design       : toplevel
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    10 |
-| Unused register locations in slices containing registers |    36 |
+| Number of unique control sets                            |    16 |
+| Unused register locations in slices containing registers |    42 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              23 |           10 |
+| No           | No                    | No                     |              19 |           12 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              23 |            6 |
-| Yes          | No                    | No                     |              23 |           11 |
+| No           | Yes                   | No                     |              55 |           14 |
+| Yes          | No                    | No                     |             150 |           39 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              15 |            6 |
+| Yes          | Yes                   | No                     |              78 |           21 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,29 +48,37 @@ Table of Contents
 +----------------------------------------------+---------------------------------+-----------------------------+------------------+----------------+
 |                 Clock Signal                 |          Enable Signal          |       Set/Reset Signal      | Slice Load Count | Bel Load Count |
 +----------------------------------------------+---------------------------------+-----------------------------+------------------+----------------+
-|  fsmclkmon/FSM_sequential_curstate_reg[5][0] |                                 |                             |                1 |              1 |
-|  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/ready_n_0                 | led_OBUF[0]                 |                1 |              1 |
+| ~bclkmon/bclk_BUFG                           |                                 |                             |                1 |              1 |
+|  fsmclkmon/FSM_sequential_curstate_reg[5][0] |                                 |                             |                2 |              2 |
+|  bclkmon/bclk_BUFG                           |                                 |                             |                2 |              2 |
 | ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__0/i__n_0        | codec/i2cstart_reg_n_0      |                1 |              3 |
-| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__2/i__n_0        | codec/i2cstart_reg_n_0      |                2 |              5 |
 |  clkmon0/inst/clk_out1                       |                                 | bclkmon/count[4]_i_1_n_0    |                1 |              5 |
+| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__2/i__n_0        | codec/i2cstart_reg_n_0      |                2 |              5 |
 |  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/curstate_n_0              | led_OBUF[0]                 |                2 |              6 |
-| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/curbit[7]_i_1_n_0 |                             |                5 |              8 |
-|  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/i2cdata[61]_i_1_n_0       |                             |                6 |             15 |
+| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/curbit[7]_i_1_n_0 |                             |                3 |              8 |
+|  clkmon0/inst/clk_out1                       |                                 |                             |                7 |             14 |
+|  fsmclkmon/FSM_sequential_curstate_reg[5][0] | codec/i2cdata[61]_i_1_n_0       |                             |                7 |             15 |
 |  clkmon0/inst/clk_out1                       |                                 | fsmclkmon/count[18]_i_1_n_0 |                5 |             18 |
-|  clkmon0/inst/clk_out1                       |                                 |                             |                9 |             22 |
+| ~bclkmon/bclk_BUFG                           | rx/E[0]                         |                             |                6 |             31 |
+|  bclkmon/bclk_BUFG                           |                                 | tx/bit_cnt[0]_i_1_n_0       |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rx/left[31]_i_1_n_0             |                             |                8 |             32 |
+|  bclkmon/bclk_BUFG                           | tx/left[31]_i_1__0_n_0          |                             |               15 |             64 |
+| ~bclkmon/bclk_BUFG                           | tx/right_chan_reg[0][0]         | codec/SR[0]                 |               16 |             64 |
 +----------------------------------------------+---------------------------------+-----------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 1      |                     2 |
+| 1      |                     1 |
+| 2      |                     2 |
 | 3      |                     1 |
 | 5      |                     2 |
 | 6      |                     1 |
 | 8      |                     1 |
+| 14     |                     1 |
 | 15     |                     1 |
-| 16+    |                     2 |
+| 16+    |                     6 |
 +--------+-----------------------+
 
 
