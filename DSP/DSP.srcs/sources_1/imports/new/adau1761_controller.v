@@ -53,8 +53,8 @@ output wire ac_sda,
 
 //input from clockgen
 input wire mclk, //i2s mclk
-output wire lrclk, //i2slrclk
-output wire bclk, //i2sbclk
+input wire lrclk, //i2slrclk
+input wire bclk, //i2sbclk
 input wire fsmclk, //state machine clock
 input wire serialclk, //scl clock for i2c
 
@@ -70,27 +70,10 @@ output reg ready=0
     assign sdto_from_codec = ac_sdto_adc;
     assign ac_sdto_dac = sdto_to_codec;
     assign ac_mclk = mclk;
-    assign lrclk=ac_lrclk;
+    assign lrclk = ac_lrclk;
     assign bclk = ac_bclk;
-    //assign ac_mclk = mclk; //mclk must always be present for the thing to even work
-    //assign lrclk = ac_lrclk;
-    //assign bclk = ac_bclk;
     
     //i2c controller
-    //reg i2cstart=0;
-    //reg i2cpllstart=0;
-    //reg usepllcfg=0;
-    //reg [7:0] addr = 8'h76;
-    //reg [7:0] reghi, reglo, data, data1, data2, data3, data4, data5;
-    //wire clk9600, regular_scl, regular_sda, pll_scl, pll_sda;
-    //assign ac_scl = usepllcfg ? pll_scl : regular_scl;
-    //assign ac_sda = usepllcfg ? pll_sda : regular_sda;
-    //assign clk9600=serialclk;
-   // divider #(.LOGLENGTH(11), .COUNTVAL(1280)) serialclkmon(.reset(reset), .inclk(mclk), .newclk(clk9600)); //makes 9.6khz clock from 12.288MHz clock
-    //adau1761i2c configbus(.reset(reset), .serialclk(clk9600), .start(i2cstart), .addr(addr), .reghi(reghi), .reglo(reglo), .data(data), .scl(regular_scl), .sda(regular_sda));
-    //adau1761plli2c pllconfigbus(.reset(reset), .serialclk(clk9600), .start(i2cpllstart), .addr(addr), .reghi(reghi), .reglo(reglo), .data0(data), .data1(data1), .data2(data2), .data3(data3),
-    //.data4(data4), .data5(data5), .scl(pll_scl), .sda(pll_sda));
-    
     reg i2cstart=1; //active low
     reg [80:0] i2cdata=0;
     reg [7:0] i2cdatacount=0;
@@ -130,41 +113,8 @@ output reg ready=0
                  
                  
                  
-                 `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0E, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 0) //  enable PLL mode
-                 `I2C_WRITE(8'h76, 8'h40, 8'h02, 8'h00, 8'h7D, 8'h00, 8'h0C, 8'h23, 8'h01, 6, 1) //  enable PLL mode
-                 `I2C_WAIT(2)
-                 `I2C_WAIT(3)
-                 `I2C_WAIT(4)
-                 `I2C_WAIT(5)
-                 `I2C_WAIT(6)
-                 `I2C_WAIT(7)
-                 `I2C_WAIT(8)
-                 `I2C_WAIT(9)
-                 `I2C_WAIT(10)
-                 `I2C_WAIT(11)
-                 `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h0F, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 12)
-                 `I2C_WAIT(13)
-                 `I2C_WAIT(14)
-                 `I2C_WAIT(15)
-                 `I2C_WAIT(16)
-                 `I2C_WAIT(17)
-                 `I2C_WAIT(18)
-                 `I2C_WAIT(19)
-                 `I2C_WAIT(20)
-                 `I2C_WAIT(21)
-                 `I2C_WAIT(22)
-                 `I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 23)
-                 `I2C_WRITE(8'h76, 8'h40, 8'h19, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,24)
-                 `I2C_WRITE(8'h76, 8'h40, 8'h29, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,25)
-                 `I2C_WRITE(8'h76, 8'h40, 8'h2A, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,26)
-                 `I2C_WRITE(8'h76, 8'h40, 8'hF2, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,27)
-                 `I2C_WRITE(8'h76, 8'h40, 8'hF3, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,28)
-                 `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,29)
-                 `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,30)
-                 
-                /* 
+               `I2C_WAIT(0)
                `I2C_WRITE(8'h76, 8'h40, 8'h00, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1, 1) //enable the core
-               //`I2C_WRITE(8'h76, 8'h40, 8'h15, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,4) //become i2s master
                `I2C_WRITE(8'h76, 8'h40, 8'h0A, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,2) //enable left mixer
                `I2C_WRITE(8'h76, 8'h40, 8'h0B, 8'h05, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,3) //left mixer gain=0db
                `I2C_WRITE(8'h76, 8'h40, 8'h0C, 8'h01, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,4) //enable right mixer
@@ -183,7 +133,6 @@ output reg ready=0
                `I2C_WRITE(8'h76, 8'h40, 8'hF9, 8'h7F, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,17)
                `I2C_WRITE(8'h76, 8'h40, 8'hFA, 8'h03, 8'h00, 8'h00, 8'h00, 8'h00, 8'h00, 1,18)
                `I2C_WAIT(19)
-               */
                 default: ready<=1;
                 endcase
             end

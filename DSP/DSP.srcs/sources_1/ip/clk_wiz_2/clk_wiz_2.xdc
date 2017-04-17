@@ -1,5 +1,5 @@
 
-# file: clk_wiz_0_late.xdc
+# file: clk_wiz_2.xdc
 # 
 # (c) Copyright 2008 - 2013 Xilinx, Inc. All rights reserved.
 # 
@@ -48,7 +48,12 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
-set_false_path -to [get_cells  -hier {*seq_reg*[0]} -filter {is_sequential}]
+# Input clock periods. These duplicate the values entered for the
+# input clocks. You can use these to time your system. If required
+# commented constraints can be used in the top level xdc 
+#----------------------------------------------------------------
+#create_clock -period 3.333 [get_ports clk_in1]
+#set_input_jitter [get_clocks -of_objects [get_ports clk_in1]] 0.033330000000000005
 
 
-
+set_property PHASESHIFT_MODE WAVEFORM [get_cells -hierarchical *adv*]

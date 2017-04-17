@@ -65,8 +65,6 @@ set rc [catch {
   read_xdc -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
   set_property processing_order EARLY [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
   read_xdc /home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
-  read_xdc -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc
-  set_property processing_order LATE [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_late.xdc]
   link_design -top toplevel -part xc7a200tsbg484-1
   write_hwdef -file toplevel.hwdef
   close_msg_db -file init_design.pb
