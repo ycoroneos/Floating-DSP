@@ -25,20 +25,24 @@ module better_i2s_rx(
     input wire lrclk,
     input wire bclk, 
     input wire sdto,
-    output reg[31:0] left_channel,
-    output reg[31:0] right_channel
+    output reg[23:0] left_channel=0,
+    output reg[23:0] right_channel=0
     );
     
     
-    reg old_lrclk=0;
+    reg old_lrclk=1;
+    reg [31:0] l=0;
+    reg [31:0] r=0;
     //goes high when lrclk changes
-    wire lrclk_change = ~(old_lrclk & lrclk);
+    wire lrclk_change = !(lrclk == old_lrclk);
     always @(posedge bclk)
     begin
         if (reset)
             begin
             left_channel<=0;
             right_channel<=0;
+            l<=0;
+            r<=0;
             old_lrclk<=0;
             end
         else
@@ -52,17 +56,26 @@ module better_i2s_rx(
                             end
                         else if (lrclk==0)
                             begin
-                            left_channel<=0;
-                            right_channel<=0;
+                            left_channel<=l[30:7];
+                            right_channel<=r[30:7];
+                            end
+                        //shift in the first sample
+                        if (lrclk)
+                            begin
+                                r[31:0] <= {30'h0, sdto};
+                            end
+                        else 
+                            begin
+                                l[31:0] <= {30'h0, sdto};
                             end
                     end
                 else
                     begin
                         //shift in a sample
                         if (lrclk)
-                            left_channel[31:0] <= {left_channel[30:0], sdto};
+                            r[31:0] <= {r[30:0], sdto};
                         else
-                            right_channel[31:0] <= {right_channel[30:0], sdto};
+                            l[31:0] <= {l[30:0], sdto};
                     end
             end
     end

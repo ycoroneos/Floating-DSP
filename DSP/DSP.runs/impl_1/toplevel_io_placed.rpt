@@ -1,14 +1,16 @@
-Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
-------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-| Date         : Mon Apr 17 18:14:02 2017
-| Host         : asbestos running 64-bit Ubuntu 16.10
-| Command      : report_io -file toplevel_io_placed.rpt
-| Design       : toplevel
-| Device       : xc7a200t
-| Speed File   : -1
-| Package      : sbg484
-------------------------------------------------------------------------------------
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------
+| Tool Version              : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
+| Date                      : Sat Apr 22 03:22:48 2017
+| Host                      : DESKTOP-H30IADK running 64-bit major release  (build 9200)
+| Command                   : report_io -file toplevel_io_placed.rpt
+| Design                    : toplevel
+| Device                    : xc7a200t
+| Speed File                : -1
+| Package                   : sbg484
+| Package Version           : FINAL 2012-06-12
+| Package Pin Delay Version : VERS. 2.0 2012-06-12
+-------------------------------------------------------------------------------------------------
 
 IO Information
 

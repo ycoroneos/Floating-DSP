@@ -25,12 +25,12 @@ module better_i2s_tx(
     input wire lrclk,
     input wire bclk, 
     output reg sdto=0,
-    input wire[31:0] left_channel,
-    input wire[31:0] right_channel
+    input wire[23:0] left_channel,
+    input wire[23:0] right_channel
     );
-    reg old_lrclk=0;
+    reg old_lrclk=1;
     //goes high when lrclk changes
-    wire lrclk_change = ~(old_lrclk & lrclk);
+    wire lrclk_change = !(old_lrclk==lrclk);
     
     reg [5:0] bitcnt=0;
     reg [31:0] left_channel_sample=0;
@@ -54,23 +54,24 @@ module better_i2s_tx(
                         bitcnt<=32;
                         if (lrclk==0)
                             begin
-                            left_channel_sample[31:0] <= left_channel[31:0];
-                            right_channel_sample[31:0] <= right_channel[31:0];
+                            left_channel_sample[31:0] <= {left_channel[23:0], 8'h00};
+                            right_channel_sample[31:0] <= {right_channel[23:0], 8'h00};
                             end
                         else if (lrclk==1)
                             begin
                             end
+                        sdto <= lrclk ? right_channel[23] : left_channel[23];
                     end
                 else
                     begin
-                        bitcnt<=bitcnt-1;
                         if (bitcnt==0)
                             begin
                                 //crash
                             end
                         else
                             begin
-                                sdto <= lrclk ? left_channel_sample[bitcnt-1] : right_channel_sample[bitcnt-1];
+                                bitcnt<=bitcnt-1;
+                                sdto <= lrclk ? right_channel_sample[bitcnt-2] : left_channel_sample[bitcnt-2];
                             end
                     end
             end

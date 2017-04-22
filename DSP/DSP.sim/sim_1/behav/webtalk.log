@@ -1,14 +1,13 @@
 #-----------------------------------------------------------
-# Webtalk v2016.4 (64-bit)
-# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
-# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sun Apr 16 17:50:02 2017
-# Process ID: 6356
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Sat Apr 22 15:30:52 2017
+# Process ID: 1600
 # Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav
-# Command line: wbtcv.exe -mode batch -source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2c_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2s_sim_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/webtalk.log
 # Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2c_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2c_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Apr 16 17:50:04 2017. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.4/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Sun Apr 16 17:50:04 2017...
+source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2s_sim_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Apr 22 15:30:52 2017...

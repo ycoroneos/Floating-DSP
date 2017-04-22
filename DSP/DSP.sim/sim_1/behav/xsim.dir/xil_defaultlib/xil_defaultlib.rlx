@@ -1,8 +1,9 @@
 0.6
-2016.4
-Jan 23 2017
-19:37:30
-C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/glbl.v,1485222234,verilog,,,,glbl,,,,,,,,
-C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sim_1/imports/new/i2c_tb.v,1492378073,verilog,,,,i2c_tb,,,,,,,,
-C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v,1492378073,verilog,,,,adau1761_controller,,,,,,,,
-C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v,1492379387,verilog,,,,i2cmaster,,,,,,,,
+2017.1
+Apr 14 2017
+19:10:27
+C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/glbl.v,1492045073,verilog,,,,glbl,,,,,,,,
+C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sim_1/new/i2s_sim.v,1492840636,verilog,,,,i2s_sim,,,,,,,,
+C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/better_i2s_rx.v,1492836934,verilog,,,,better_i2s_rx,,,,,,,,
+C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/better_i2s_tx.v,1492836101,verilog,,,,better_i2s_tx,,,,,,,,
+C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/delay_1.v,1492838090,verilog,,,,delay_1,,,,,,,,

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Sat Apr 22 01:57:31 2017
+# Process ID: 8952
+# Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav
+# Command line: wbtcv.exe -mode batch -source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2s_sim_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/webtalk.log
+# Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/i2s_sim_behav/webtalk/xsim_webtalk.tcl -notrace

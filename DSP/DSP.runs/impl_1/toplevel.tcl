@@ -42,8 +42,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -51,22 +49,17 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a200tsbg484-1
-  set_property board_part digilentinc.com:nexys_video:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/yanni/18.335/finalproj/DSP/DSP.cache/wt [current_project]
-  set_property parent.project_path /home/yanni/18.335/finalproj/DSP/DSP.xpr [current_project]
-  set_property ip_output_repo /home/yanni/18.335/finalproj/DSP/DSP.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.cache/wt [current_project]
+  set_property parent.project_path C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr [current_project]
+  set_property ip_output_repo C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet /home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
-  read_xdc -prop_thru_buffers -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc
-  set_property processing_order EARLY [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-  read_xdc -ref clk_wiz_0 -cells inst /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc
-  set_property processing_order EARLY [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-  read_xdc /home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
+  add_files -quiet C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
+  read_ip -quiet C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  set_property is_locked true [get_files C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+  read_xdc C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
   link_design -top toplevel -part xc7a200tsbg484-1
-  write_hwdef -file toplevel.hwdef
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -122,10 +115,10 @@ set rc [catch {
   write_checkpoint -force toplevel_routed.dcp
   catch { report_drc -file toplevel_drc_routed.rpt -pb toplevel_drc_routed.pb -rpx toplevel_drc_routed.rpx }
   catch { report_methodology -file toplevel_methodology_drc_routed.rpt -rpx toplevel_methodology_drc_routed.rpx }
-  catch { report_timing_summary -warn_on_violation -max_paths 10 -file toplevel_timing_summary_routed.rpt -rpx toplevel_timing_summary_routed.rpx }
   catch { report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx }
   catch { report_route_status -file toplevel_route_status.rpt -pb toplevel_route_status.pb }
   catch { report_clock_utilization -file toplevel_clock_utilization_routed.rpt }
+  catch { report_timing_summary -warn_on_violation -max_paths 10 -file toplevel_timing_summary_routed.rpt -rpx toplevel_timing_summary_routed.rpx }
   close_msg_db -file route_design.pb
 } RESULT]
 if {$rc} {
@@ -141,11 +134,10 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force toplevel.mmi }
-  write_bitstream -force -no_partial_bitfile toplevel.bit 
-  catch { write_sysdef -hwdef toplevel.hwdef -bitfile toplevel.bit -meminfo toplevel.mmi -file toplevel.sysdef }
-  catch {write_debug_probes -quiet -force debug_nets}
+  write_bitstream -force toplevel.bit 
+  catch {write_debug_probes -no_partial_ltxfile -quiet -force debug_nets}
+  catch {file copy -force debug_nets.ltx toplevel.ltx}
   close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {
