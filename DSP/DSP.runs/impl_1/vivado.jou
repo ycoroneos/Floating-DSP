@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2017.1 (64-bit)
-# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sat Apr 22 03:22:20 2017
-# Process ID: 9152
-# Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1
-# Command line: vivado.exe -log toplevel.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source toplevel.tcl -notrace
-# Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.vdi
-# Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/impl_1\vivado.jou
+# Start of session at: Wed May  3 16:55:48 2017
+# Process ID: 26295
+# Current directory: /home/yanni/18.335/finalproj/DSP/DSP.runs/impl_1
+# Command line: vivado -log toplevel.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source toplevel.tcl -notrace
+# Log file: /home/yanni/18.335/finalproj/DSP/DSP.runs/impl_1/toplevel.vdi
+# Journal file: /home/yanni/18.335/finalproj/DSP/DSP.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
 source toplevel.tcl -notrace

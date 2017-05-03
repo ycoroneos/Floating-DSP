@@ -82,8 +82,8 @@ inout wire [7:0] ja
     
     
     //fixed-point DA fir filter
-    fir_fixedpoint leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(16384'h0));
-    fir_fixedpoint rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(16384'h0));
+    fir_fixedpoint #(.NTAPS(511)) leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(16384'h0));
+    fir_fixedpoint #(.NTAPS(511)) rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(16384'h0));
     
     assign led[1]=codec_ready;
     assign led[2] = AC_LRCLK;
