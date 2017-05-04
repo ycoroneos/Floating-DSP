@@ -30,7 +30,7 @@ input wire reset,
 input wire lrclk,
 input wire [23:0] in,
 input wire [23:0] out,
-input wire [(NTAPS)*(WIDTH-1):0] coeffs
+input wire [(NTAPS)*(WIDTH)-1:0] coeffs
     );
     //constants we need
     localparam NDELAY = (NTAPS-1)*2;
@@ -44,16 +44,16 @@ input wire [(NTAPS)*(WIDTH-1):0] coeffs
     reg [WIDTH-1:0] adds[NADDS:0];
     reg [WIDTH-1:0] muls[NMULS:0];
     reg [WIDTH-1:0] acc[NACC:0];
-    assign out[23:0] = acc[NTAPS-2][TOP_BIT:(TOP_BIT-23)];
+    assign out[23:0] = acc[NTAPS-2][TOP_BIT -: 24];
     integer i;
     always @(negedge lrclk)
     begin
         if (reset)
         begin
-            for (i=0; i<NDELAY; i=i+1) pipes[i]<=0;
-            for (i=0; i<NADDS; i=i+1) adds[i]<=0;
-            for (i=0; i<NMULS; i=i+1) muls[i]<=0;
-            for (i=0; i<NACC; i=i+1) acc[i]<=0;
+            for (i=0; i<=NDELAY; i=i+1) pipes[i]<=0;
+            for (i=0; i<=NADDS; i=i+1) adds[i]<=0;
+            for (i=0; i<=NMULS; i=i+1) muls[i]<=0;
+            for (i=0; i<=NACC; i=i+1) acc[i]<=0;
         end
         else
         begin
@@ -88,11 +88,11 @@ input wire [(NTAPS)*(WIDTH-1):0] coeffs
                 begin
                     if (i==(NTAPS-1))
                         begin
-                            muls[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}},pipes[NTAPS-1][23:0]} * coeffs[((i)*(WIDTH-1)) +: (WIDTH-1)];
+                            muls[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}},pipes[NTAPS-1][23:0]} * coeffs[((i)*(WIDTH-1)) +: (WIDTH)];
                         end
                     else
                         begin
-                            muls[i][WIDTH-1:0] <= adds[i][WIDTH-1:0] * coeffs[((i)*(WIDTH-1)) +: (WIDTH-1)];
+                            muls[i][WIDTH-1:0] <= adds[i][WIDTH-1:0] * coeffs[((i)*(WIDTH-1)) +: (WIDTH)];
                         end
                 end
             

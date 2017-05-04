@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date             : Wed May  3 17:00:39 2017
-| Host             : asbestos running 64-bit Ubuntu 17.04
+| Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
+| Date             : Wed May  3 20:39:25 2017
+| Host             : DESKTOP-H30IADK running 64-bit major release  (build 9200)
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
 | Device           : xc7a200tsbg484-1
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.323 |
-| Dynamic (W)              | 0.171 |
+| Total On-Chip Power (W)  | 0.302 |
+| Dynamic (W)              | 0.151 |
 | Device Static (W)        | 0.152 |
 | Effective TJA (C/W)      | 3.3   |
-| Max Ambient (C)          | 83.9  |
-| Junction Temperature (C) | 26.1  |
+| Max Ambient (C)          | 84.0  |
+| Junction Temperature (C) | 26.0  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -50,20 +50,20 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        5 |       --- |             --- |
-| Slice Logic             |    <0.001 |    84933 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |    15661 |    133800 |           11.70 |
-|   Register              |    <0.001 |    54551 |    267600 |           20.39 |
-|   CARRY4                |    <0.001 |     8593 |     33450 |           25.69 |
-|   BUFG                  |    <0.001 |        3 |        32 |            9.38 |
-|   LUT as Shift Register |    <0.001 |     1090 |     46200 |            2.36 |
-|   Others                |     0.000 |     4892 |       --- |             --- |
+| Slice Logic             |    <0.001 |     2045 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      574 |    133800 |            0.43 |
+|   Register              |    <0.001 |     1283 |    267600 |            0.48 |
+|   CARRY4                |    <0.001 |      135 |     33450 |            0.40 |
+|   BUFG                  |    <0.001 |        2 |        32 |            6.25 |
+|   LUT as Shift Register |    <0.001 |        2 |     46200 |           <0.01 |
+|   Others                |     0.000 |       30 |       --- |             --- |
 |   F7/F8 Muxes           |     0.000 |        7 |    133800 |           <0.01 |
-| Signals                 |    <0.001 |    93210 |       --- |             --- |
+| Signals                 |    <0.001 |     2426 |       --- |             --- |
 | MMCM                    |     0.135 |        1 |        10 |           10.00 |
-| DSPs                    |     0.020 |      700 |       740 |           94.59 |
-| I/O                     |     0.015 |       25 |       285 |            8.77 |
+| DSPs                    |    <0.001 |       28 |       740 |            3.78 |
+| I/O                     |     0.014 |       25 |       285 |            8.77 |
 | Static Power            |     0.152 |          |           |                 |
-| Total                   |     0.323 |          |           |                 |
+| Total                   |     0.302 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.053 |       0.022 |      0.031 |
+| Vccint    |       1.000 |     0.033 |       0.002 |      0.031 |
 | Vccaux    |       1.800 |     0.106 |       0.075 |      0.031 |
 | Vcco33    |       3.300 |     0.008 |       0.003 |      0.005 |
 | Vcco25    |       2.500 |     0.006 |       0.001 |      0.005 |
@@ -144,17 +144,17 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| toplevel        |     0.171 |
+| toplevel        |     0.151 |
 |   bclkmon       |    <0.001 |
 |   clkmon0       |     0.135 |
 |     inst        |     0.135 |
 |   codec         |    <0.001 |
 |     adaui2c     |    <0.001 |
 |   fsmclkmon     |    <0.001 |
-|   leftfir       |     0.010 |
+|   leftfir       |    <0.001 |
 |   lrclkmon      |    <0.001 |
 |   phaser        |     0.000 |
-|   rightfir      |     0.010 |
+|   rightfir      |    <0.001 |
 |   rx            |    <0.001 |
 |   serialkclkmon |    <0.001 |
 |   tx            |    <0.001 |

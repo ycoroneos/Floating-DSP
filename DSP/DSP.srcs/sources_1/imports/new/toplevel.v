@@ -80,10 +80,15 @@ inout wire [7:0] ja
     i2s_rx #(.AUDIO_DW(32)) rx(.rst(~codec_ready), .sclk(~bclk), .lrclk(lrclk_gen), .sdata(input_data), .left_chan(left_in), .right_chan(right_in));
     i2s_tx #(.AUDIO_DW(32)) tx(.rst(~codec_ready), .sclk(~bclk), .lrclk(lrclk_gen), .sdata(tx_data), .left_chan({left_out,8'h00}), .right_chan({right_out,8'h00}), .prescaler(prescaler));
     
+    //memory for the filter coefficients
+    localparam NTAPS=5;
+    localparam WIDTH=32;
+    wire [(NTAPS*(WIDTH-1)) : 0] coeffs;
+    memory #(.NTAPS(NTAPS)) ctable(.out(coeffs[(NTAPS*(WIDTH-1)):0]));
     
     //fixed-point DA fir filter
-    fir_fixedpoint #(.NTAPS(511)) leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(16384'h0));
-    fir_fixedpoint #(.NTAPS(511)) rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(16384'h0));
+    fir_fixedpoint #(.NTAPS(NTAPS), .WIDTH(WIDTH)) leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(16384'h0));
+    fir_fixedpoint #(.NTAPS(NTAPS), .WIDTH(WIDTH)) rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(16384'h0));
     
     assign led[1]=codec_ready;
     assign led[2] = AC_LRCLK;
