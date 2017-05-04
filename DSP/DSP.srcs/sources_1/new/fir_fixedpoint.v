@@ -40,20 +40,25 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
     
     //declare the pipeline stages
     //reg [WIDTH-1:0] result;
-    reg [23:0] pipes[NDELAY:0];
-    reg [WIDTH-1:0] adds[NADDS:0];
-    reg [WIDTH-1:0] muls[NMULS:0];
-    reg [WIDTH-1:0] acc[NACC:0];
+    reg [23:0] pipes[NDELAY-1:0];
+    reg [23:0] pp[NTAPS-1:0];
+    reg [WIDTH-1:0] adds[NADDS-1:0];
+    reg [WIDTH-1:0] muls[NMULS-1:0];
+    reg [WIDTH-1:0] acc[NACC-1:0];
+    reg [(WIDTH-1):0] result;
+    //assign out[23:0] = result[TOP_BIT -: 24];
     assign out[23:0] = acc[NTAPS-2][TOP_BIT -: 24];
     integer i;
     always @(negedge lrclk)
     begin
         if (reset)
         begin
-            for (i=0; i<=NDELAY; i=i+1) pipes[i]<=0;
-            for (i=0; i<=NADDS; i=i+1) adds[i]<=0;
-            for (i=0; i<=NMULS; i=i+1) muls[i]<=0;
-            for (i=0; i<=NACC; i=i+1) acc[i]<=0;
+            result<=0;
+            for (i=0; i<NDELAY; i=i+1) pipes[i]<=0;
+            for (i=0; i<NTAPS; i=i+1) pp[i]<=0;
+            for (i=0; i<NADDS; i=i+1) adds[i]<=0;
+            for (i=0; i<NMULS; i=i+1) muls[i]<=0;
+            for (i=0; i<NACC; i=i+1) acc[i]<=0;
         end
         else
         begin
@@ -70,6 +75,19 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                         end
                 end
             
+            //delays for the middle element
+            for (i=0; i<NTAPS; i=i+1)
+                begin
+                    if (i==0)
+                        begin
+                            pp[i][23:0] <= pipes[NTAPS-2][23:0];
+                        end
+                    else
+                        begin
+                            pp[i][23:0] <= pp[i-1][23:0];
+                        end
+                end
+            
             //compute the adds
             for (i=0; i<NADDS; i=i+1)
                 begin
@@ -79,7 +97,7 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                         end
                     else
                         begin
-                            adds[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}}, pipes[i][23:0]} + {{(WIDTH-24-1){1'b0}}, pipes[NDELAY-1-i][23:0]};
+                            adds[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}}, pipes[i-1[23:0]} + {{(WIDTH-24-1){1'b0}}, pipes[NDELAY-1-i][23:0]};
                         end
                 end
             
@@ -88,7 +106,7 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                 begin
                     if (i==(NTAPS-1))
                         begin
-                            muls[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}},pipes[NTAPS-1][23:0]} * coeffs[((i)*(WIDTH-1)) +: (WIDTH)];
+                            muls[i][WIDTH-1:0] <= {{(WIDTH-24-1){1'b0}},pp[NTAPS-1][23:0]} * coeffs[((i)*(WIDTH-1)) +: (WIDTH)];
                         end
                     else
                         begin
@@ -108,7 +126,9 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                             acc[i][WIDTH-1:0] <= muls[i+1][WIDTH-1:0] + acc[i-1][WIDTH-1:0];
                         end
                 end
+                //result[(WIDTH-1):0] <= acc[NTAPS-2][(WIDTH-1):0];
                 //result[WIDTH-1:0] <= acc[TAPS-1][WIDTH-1:0];
+                
         end
     end
 endmodule

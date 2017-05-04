@@ -1,4 +1,7 @@
-Running: xsim.dir/firtb_behav/xsimk.exe -simmode gui -wdb firtb_behav.wdb -simrunnum 0 -socket 50483
+Running: xsim.dir/firtb_behav/xsimk.exe -simmode gui -wdb firtb_behav.wdb -simrunnum 0 -socket 51137
 Design successfully loaded
-Design Loading Memory Usage: 5748 KB (Peak: 5748 KB)
+Design Loading Memory Usage: 5792 KB (Peak: 5792 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 6568 KB (Peak: 6568 KB)
+Simulation CPU Usage: 46 ms

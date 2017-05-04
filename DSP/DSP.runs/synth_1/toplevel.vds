@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed May  3 20:36:42 2017
-# Process ID: 6300
+# Start of session at: Thu May  4 01:04:45 2017
+# Process ID: 1656
 # Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1
 # Command line: vivado.exe -log toplevel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source toplevel.tcl
 # Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.vds
@@ -18,9 +18,9 @@ Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t-sbg484'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t-sbg484'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2856 
+INFO: Helper process launched with PID 3552 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 317.828 ; gain = 80.637
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 317.141 ; gain = 79.648
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'toplevel' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
 	Parameter NTAPS bound to: 5 - type: integer 
@@ -125,12 +125,8 @@ INFO: [Synth 8-256] done synthesizing module 'i2s_tx' (11#1) [C:/Users/yanni/Doc
 INFO: [Synth 8-638] synthesizing module 'memory' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:23]
 	Parameter NTAPS bound to: 5 - type: integer 
 	Parameter WIDTH bound to: 32 - type: integer 
-WARNING: [Synth 8-2898] ignoring malformed $readmem task: invalid memory name [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:37]
+WARNING: [Synth 8-2898] ignoring malformed $readmem task: invalid memory name [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:43]
 WARNING: [Synth 8-3848] Net looktable[0] in module/entity memory does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:30]
-WARNING: [Synth 8-3848] Net looktable[1] in module/entity memory does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:30]
-WARNING: [Synth 8-3848] Net looktable[2] in module/entity memory does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:30]
-WARNING: [Synth 8-3848] Net looktable[3] in module/entity memory does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:30]
-WARNING: [Synth 8-3848] Net looktable[4] in module/entity memory does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:30]
 INFO: [Synth 8-256] done synthesizing module 'memory' (12#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/memory.v:23]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:90]
 INFO: [Synth 8-638] synthesizing module 'fir_fixedpoint' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:23]
@@ -141,12 +137,20 @@ INFO: [Synth 8-638] synthesizing module 'fir_fixedpoint' [C:/Users/yanni/Documen
 	Parameter NADDS bound to: 4 - type: integer 
 	Parameter NMULS bound to: 5 - type: integer 
 	Parameter NACC bound to: 4 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element result_reg was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:56]
 INFO: [Synth 8-256] done synthesizing module 'fir_fixedpoint' (13#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:23]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:91]
 WARNING: [Synth 8-3848] Net left_out in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:73]
 WARNING: [Synth 8-3848] Net right_out in module/entity toplevel does not have driver. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:74]
 INFO: [Synth 8-256] done synthesizing module 'toplevel' (14#1) [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:23]
-WARNING: [Synth 8-3331] design fir_fixedpoint has unconnected port coeffs[155]
+WARNING: [Synth 8-3331] design fir_fixedpoint has unconnected port coeffs[159]
+WARNING: [Synth 8-3331] design fir_fixedpoint has unconnected port coeffs[158]
+WARNING: [Synth 8-3331] design fir_fixedpoint has unconnected port coeffs[157]
+WARNING: [Synth 8-3331] design fir_fixedpoint has unconnected port coeffs[156]
+WARNING: [Synth 8-3331] design memory has unconnected port out[159]
+WARNING: [Synth 8-3331] design memory has unconnected port out[158]
+WARNING: [Synth 8-3331] design memory has unconnected port out[157]
+WARNING: [Synth 8-3331] design memory has unconnected port out[156]
 WARNING: [Synth 8-3331] design memory has unconnected port out[155]
 WARNING: [Synth 8-3331] design memory has unconnected port out[154]
 WARNING: [Synth 8-3331] design memory has unconnected port out[153]
@@ -239,16 +243,9 @@ WARNING: [Synth 8-3331] design memory has unconnected port out[67]
 WARNING: [Synth 8-3331] design memory has unconnected port out[66]
 WARNING: [Synth 8-3331] design memory has unconnected port out[65]
 WARNING: [Synth 8-3331] design memory has unconnected port out[64]
-WARNING: [Synth 8-3331] design memory has unconnected port out[63]
-WARNING: [Synth 8-3331] design memory has unconnected port out[62]
-WARNING: [Synth 8-3331] design memory has unconnected port out[61]
-WARNING: [Synth 8-3331] design memory has unconnected port out[60]
-WARNING: [Synth 8-3331] design memory has unconnected port out[59]
-WARNING: [Synth 8-3331] design memory has unconnected port out[58]
-WARNING: [Synth 8-3331] design memory has unconnected port out[57]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 356.902 ; gain = 119.711
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 356.469 ; gain = 118.977
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -354,7 +351,7 @@ WARNING: [Synth 8-3295] tying undriven pin rightfir:out[2] to constant 0 [C:/Use
 WARNING: [Synth 8-3295] tying undriven pin rightfir:out[1] to constant 0 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:91]
 WARNING: [Synth 8-3295] tying undriven pin rightfir:out[0] to constant 0 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v:91]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 356.902 ; gain = 119.711
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 356.469 ; gain = 118.977
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -383,16 +380,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 706.230 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 706.551 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -400,7 +397,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for clkmon0/inst. (constraint file  C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/dont_touch.xdc, line 10).
 Applied set_property DONT_TOUCH = true for clkmon0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "outclk" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "outclk" won't be mapped to RAM because it is too sparse
@@ -418,6 +415,14 @@ INFO: [Synth 8-5546] ROM "ready" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "i2cstart" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3936] Found unconnected internal register 'right_reg' and it is trimmed from '32' to '31' bits. [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2s_rx.v:54]
 WARNING: [Synth 8-6014] Unused sequential element bit_cnt_reg was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2s_tx.v:50]
+INFO: [Synth 8-4471] merging register 'pp_reg[0][23:0]' into 'pipes_reg[4][23:0]' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+INFO: [Synth 8-4471] merging register 'pp_reg[1][23:0]' into 'pipes_reg[5][23:0]' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+INFO: [Synth 8-4471] merging register 'pp_reg[2][23:0]' into 'pipes_reg[6][23:0]' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+INFO: [Synth 8-4471] merging register 'pp_reg[3][23:0]' into 'pipes_reg[7][23:0]' [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+WARNING: [Synth 8-6014] Unused sequential element pp_reg[3] was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+WARNING: [Synth 8-6014] Unused sequential element pp_reg[2] was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+WARNING: [Synth 8-6014] Unused sequential element pp_reg[1] was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
+WARNING: [Synth 8-6014] Unused sequential element pp_reg[0] was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:58]
 WARNING: [Synth 8-6014] Unused sequential element curstate_reg was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v:58]
 WARNING: [Synth 8-6014] Unused sequential element curstate_reg was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v:58]
 ---------------------------------------------------------------------------------------------------
@@ -487,7 +492,7 @@ WARNING: [Synth 8-6014] Unused sequential element curstate_reg was removed.  [C:
 INFO: [Synth 8-3354] encoded FSM with state register 'curstate_reg' using encoding 'sequential' in module 'adau1761_controller'
 WARNING: [Synth 8-6014] Unused sequential element curstate_reg was removed.  [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v:106]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -635,17 +640,17 @@ INFO: [Synth 8-5546] ROM "bclkmon/outclk" won't be mapped to RAM because it is t
 INFO: [Synth 8-5546] ROM "lrclkmon/outclk" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "serialkclkmon/outclk" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsmclkmon/outclk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:91]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:95]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:95]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:95]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:95]
-DSP Report: Generating DSP p_1_out, operation Mode is: A*B.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: Generating DSP p_1_out, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:109]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:113]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:113]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:113]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/fir_fixedpoint.v:113]
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
 DSP Report: Generating DSP p_2_out, operation Mode is: A*B.
 DSP Report: operator p_2_out is absorbed into DSP p_2_out.
 DSP Report: operator p_2_out is absorbed into DSP p_2_out.
@@ -694,12 +699,12 @@ DSP Report: operator p_8_out is absorbed into DSP p_8_out.
 DSP Report: Generating DSP p_8_out, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator p_8_out is absorbed into DSP p_8_out.
 DSP Report: operator p_8_out is absorbed into DSP p_8_out.
-DSP Report: Generating DSP p_1_out, operation Mode is: A*B.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: Generating DSP p_1_out, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
 DSP Report: Generating DSP p_2_out, operation Mode is: A*B.
 DSP Report: operator p_2_out is absorbed into DSP p_2_out.
 DSP Report: operator p_2_out is absorbed into DSP p_2_out.
@@ -988,7 +993,7 @@ WARNING: [Synth 8-3332] Sequential element (leftfir/acc_reg[0][25]) is unused an
 WARNING: [Synth 8-3332] Sequential element (leftfir/acc_reg[0][24]) is unused and will be removed from module toplevel.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1007,23 +1012,23 @@ DSP: Preliminary Mapping  Report (see note below)
 |Module Name    | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +---------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |fir_fixedpoint | A*B            | 25     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 25     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 25     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_fixedpoint | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 25     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |fir_fixedpoint | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
@@ -1055,13 +1060,13 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'sysclk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 706.230 ; gain = 469.039
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 706.551 ; gain = 469.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 715.199 ; gain = 478.008
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 715.516 ; gain = 478.023
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1075,7 +1080,7 @@ Start Technology Mapping
 INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[62]' (FDE) to 'codec/i2cdata_reg[61]'
 INFO: [Synth 8-3886] merging instance 'codec/i2cdata_reg[50]' (FDE) to 'codec/i2cdata_reg[49]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1099,7 +1104,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1112,7 +1117,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1124,25 +1129,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1185,7 +1190,7 @@ Report Cell Usage:
 |10    |MMCME2_ADV |     1|
 |11    |MUXF7      |     9|
 |12    |SRL16E     |     2|
-|13    |FDRE       |  1274|
+|13    |FDRE       |  1322|
 |14    |FDRE_1     |     4|
 |15    |FDSE       |     2|
 |16    |FDSE_1     |     1|
@@ -1198,27 +1203,27 @@ Report Instance Areas:
 +------+----------------+----------------------------+------+
 |      |Instance        |Module                      |Cells |
 +------+----------------+----------------------------+------+
-|1     |top             |                            |  2128|
+|1     |top             |                            |  2176|
 |2     |  clkmon0       |clk_wiz_0                   |     4|
 |3     |    inst        |clk_wiz_0_clk_wiz           |     4|
 |4     |  bclkmon       |alt_divider                 |    13|
 |5     |  codec         |adau1761_controller         |   107|
 |6     |    adaui2c     |i2cmaster                   |    56|
 |7     |  fsmclkmon     |alt_divider__parameterized2 |    51|
-|8     |  leftfir       |fir_fixedpoint              |   806|
+|8     |  leftfir       |fir_fixedpoint              |   830|
 |9     |  lrclkmon      |alt_divider__parameterized0 |    24|
 |10    |  phaser        |delay_1                     |     1|
-|11    |  rightfir      |fir_fixedpoint_0            |   806|
+|11    |  rightfir      |fir_fixedpoint_0            |   830|
 |12    |  rx            |i2s_rx                      |   101|
 |13    |  serialkclkmon |alt_divider__parameterized1 |    29|
 |14    |  tx            |i2s_tx                      |   158|
 +------+----------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 240 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 733.672 ; gain = 147.152
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 733.672 ; gain = 496.480
+Synthesis finished with 0 errors, 0 critical warnings and 247 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 733.613 ; gain = 146.039
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 733.613 ; gain = 496.121
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 173 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1229,9 +1234,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   FDRE_1 => FDRE (inverted pins: C): 4 instances
   FDSE_1 => FDSE (inverted pins: C): 1 instances
 
-228 Infos, 318 Warnings, 0 Critical Warnings and 0 Errors encountered.
+232 Infos, 319 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 733.672 ; gain = 496.480
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 733.613 ; gain = 496.121
 INFO: [Common 17-1381] The checkpoint 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 733.672 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed May  3 20:37:35 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 733.613 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu May  4 01:05:32 2017...

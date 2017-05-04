@@ -24,7 +24,7 @@ module firtb(
 
     );
     //memory for the filter coefficients
-    localparam NTAPS=5;
+    localparam NTAPS=3;
     localparam WIDTH=32;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
     memory #(.NTAPS(NTAPS)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));

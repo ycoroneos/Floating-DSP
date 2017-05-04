@@ -27,7 +27,10 @@ WIDTH=32
 (
 output wire [((NTAPS)*(WIDTH))-1:0] out
 );
-reg [WIDTH-1:0] looktable [0 : (NTAPS-1)];
+//reg [(NTAPS*WIDTH)-1 : 0] looktable [0:0];
+//assign out[(NTAPS*WIDTH)-1 : 0] = looktable[0][(NTAPS*WIDTH)-1 : 0];
+reg [WIDTH-1:0] looktable [(NTAPS-1) : 0];
+
 genvar i;
 for (i=0; i<NTAPS; i=i+1)
     begin
@@ -35,7 +38,8 @@ for (i=0; i<NTAPS; i=i+1)
                 //assign out[((WIDTH)*i) +: (WIDTH)] = 0;
         //assign out[(WIDTH-1)*(i+1) : (WIDTH)*i ] = looktable[i][(WIDTH-1) : 0];
     end
+    
 initial begin
-   $readmemh("coeff.list", looktable);
+   $readmemh("C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/coeff.list", looktable);
 end
 endmodule
