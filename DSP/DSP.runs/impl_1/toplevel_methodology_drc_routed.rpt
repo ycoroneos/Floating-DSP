@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu May  4 19:58:52 2017
-| Host         : asbestos running 64-bit Ubuntu 17.04
+| Date         : Thu May  4 22:54:36 2017
+| Host         : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command      : report_methodology -file toplevel_methodology_drc_routed.rpt -rpx toplevel_methodology_drc_routed.rpx
 | Design       : toplevel
 | Device       : xc7a200tsbg484-1
@@ -7664,8 +7664,8 @@ Related violations: <none>
 XDCC-1#1 Warning
 Scoped Clock constraint overwritten with the same name  
 A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 10.000 -name sysclk -waveform {0.000 5.000} -add [get_ports sysclk] (Source: /home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc (Line: 9))
-Previous: create_clock -period 10.000 [get_ports sysclk] (Source: /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc (Line: 56))
+New: create_clock -period 10.000 -name sysclk -waveform {0.000 5.000} -add [get_ports sysclk] (Source: /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc (Line: 9))
+Previous: create_clock -period 10.000 [get_ports sysclk] (Source: /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc (Line: 56))
 Related violations: <none>
 
 

@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1'
+HD_PWD='/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

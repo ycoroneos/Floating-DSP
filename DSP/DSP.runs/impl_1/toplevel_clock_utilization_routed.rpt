@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu May  4 19:59:00 2017
-| Host         : asbestos running 64-bit Ubuntu 17.04
+| Date         : Thu May  4 22:54:43 2017
+| Host         : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command      : report_clock_utilization -file toplevel_clock_utilization_routed.rpt
 | Design       : toplevel
 | Device       : 7a200t-sbg484

@@ -42,6 +42,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -50,14 +51,14 @@ set rc [catch {
   create_project -in_memory -part xc7a200tsbg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/yanni/18.335/finalproj/DSP/DSP.cache/wt [current_project]
-  set_property parent.project_path /home/yanni/18.335/finalproj/DSP/DSP.xpr [current_project]
-  set_property ip_output_repo /home/yanni/18.335/finalproj/DSP/DSP.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.cache/wt [current_project]
+  set_property parent.project_path /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.xpr [current_project]
+  set_property ip_output_repo /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/yanni/18.335/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
-  read_ip -quiet /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  set_property is_locked true [get_files /home/yanni/18.335/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
-  read_xdc /home/yanni/18.335/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
+  add_files -quiet /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.runs/synth_1/toplevel.dcp
+  read_ip -quiet /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  set_property is_locked true [get_files /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+  read_xdc /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/constrs_1/imports/verilog/NexysVideo_Master.xdc
   link_design -top toplevel -part xc7a200tsbg484-1
   close_msg_db -file init_design.pb
 } RESULT]

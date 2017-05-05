@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu May  4 19:57:51 2017
-| Host         : asbestos running 64-bit Ubuntu 17.04
+| Date         : Thu May  4 22:53:35 2017
+| Host         : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command      : report_control_sets -verbose -file toplevel_control_sets_placed.rpt
 | Design       : toplevel
 | Device       : xc7a200t

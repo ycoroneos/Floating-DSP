@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date             : Thu May  4 19:58:59 2017
-| Host             : asbestos running 64-bit Ubuntu 17.04
+| Date             : Thu May  4 22:54:42 2017
+| Host             : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
 | Device           : xc7a200tsbg484-1

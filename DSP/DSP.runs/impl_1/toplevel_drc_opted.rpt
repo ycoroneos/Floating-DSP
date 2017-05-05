@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu May  4 19:57:09 2017
-| Host         : asbestos running 64-bit Ubuntu 17.04
+| Date         : Thu May  4 22:52:55 2017
+| Host         : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command      : report_drc -file toplevel_drc_opted.rpt
 | Design       : toplevel
 | Device       : xc7a200tsbg484-1
