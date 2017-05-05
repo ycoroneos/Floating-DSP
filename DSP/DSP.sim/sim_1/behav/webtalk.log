@@ -1,14 +1,14 @@
 #-----------------------------------------------------------
 # Webtalk v2017.1 (64-bit)
-# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu May  4 01:25:57 2017
-# Process ID: 6872
-# Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav
-# Command line: wbtcv.exe -mode batch -source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/webtalk.log
-# Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav\webtalk.jou
+# Start of session at: Thu May  4 19:42:34 2017
+# Process ID: 25017
+# Current directory: /home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav
+# Command line: wbtcv -mode batch -source /home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/webtalk.log
+# Journal file: /home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu May  4 01:25:59 2017. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Thu May  4 01:25:59 2017...
+source /home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/home/yanni/18.335/finalproj/DSP/DSP.sim/sim_1/behav/xsim.dir/firtb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu May  4 19:42:35 2017. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu May  4 19:42:35 2017...

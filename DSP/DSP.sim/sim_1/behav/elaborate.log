@@ -1,14 +1,14 @@
 Vivado Simulator 2017.1
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.1/bin/unwrapped/win64.o/xelab.exe -wto 9b562c261b20467093d14aa91dfb8cb9 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot firtb_behav xil_defaultlib.firtb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
+Running: /opt/Xilinx/Vivado/2017.1/bin/unwrapped/lnx64.o/xelab -wto 9b562c261b20467093d14aa91dfb8cb9 --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot firtb_behav xil_defaultlib.firtb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.memory(NTAPS=3)
-Compiling module xil_defaultlib.fir_fixedpoint(NTAPS=3,WIDTH=32)
+Compiling module xil_defaultlib.memory(NTAPS=6)
+Compiling module xil_defaultlib.fir_systolic(NTAPS=6,WIDTH=32)
 Compiling module xil_defaultlib.firtb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot firtb_behav

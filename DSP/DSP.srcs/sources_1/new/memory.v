@@ -35,11 +35,9 @@ genvar i;
 for (i=0; i<NTAPS; i=i+1)
     begin
         assign out[((WIDTH)*i) +: (WIDTH)] = looktable[i][(WIDTH-1) : 0];
-                //assign out[((WIDTH)*i) +: (WIDTH)] = 0;
-        //assign out[(WIDTH-1)*(i+1) : (WIDTH)*i ] = looktable[i][(WIDTH-1) : 0];
     end
     
 initial begin
-   $readmemh("C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/new/coeff.list", looktable);
+   $readmemh("coeff.list", looktable);
 end
 endmodule
