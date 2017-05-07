@@ -56,11 +56,11 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
         begin
             if (j==0)
                 begin
-                    assign muls[j][WIDTH-1:0] = in[23:0] * coeffs[(((j)*(WIDTH))) +: (WIDTH)];
+                    assign muls[j][WIDTH-1:0] = in[23:0] * coeffs[j*WIDTH +: WIDTH];
                 end
             else
                 begin
-                    assign muls[j][WIDTH-1:0] = pipes[(2*j)-1][23:0] * coeffs[(((j)*(WIDTH))) +: (WIDTH)];
+                    assign muls[j][WIDTH-1:0] = pipes[(2*j)-1][23:0] * coeffs[j*WIDTH +: WIDTH];
                 end
         end
     //adds

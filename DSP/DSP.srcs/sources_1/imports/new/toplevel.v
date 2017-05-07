@@ -70,8 +70,8 @@ inout wire [7:0] ja
     //data samples
     wire [31:0] right_in;
     wire [31:0] left_in;
-    wire [23:0] left_out;
-    wire [23:0] right_out;
+    wire [31:0] left_out;
+    wire [31:0] right_out;
     //wire [23:0] left_out = left_in[31:8];
     //wire [23:0] right_out = right_in[31:8];
     //better_i2s_rx rx(.reset(~codec_ready), .bclk(~bclk), .lrclk(lrclk_phased), .sdto(input_data), .left_channel(left_in), .right_channel(right_in));
@@ -81,14 +81,19 @@ inout wire [7:0] ja
     i2s_tx #(.AUDIO_DW(32)) tx(.rst(~codec_ready), .sclk(~bclk), .lrclk(lrclk_gen), .sdata(tx_data), .left_chan({left_out,8'h00}), .right_chan({right_out,8'h00}), .prescaler(prescaler));
     
     //memory for the filter coefficients
-    localparam NTAPS=127;
+    localparam NTAPS=5;
     localparam WIDTH=32;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
-    memory #(.NTAPS(NTAPS), .WIDTH(WIDTH)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
+    // memory #(.NTAPS(NTAPS), .WIDTH(WIDTH)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
+    float_memory #(.NTAPS(NTAPS), .WIDTH(WIDTH)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
     
     //fixed-point systolic pipelined fir filter
-    fir_systolic #(.NTAPS(NTAPS), .WIDTH(WIDTH)) leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
-    fir_systolic #(.NTAPS(NTAPS), .WIDTH(WIDTH)) rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
+    // fir_systolic #(.NTAPS(NTAPS), .WIDTH(WIDTH)) leftfir(.reset(reset), .lrclk(lrclk_gen), .in(left_in[31:8]), .out(left_out[23:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
+    // fir_systolic #(.NTAPS(NTAPS), .WIDTH(WIDTH)) rightfir(.reset(reset), .lrclk(lrclk_gen), .in(right_in[31:8]), .out(right_out[23:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
+
+    //floating-point systolic pipelined fir filter
+    fir_floating #(.NTAPS(NTAPS), .WIDTH(WIDTH)) leftfir(.reset(reset), .fastclk(~bclk), .lrclk(lrclk_gen), .in(left_in[31:0]), .out(left_out[31:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
+    fir_floating #(.NTAPS(NTAPS), .WIDTH(WIDTH)) rightfir(.reset(reset), .fastclk(~bclk), .lrclk(lrclk_gen), .in(right_in[31:0]), .out(right_out[31:0]), .coeffs(coeffs[(NTAPS*(WIDTH))-1:0]));
     
     assign led[1]=codec_ready;
     assign led[2] = AC_LRCLK;

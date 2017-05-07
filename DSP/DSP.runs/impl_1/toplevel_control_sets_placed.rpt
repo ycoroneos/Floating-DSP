@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Thu May  4 22:53:35 2017
+| Date         : Sun May  7 16:21:58 2017
 | Host         : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command      : report_control_sets -verbose -file toplevel_control_sets_placed.rpt
 | Design       : toplevel
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    17 |
-| Unused register locations in slices containing registers |    45 |
+| Number of unique control sets                            |   245 |
+| Unused register locations in slices containing registers |   656 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,52 +33,282 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              31 |           17 |
+| No           | No                    | No                     |             226 |          140 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |           18247 |         4682 |
-| Yes          | No                    | No                     |             119 |           36 |
+| No           | Yes                   | No                     |             118 |           61 |
+| Yes          | No                    | No                     |            4468 |         1507 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              62 |           24 |
+| Yes          | Yes                   | No                     |             540 |          184 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------------------+---------------------------------+--------------------------+------------------+----------------+
-|                 Clock Signal                 |          Enable Signal          |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+----------------------------------------------+---------------------------------+--------------------------+------------------+----------------+
-| ~bclkmon/bclk_BUFG                           |                                 |                          |                1 |              1 |
-|  fsmclkmon/fsmclk                            |                                 |                          |                2 |              2 |
-| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__0/i__n_0        | codec/i2cstart_reg_n_0   |                1 |              3 |
-|  bclkmon/bclk_BUFG                           |                                 |                          |                3 |              3 |
-| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__2/i__n_0        | codec/i2cstart_reg_n_0   |                2 |              5 |
-|  clkmon0/inst/clk_out1                       |                                 | bclkmon/count[4]_i_1_n_0 |                1 |              5 |
-|  fsmclkmon/fsmclk                            | codec/curstate_n_0              | led_OBUF[0]              |                3 |              6 |
-| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/curbit[7]_i_1_n_0 |                          |                3 |              8 |
-|  fsmclkmon/fsmclk                            | codec/i2cdata[61]_i_1_n_0       |                          |               10 |             15 |
-|  clkmon0/inst/clk_out1                       |                                 | fsmclkmon/outclk         |                5 |             18 |
-|  clkmon0/inst/clk_out1                       |                                 |                          |               11 |             25 |
-| ~bclkmon/bclk_BUFG                           | rx/left[31]_i_1__0_n_0          |                          |                6 |             25 |
-| ~bclkmon/bclk_BUFG                           | rx/lrclk_r                      |                          |                9 |             25 |
-|  bclkmon/bclk_BUFG                           |                                 | tx/bit_cnt[0]_i_1_n_0    |                8 |             32 |
-|  bclkmon/bclk_BUFG                           | tx/left[31]_i_1_n_0             |                          |               10 |             48 |
-| ~bclkmon/bclk_BUFG                           | rx/E[0]                         | codec/left_chan_reg[8]   |               18 |             48 |
-| ~lrclk_gen_BUFG                              |                                 | led_OBUF[0]              |             4668 |          18192 |
-+----------------------------------------------+---------------------------------+--------------------------+------------------+----------------+
++----------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
+|                 Clock Signal                 |                          Enable Signal                         |                   Set/Reset Signal                  | Slice Load Count | Bel Load Count |
++----------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
+|  fsmclkmon/CLK                               |                                                                |                                                     |                1 |              1 |
+|  fsmclkmon/CLK                               |                                                                | led_OBUF[0]                                         |                1 |              1 |
+| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__0/i__n_0                                       | codec/i2cstart_reg_n_0                              |                1 |              3 |
+|  bclkmon/bclk_BUFG                           |                                                                |                                                     |                3 |              3 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/FSM_sequential_state[3]_i_1__3_n_0 | rightfir/add_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/state                         | rightfir/mult_reset_reg_n_0                         |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/count[3]_i_1__1_n_0                                    |                                                     |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/state                          | leftfir/mult_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/a_e[9]_i_1__1_n_0              | leftfir/genblk3[2].multiplier_j/a_e[4]_i_1__1_n_0   |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/a_e[9]_i_1__8_n_0                        | rightfir/multiplier_1/a_e[4]_i_1__8_n_0             |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/state                          | leftfir/mult_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/FSM_sequential_state[3]_i_1__0_n_0  | leftfir/add_reset_reg_n_0                           |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/a_e[9]_i_1__3_n_0              | leftfir/genblk3[4].multiplier_j/a_e[4]_i_1__3_n_0   |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/a_e[9]_i_1__0_n_0              | leftfir/genblk3[1].multiplier_j/a_e[4]_i_1__0_n_0   |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/a_e[9]_i_1__12_n_0            | rightfir/genblk3[4].multiplier_j/a_e[4]_i_1__12_n_0 |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/state                         | rightfir/mult_reset_reg_n_0                         |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/state                                    | rightfir/mult_reset_reg_n_0                         |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/state                                     | leftfir/mult_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/state                          | leftfir/mult_reset_reg_n_0                          |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/FSM_sequential_state[3]_i_1_n_0     | leftfir/add_reset_reg_n_0                           |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/a_e[9]_i_1_n_0                            | leftfir/multiplier_1/a_e[4]_i_1_n_0                 |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/a_e[9]_i_1__2_n_0              | leftfir/genblk3[3].multiplier_j/a_e[4]_i_1__2_n_0   |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/FSM_sequential_state[3]_i_1__1_n_0  | leftfir/add_reset_reg_n_0                           |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/a_e[9]_i_1__10_n_0            | rightfir/genblk3[2].multiplier_j/a_e[4]_i_1__10_n_0 |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/FSM_sequential_state[3]_i_1__2_n_0  | leftfir/add_reset_reg_n_0                           |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/state                         | rightfir/mult_reset_reg_n_0                         |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/state                         | rightfir/mult_reset_reg_n_0                         |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/a_e[9]_i_1__9_n_0             | rightfir/genblk3[1].multiplier_j/a_e[4]_i_1__9_n_0  |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/FSM_sequential_state[3]_i_1__4_n_0 | rightfir/add_reset_reg_n_0                          |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/count[3]_i_1__2_n_0                                   |                                                     |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/FSM_sequential_state[3]_i_1__6_n_0 | rightfir/add_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/a_e[9]_i_1__11_n_0            | rightfir/genblk3[3].multiplier_j/a_e[4]_i_1__11_n_0 |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/FSM_sequential_state[3]_i_1__5_n_0 | rightfir/add_reset_reg_n_0                          |                1 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/state                          | leftfir/mult_reset_reg_n_0                          |                2 |              4 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/b_e[6]_i_2__3_n_0              | leftfir/genblk3[4].multiplier_j/b_e[6]_i_1__11_n_0  |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/b_e[6]_i_2__2_n_0              | leftfir/genblk3[3].multiplier_j/b_e[6]_i_1__10_n_0  |                1 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/a_e[9]_i_1__2_n_0              |                                                     |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/a_e[9]_i_1__3_n_0              |                                                     |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/a_e[9]_i_1__1_n_0              |                                                     |                3 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/a_e[9]_i_1_n_0                            |                                                     |                3 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/b_e[6]_i_2_n_0                            | leftfir/multiplier_1/b_e[6]_i_1__7_n_0              |                1 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/b_e[6]_i_2__9_n_0             | rightfir/genblk3[4].multiplier_j/b_e[6]_i_1__16_n_0 |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/a_e[9]_i_1__0_n_0              |                                                     |                3 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/b_e[6]_i_2__0_n_0              | leftfir/genblk3[1].multiplier_j/b_e[6]_i_1__8_n_0   |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/a_e[9]_i_1__12_n_0            |                                                     |                2 |              5 |
+| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/__2/i__n_0                                       | codec/i2cstart_reg_n_0                              |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/b_e[6]_i_2__1_n_0              | leftfir/genblk3[2].multiplier_j/b_e[6]_i_1__9_n_0   |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/b_e[6]_i_2__8_n_0             | rightfir/genblk3[3].multiplier_j/b_e[6]_i_1__15_n_0 |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/a_e[9]_i_1__11_n_0            |                                                     |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/a_e[9]_i_1__9_n_0             |                                                     |                3 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/b_e[6]_i_2__6_n_0             | rightfir/genblk3[1].multiplier_j/b_e[6]_i_1__13_n_0 |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/a_e[9]_i_1__10_n_0            |                                                     |                3 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/b_e[6]_i_2__7_n_0             | rightfir/genblk3[2].multiplier_j/b_e[6]_i_1__14_n_0 |                2 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/b_e[6]_i_2__5_n_0                        | rightfir/multiplier_1/b_e[6]_i_1__12_n_0            |                2 |              5 |
+|  clkmon0/inst/clk_out1                       |                                                                | bclkmon/count[4]_i_1_n_0                            |                1 |              5 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/a_e[9]_i_1__8_n_0                        |                                                     |                2 |              5 |
+|  fsmclkmon/CLK                               | codec/FSM_sequential_curstate[5]_i_1_n_0                       | led_OBUF[0]                                         |                2 |              6 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/z[21]_i_2__3_n_0               | leftfir/genblk3[4].multiplier_j/z[30]_i_1__3_n_0    |                3 |              8 |
+| ~serialkclkmon/FSM_onehot_curstate_reg[4][0] | codec/adaui2c/curbit[7]_i_1_n_0                                |                                                     |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/z[21]_i_2__1_n_0               | leftfir/genblk3[2].multiplier_j/z[30]_i_1__1_n_0    |                3 |              8 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/z[21]_i_2__0_n_0               | leftfir/genblk3[1].multiplier_j/z[30]_i_1__0_n_0    |                2 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/z[21]_i_2__11_n_0             | rightfir/genblk3[3].multiplier_j/z[30]_i_1__10_n_0  |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/z[21]_i_2__8_n_0                         | rightfir/multiplier_1/z[30]_i_1__7_n_0              |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/z[21]_i_2_n_0                             | leftfir/multiplier_1/z[30]_i_1_n_0                  |                3 |              8 |
+| ~bclkmon/bclk_BUFG                           |                                                                | led_OBUF[0]                                         |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/z[21]_i_2__2_n_0               | leftfir/genblk3[3].multiplier_j/z[30]_i_1__2_n_0    |                3 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/z[21]_i_2__12_n_0             | rightfir/genblk3[4].multiplier_j/z[30]_i_1__11_n_0  |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/z[21]_i_2__10_n_0             | rightfir/genblk3[2].multiplier_j/z[30]_i_1__9_n_0   |                2 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/z[21]_i_2__9_n_0              | rightfir/genblk3[1].multiplier_j/z[30]_i_1__8_n_0   |                4 |              8 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/a_e                                |                                                     |                5 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/z_e[9]_i_1__12_n_0            |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/z_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/a_e                                 |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/b_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/z_e                                |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/z_e[9]_i_1_n_0                            |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/b_e                                |                                                     |                8 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/b_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/a_e                                |                                                     |                5 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/b_e                                 |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/z_e[9]_i_1__8_n_0                        |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/z_e                                |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/a_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/z_e[9]_i_1__9_n_0             |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/z_e[9]_i_1__0_n_0              |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/z_e[9]_i_1__11_n_0            |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/b_e                                |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/a_e                                |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/z_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/z_e[9]_i_1__1_n_0              |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/z_e[9]_i_1__3_n_0              |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/b_e                                 |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/z_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/z_e                                 |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/z_e                                |                                                     |                5 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/b_e                                |                                                     |                4 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/z_e[9]_i_1__2_n_0              |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/b_e                                |                                                     |                6 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/a_e                                 |                                                     |                5 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/z_e[9]_i_1__10_n_0            |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/a_e                                |                                                     |                5 |             10 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/a_e                                 |                                                     |                7 |             10 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/z_e                                |                                                     |                3 |             10 |
+| ~bclkmon/bclk_BUFG                           |                                                                | rightfir/add_reset_reg_n_0                          |               10 |             12 |
+| ~bclkmon/bclk_BUFG                           |                                                                | leftfir/add_reset_reg_n_0                           |                9 |             12 |
+|  fsmclkmon/CLK                               | codec/i2cdata[61]_i_1_n_0                                      |                                                     |               10 |             15 |
+| ~bclkmon/bclk_BUFG                           |                                                                | rightfir/mult_reset_reg_n_0                         |               11 |             15 |
+| ~bclkmon/bclk_BUFG                           |                                                                | leftfir/mult_reset_reg_n_0                          |               12 |             15 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/product                       |                                                     |                6 |             18 |
+|  clkmon0/inst/clk_out1                       |                                                                | fsmclkmon/outclk                                    |                5 |             18 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/product                        |                                                     |                7 |             18 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/product                                  |                                                     |                3 |             18 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/product                        |                                                     |                4 |             18 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/product                       |                                                     |                5 |             18 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/product                                   |                                                     |                6 |             18 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/product                       |                                                     |                4 |             18 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/product                        |                                                     |                5 |             18 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/product                        |                                                     |                6 |             18 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/product                       |                                                     |                4 |             18 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/z[21]_i_2__10_n_0             | rightfir/genblk3[2].multiplier_j/z[21]_i_1__10_n_0  |                5 |             22 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/z[21]_i_2__1_n_0               | leftfir/genblk3[2].multiplier_j/z[21]_i_1__1_n_0    |                4 |             22 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/z[21]_i_2__11_n_0             | rightfir/genblk3[3].multiplier_j/z[21]_i_1__11_n_0  |                4 |             22 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/z[21]_i_2__9_n_0              | rightfir/genblk3[1].multiplier_j/z[21]_i_1__9_n_0   |                5 |             22 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/z[21]_i_2__12_n_0             | rightfir/genblk3[4].multiplier_j/z[21]_i_1__12_n_0  |                6 |             22 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/z[21]_i_2_n_0                             | leftfir/multiplier_1/z[21]_i_1_n_0                  |                9 |             22 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/z[21]_i_2__8_n_0                         | rightfir/multiplier_1/z[21]_i_1__8_n_0              |               11 |             22 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/z[21]_i_2__3_n_0               | leftfir/genblk3[4].multiplier_j/z[21]_i_1__3_n_0    |                5 |             22 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/z[21]_i_2__0_n_0               | leftfir/genblk3[1].multiplier_j/z[21]_i_1__0_n_0    |                9 |             22 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/z[21]_i_2__2_n_0               | leftfir/genblk3[3].multiplier_j/z[21]_i_1__2_n_0    |                4 |             22 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/a_m[1]                                   |                                                     |                5 |             23 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/a_m[1]                        |                                                     |                9 |             23 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/a_m[1]                        |                                                     |                7 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/a_m[1]                         |                                                     |                8 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/a_m[1]                         |                                                     |                5 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/a_m[1]                         |                                                     |                5 |             23 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/a_m[1]                        |                                                     |                6 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/a_m[1]                                    |                                                     |                5 |             23 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/a_m[1]                        |                                                     |                6 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/a_m[1]                         |                                                     |                7 |             23 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/z_m                                 |                                                     |               13 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/z_m                                |                                                     |               14 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/z_m                           |                                                     |               10 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/z_m                                |                                                     |               13 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/z_m                            |                                                     |               10 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/z                                  |                                                     |               11 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/s_output_z_stb                      |                                                     |                5 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/z_m                                 |                                                     |               14 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/s_output_z_stb                     |                                                     |                9 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/z_m                                |                                                     |               14 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/z                                   |                                                     |               12 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/z_m                           |                                                     |               12 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/z_m                            |                                                     |               10 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/z_m                                       |                                                     |               11 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/z_m                                 |                                                     |               13 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/z_m                                      |                                                     |               14 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/z_m                            |                                                     |               10 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/z_m                                 |                                                     |               12 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/z_m                                |                                                     |               15 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/z_m                           |                                                     |               11 |             24 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/z_m                           |                                                     |               12 |             24 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/z_m                            |                                                     |               12 |             24 |
+|  clkmon0/inst/clk_out1                       |                                                                |                                                     |               11 |             25 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/a_m[25]_i_1__2_n_0                  |                                                     |               10 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/a_m[25]_i_1__0_n_0                  |                                                     |                9 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/b_m[25]_i_1__0_n_0                  |                                                     |               12 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/b_m[25]_i_1__6_n_0                 |                                                     |               12 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/a_m[25]_i_1__3_n_0                 |                                                     |                9 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/a_m[25]_i_1__6_n_0                 |                                                     |                9 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/b_m[25]_i_1__3_n_0                 |                                                     |               11 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/b_m[25]_i_1__1_n_0                  |                                                     |               12 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/a_m[25]_i_1_n_0                     |                                                     |                7 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/b_m[25]_i_1__5_n_0                 |                                                     |               11 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/a_m[25]_i_1__1_n_0                  |                                                     |                9 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/a_m[25]_i_1__5_n_0                 |                                                     |                9 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/b_m[25]_i_1_n_0                     |                                                     |               11 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/a_m[25]_i_1__4_n_0                 |                                                     |               10 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/b_m[25]_i_1__2_n_0                  |                                                     |               11 |             26 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/b_m[25]_i_1__4_n_0                 |                                                     |               10 |             26 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/sum                                 |                                                     |                7 |             28 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/sum                                |                                                     |                7 |             28 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/sum                                 |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/sum                                |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/sum                                |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/sum                                |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/sum                                 |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/sum                                 |                                                     |                8 |             29 |
+| ~bclkmon/bclk_BUFG                           | rx/lrclk_r                                                     |                                                     |                6 |             31 |
+| ~bclkmon/bclk_BUFG                           | rx/left[31]_i_1__0_n_0                                         |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/a[31]_i_1__15_n_0             |                                                     |               10 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/s_output_z                    |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/s_output_z                               |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[3].multiplier_j/s_output_z                    |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[4].multiplier_j/a[31]_i_1__16_n_0             |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/a[31]_i_1__12_n_0                        |                                                     |               10 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/s_output_z                     |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/multiplier_1/E[0]                                     |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/a                                   |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/s_output_z                                |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/a[31]_i_1__7_n_0                          |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/s_output_z                     |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[4].multiplier_j/a[31]_i_1__11_n_0              |                                                     |                6 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/s_output_z                     |                                                     |                6 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[3].multiplier_j/a[31]_i_1__10_n_0              |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/b                                   |                                                     |               12 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[3].adder_j/a                                   |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/s_output_z_stb                      |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/b                                   |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/a[31]_i_1__14_n_0             |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/z                                   |                                                     |               15 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/a                                   |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/z                                   |                                                     |               17 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/b                                   |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/z                                   |                                                     |               15 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/b                                   |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/s_output_z_stb                      |                                                     |               13 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[2].adder_j/s_output_z_stb                      |                                                     |               12 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[0].adder_j/a                                   |                                                     |                9 |             32 |
+|  bclkmon/bclk_BUFG                           |                                                                | tx/bit_cnt[0]_i_1_n_0                               |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/a[31]_i_1__8_n_0               |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[2].multiplier_j/s_output_z                    |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/s_output_z                    |                                                     |                6 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk3[1].multiplier_j/a[31]_i_1__13_n_0             |                                                     |               10 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/b                                  |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[3].adder_j/a                                  |                                                     |               12 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/z                                  |                                                     |               14 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/s_output_z_stb                     |                                                     |                8 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/b                                  |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[2].adder_j/a                                  |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/z                                  |                                                     |               12 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/s_output_z_stb                     |                                                     |               13 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/b                                  |                                                     |               10 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/a                                  |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/z                                  |                                                     |               16 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/s_output_z_stb                     |                                                     |               12 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/b                                  |                                                     |               10 |             32 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[0].adder_j/a                                  |                                                     |                7 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[2].multiplier_j/a[31]_i_1__9_n_0               |                                                     |               11 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk3[1].multiplier_j/s_output_z                     |                                                     |                9 |             32 |
+| ~bclkmon/bclk_BUFG                           | leftfir/multiplier_1/E[0]                                      |                                                     |                8 |             32 |
+|  bclkmon/bclk_BUFG                           | tx/left[31]_i_1_n_0                                            |                                                     |               19 |             48 |
+| ~bclkmon/bclk_BUFG                           | rx/left_chan[31]_i_2_n_0                                       | codec/SR[0]                                         |               19 |             64 |
+| ~bclkmon/bclk_BUFG                           | rightfir/genblk4[1].adder_j/E[0]                               |                                                     |               38 |            120 |
+| ~bclkmon/bclk_BUFG                           | leftfir/genblk4[1].adder_j/E[0]                                |                                                     |               36 |            120 |
+| ~bclkmon/bclk_BUFG                           |                                                                |                                                     |              125 |            197 |
+| ~lrclk_gen_BUFG                              | leftfir/E[0]                                                   |                                                     |              126 |            512 |
++----------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 1      |                     1 |
-| 2      |                     1 |
+| 1      |                     2 |
 | 3      |                     2 |
-| 5      |                     2 |
+| 4      |                    30 |
+| 5      |                    22 |
 | 6      |                     1 |
-| 8      |                     1 |
-| 15     |                     1 |
-| 16+    |                     8 |
+| 8      |                    12 |
+| 10     |                    34 |
+| 12     |                     2 |
+| 15     |                     3 |
+| 16+    |                   137 |
 +--------+-----------------------+
 
 

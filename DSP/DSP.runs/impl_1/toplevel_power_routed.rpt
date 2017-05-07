@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date             : Thu May  4 22:54:42 2017
+| Date             : Sun May  7 16:22:38 2017
 | Host             : cally running 64-bit Ubuntu 14.04.4 LTS
 | Command          : report_power -file toplevel_power_routed.rpt -pb toplevel_power_summary_routed.pb -rpx toplevel_power_routed.rpx
 | Design           : toplevel
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.320 |
-| Dynamic (W)              | 0.168 |
+| Total On-Chip Power (W)  | 0.317 |
+| Dynamic (W)              | 0.165 |
 | Device Static (W)        | 0.152 |
 | Effective TJA (C/W)      | 3.3   |
-| Max Ambient (C)          | 83.9  |
-| Junction Temperature (C) | 26.1  |
+| Max Ambient (C)          | 84.0  |
+| Junction Temperature (C) | 26.0  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -46,25 +46,24 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+-------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
-+-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |    <0.001 |        5 |       --- |             --- |
-| Slice Logic             |    <0.001 |    26224 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |     6184 |    133800 |            4.62 |
-|   CARRY4                |    <0.001 |     1527 |     33450 |            4.57 |
-|   Register              |    <0.001 |    18459 |    267600 |            6.90 |
-|   BUFG                  |    <0.001 |        2 |        32 |            6.25 |
-|   LUT as Shift Register |    <0.001 |        2 |     46200 |           <0.01 |
-|   Others                |     0.000 |       30 |       --- |             --- |
-|   F7/F8 Muxes           |     0.000 |        7 |    133800 |           <0.01 |
-| Signals                 |    <0.001 |    42733 |       --- |             --- |
-| MMCM                    |     0.135 |        1 |        10 |           10.00 |
-| DSPs                    |     0.017 |      508 |       740 |           68.65 |
-| I/O                     |     0.015 |       25 |       285 |            8.77 |
-| Static Power            |     0.152 |          |           |                 |
-| Total                   |     0.320 |          |           |                 |
-+-------------------------+-----------+----------+-----------+-----------------+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |    <0.001 |        5 |       --- |             --- |
+| Slice Logic    |     0.009 |    12095 |       --- |             --- |
+|   LUT as Logic |     0.007 |     5242 |    133800 |            3.92 |
+|   CARRY4       |     0.001 |      358 |     33450 |            1.07 |
+|   Register     |    <0.001 |     5352 |    267600 |            2.00 |
+|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
+|   Others       |     0.000 |       82 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |        8 |    133800 |           <0.01 |
+| Signals        |     0.007 |    10240 |       --- |             --- |
+| MMCM           |     0.135 |        1 |        10 |           10.00 |
+| DSPs           |    <0.001 |       20 |       740 |            2.70 |
+| I/O            |     0.014 |       25 |       285 |            8.77 |
+| Static Power   |     0.152 |          |           |                 |
+| Total          |     0.317 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -73,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.050 |       0.019 |      0.031 |
+| Vccint    |       1.000 |     0.048 |       0.017 |      0.031 |
 | Vccaux    |       1.800 |     0.106 |       0.075 |      0.031 |
 | Vcco33    |       3.300 |     0.008 |       0.003 |      0.005 |
 | Vcco25    |       2.500 |     0.006 |       0.001 |      0.005 |
@@ -141,23 +140,41 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------+-----------+
-| Name            | Power (W) |
-+-----------------+-----------+
-| toplevel        |     0.168 |
-|   bclkmon       |    <0.001 |
-|   clkmon0       |     0.135 |
-|     inst        |     0.135 |
-|   codec         |    <0.001 |
-|     adaui2c     |    <0.001 |
-|   fsmclkmon     |    <0.001 |
-|   leftfir       |     0.008 |
-|   lrclkmon      |    <0.001 |
-|   phaser        |     0.000 |
-|   rightfir      |     0.009 |
-|   rx            |    <0.001 |
-|   serialkclkmon |    <0.001 |
-|   tx            |    <0.001 |
-+-----------------+-----------+
++-----------------------------+-----------+
+| Name                        | Power (W) |
++-----------------------------+-----------+
+| toplevel                    |     0.165 |
+|   bclkmon                   |    <0.001 |
+|   clkmon0                   |     0.135 |
+|     inst                    |     0.135 |
+|   codec                     |    <0.001 |
+|     adaui2c                 |    <0.001 |
+|   fsmclkmon                 |    <0.001 |
+|   leftfir                   |     0.007 |
+|     genblk3[1].multiplier_j |    <0.001 |
+|     genblk3[2].multiplier_j |    <0.001 |
+|     genblk3[3].multiplier_j |    <0.001 |
+|     genblk3[4].multiplier_j |    <0.001 |
+|     genblk4[0].adder_j      |     0.001 |
+|     genblk4[1].adder_j      |     0.001 |
+|     genblk4[2].adder_j      |     0.001 |
+|     genblk4[3].adder_j      |    <0.001 |
+|     multiplier_1            |    <0.001 |
+|   lrclkmon                  |    <0.001 |
+|   phaser                    |    <0.001 |
+|   rightfir                  |     0.008 |
+|     genblk3[1].multiplier_j |    <0.001 |
+|     genblk3[2].multiplier_j |    <0.001 |
+|     genblk3[3].multiplier_j |    <0.001 |
+|     genblk3[4].multiplier_j |    <0.001 |
+|     genblk4[0].adder_j      |     0.001 |
+|     genblk4[1].adder_j      |     0.001 |
+|     genblk4[2].adder_j      |    <0.001 |
+|     genblk4[3].adder_j      |    <0.001 |
+|     multiplier_1            |    <0.001 |
+|   rx                        |    <0.001 |
+|   serialkclkmon             |    <0.001 |
+|   tx                        |    <0.001 |
++-----------------------------+-----------+
 
 

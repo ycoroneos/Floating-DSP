@@ -19,13 +19,18 @@ read_mem /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/c
 read_verilog -library xil_defaultlib {
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/imports/new/adau1761_controller.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/alt_divider.v
+  /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/clock_sync.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/delay_1.v
-  /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_systolic.v
+  /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v
+  /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/float_memory.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/i2cmaster.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/i2s_rx.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/i2s_tx.v
-  /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/memory.v
   /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/imports/new/toplevel.v
+}
+read_verilog -library float_lib {
+  /home/corey/mit/6.337/yanni_code/finalproj/fpu_custom/all/adder.v
+  /home/corey/mit/6.337/yanni_code/finalproj/fpu_custom/all/multiplier.v
 }
 read_ip -quiet /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all /home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
