@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog float_lib  "../../../../fpu_custom/all/adder.v"
+verilog xil_defaultlib  "../../../DSP.srcs/sources_1/new/clock_sync.v"
+verilog xil_defaultlib  "../../../DSP.srcs/sources_1/new/fir_floating.v"
+verilog xil_defaultlib  "../../../DSP.srcs/sources_1/new/fir_systolic.v"
+verilog xil_defaultlib  "../../../DSP.srcs/sources_1/new/memory.v"
+verilog float_lib  "../../../../fpu_custom/all/multiplier.v"
+verilog xil_defaultlib  "../../../DSP.srcs/sim_1/imports/Desktop/OGTestBench.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

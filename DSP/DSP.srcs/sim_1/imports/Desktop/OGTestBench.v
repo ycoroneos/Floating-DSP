@@ -24,13 +24,13 @@ module OGTestBench(
     );
     
     //fir parameters
-    localparam NTAPS=4;
+    localparam NTAPS=208;
     localparam WIDTH=32;
     
     //fir memories
     wire [(NTAPS*(WIDTH))-1 : 0] fixed_coeffs, float_coeffs;
-    memory #(.NTAPS(NTAPS), .FILE("coeff_float.list")) ctable0(.out(float_coeffs[(NTAPS*(WIDTH))-1:0]));
-    memory #(.NTAPS(NTAPS), .FILE("coeff_fixed.list")) ctable1(.out(fixed_coeffs[(NTAPS*(WIDTH))-1:0]));
+    memory #(.NTAPS(NTAPS), .FILE("100_LP_binary.coe")) ctable0(.out(float_coeffs[(NTAPS*(WIDTH))-1:0]));
+    memory #(.NTAPS(NTAPS), .FILE("float_coeff_100LP_binary.coe")) ctable1(.out(fixed_coeffs[(NTAPS*(WIDTH))-1:0]));
     
     //signals everyone shares
     reg reset;
@@ -48,14 +48,14 @@ module OGTestBench(
     fir_floating #(.NTAPS(NTAPS), .WIDTH(WIDTH)) leftfir(.reset(reset), .lrclk(lrclk_gen), .fastclk(fastclk_gen), .in(left_in_float[31:0]), .out(left_out_float[31:0]), .coeffs(float_coeffs));
     
     //variables for file io
-    integer float_input_fd, fixed_input_fd, fixed_output_fd;
+    integer float_input_fd, fixed_input_fd, fixed_output_fd, float_output_fd;
     reg [31:0] next_fixed, next_float;
     //scan_file = $fscanf(data_file, "%d\n", captured_data); 
     
     //initialize lrclk
     initial begin
         lrclk_gen = 1;
-        forever #640 lrclk_gen = ~lrclk_gen;
+        forever #100 lrclk_gen = ~lrclk_gen;
     end
     
     //initialize the fast floating-point clock
@@ -72,15 +72,16 @@ module OGTestBench(
     left_in_float=0;
     
     //wait until the first rising edge of lrclk to start loading data
-    #960
+    #200
     reset=0;    
     end
     
     //open a bunch of files
     initial begin
-        float_input_fd=$fopen("chirp_float.mem","r");
-        fixed_input_fd=$fopen("chirp_fixed.mem","r");
-        fixed_output_fd=$fopen("chirp_fixed.out", "wt");
+        float_input_fd=$fopen("chirp_float_binary.mem","r");
+        fixed_input_fd=$fopen("chirp_fixed_binary.mem","r");
+        fixed_output_fd=$fopen("chirp_fixed.out", "w");
+        float_output_fd=$fopen("chirp_float.out", "w");
 end
     
     //load in a new input on every rising lrclk edge
@@ -91,15 +92,18 @@ end
         $fclose(fixed_input_fd);
         $fclose(float_input_fd);
         $fclose(fixed_output_fd);
-        $stop;
+        $fclose(float_output_fd);
+        $finish;
         end
-        $fscanf(fixed_input_fd, "%d\n", left_in_fixed);
+        $fscanf(fixed_input_fd, "%b\n", left_in_fixed);
+        $fscanf(float_input_fd, "%b\n", left_in_float);
     end
     
     //write data to files   
     always @(negedge lrclk_gen)
     begin
         $fwrite(fixed_output_fd,"%d\n",left_out_fixed);
+        $fwrite(float_output_fd,"%d\n",left_out_float);
         $display("%d\n", left_out_fixed);
     end
 endmodule
