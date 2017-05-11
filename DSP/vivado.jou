@@ -13,3 +13,7 @@ start_gui
 open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr
 update_compile_order -fileset sources_1
 import_files -norecurse {C:/Users/yanni/Documents/MATLAB/chirp_fixed.mem C:/Users/yanni/Documents/MATLAB/chirp_float.mem}
+remove_files  C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/MATLAB/chirp_fixed.mem
+file delete -force C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.srcs/sources_1/imports/MATLAB/chirp_fixed.mem
+import_files -norecurse C:/Users/yanni/Documents/MATLAB/chirp_fixed.mem
+import_files -force -norecurse C:/Users/yanni/Documents/MATLAB/chirp_fixed.mem
