@@ -2,16 +2,15 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu May 11 02:03:25 2017
-# Process ID: 4260
+# Start of session at: Thu May 11 02:09:28 2017
+# Process ID: 192
 # Current directory: C:/Users/yanni/Documents/18.335/finalproj/DSP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3256 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2912 C:\Users\yanni\Documents\18.335\finalproj\DSP\DSP.xpr
 # Log file: C:/Users/yanni/Documents/18.335/finalproj/DSP/vivado.log
 # Journal file: C:/Users/yanni/Documents/18.335/finalproj/DSP\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/yanni/Documents/18.335/finalproj/DSP/DSP.xpr
-INFO: [Project 1-313] Project file moved from '/home/corey/mit/6.337/yanni_code/finalproj/DSP' since last save.
 WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/Users/yanni/Documents/18.335/finalproj/fpu_custom/all/adder.v:]
 WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/Users/yanni/Documents/18.335/finalproj/fpu_custom/all/multiplier.v:]
 WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [C:/Users/yanni/Documents/18.335/finalproj/fpu_custom/all/int_to_float.v:]
@@ -50,11 +49,4 @@ WARNING: [IP_Flow 19-2162] IP 'clk_wiz_0' is locked:
 * IP definition 'Clocking Wizard (5.3)' for IP 'clk_wiz_0' (customized with software release 2016.4) has a newer minor version in the IP Catalog.
 Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
 update_compile_order -fileset sources_1
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-import_files -fileset sim_1 -norecurse C:/Users/yanni/Desktop/OGTestBench.v
-update_compile_order -fileset sim_1
-set_property top OGTestBench [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-update_compile_order -fileset sim_1
-exit
-INFO: [Common 17-206] Exiting Vivado at Thu May 11 02:04:33 2017...
+import_files -norecurse {C:/Users/yanni/Documents/MATLAB/chirp_fixed.mem C:/Users/yanni/Documents/MATLAB/chirp_float.mem}
