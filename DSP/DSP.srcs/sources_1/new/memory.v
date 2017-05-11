@@ -22,7 +22,8 @@
 
 module memory #(
 NTAPS=5,
-WIDTH=32
+WIDTH=32,
+FILE="coeff.list"
 )
 (
 output wire [((NTAPS)*(WIDTH))-1:0] out
@@ -38,6 +39,6 @@ for (i=0; i<NTAPS; i=i+1)
     end
     
 initial begin
-   $readmemh("coeff.list", looktable);
+   $readmemb(FILE, looktable);
 end
 endmodule
