@@ -132,8 +132,8 @@ def main():
 			data = map(float_to_binary, data)
 
 		save_output(args.output, args.out_format, data)
-
-	if args.input:
+	
+	elif args.input:
 		in_val = args.input
 
 		if hex_format(args.in_format):
