@@ -28,7 +28,7 @@ parser.set_defaults(ftoi=False)
 
 def load_data(infile, informat):
 	# pattern = re.compile('[\W_|.]+') # remove nonalphanumeric
-	pattern = re.compile('[^\dA-Fa-f.]+') # remove nonalphanumeric except period
+	pattern = re.compile('[^\dA-Fa-f.-]+') # remove nonalphanumeric except period
 	data = []
 	with open(infile, 'r') as data_file:
 		for row in data_file:
@@ -86,6 +86,11 @@ def float_to_float(float_str):
 	return float(float_str)
 
 def float_to_binary(f):
+	if f < 0:
+		f = f * -1
+		val = int(struct.unpack('!i',struct.pack('!f',f))[0])
+		val |= 0b10000000000000000000000000000000
+		return val
 	return int(struct.unpack('!i',struct.pack('!f',f))[0])
 
 def binary_to_float(f):
@@ -108,6 +113,11 @@ def main():
 
 	if args.input and args.output:
 
+		print args.input, "-->", args.output
+		print "...Input format: ", format_to_format(args.in_format)
+		print "...Output format: ", format_to_format(args.out_format)
+		print "...Convert from binary float representation:", args.ftoi
+
 		data = load_data(args.input, args.in_format)
 
 		if hex_format(args.in_format):
@@ -121,11 +131,6 @@ def main():
 
 		if args.ftoi:
 			data = map(binary_to_float, data)
-
-		print args.input, "-->", args.output
-		print "...Input format: ", format_to_format(args.in_format)
-		print "...Output format: ", format_to_format(args.out_format)
-		print "...Convert from binary float representation:", args.ftoi
 
 		# convert from a 
 		if not float_format(args.out_format) and not args.ftoi:
