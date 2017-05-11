@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1853115031fs"></ZoomStartTime>
-      <ZoomEndTime time="2234166824fs"></ZoomEndTime>
-      <Cursor1Time time="1966126000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="5444176149fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+      <ValueColumnWidth column_width="114"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="13" />
    <wvobject type="logic" fp_name="/fir_floatingtb/reset">
@@ -29,29 +29,24 @@
       <obj_property name="ObjectShortName">lrclk</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/pipes">
-      <obj_property name="ElementShortName">pipes[1:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">pipes[1:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="ElementShortName">pipes[413:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">pipes[413:0][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/delays">
-      <obj_property name="ElementShortName">delays[1:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">delays[1:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="ElementShortName">delays[207:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">delays[207:0][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/muls">
-      <obj_property name="ElementShortName">muls[1:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">muls[1:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="ElementShortName">muls[207:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">muls[207:0][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/adds">
-      <obj_property name="ElementShortName">adds[0:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">adds[0:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="ElementShortName">adds[206:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">adds[206:0][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/current_state">
       <obj_property name="ElementShortName">current_state[3:0]</obj_property>
       <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/left_in">
       <obj_property name="ElementShortName">left_in[31:0]</obj_property>
@@ -70,11 +65,11 @@
       <obj_property name="ObjectShortName">add_reset</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/ina_add_ack">
-      <obj_property name="ElementShortName">ina_add_ack[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ina_add_ack[1:0]</obj_property>
+      <obj_property name="ElementShortName">ina_add_ack[207:0]</obj_property>
+      <obj_property name="ObjectShortName">ina_add_ack[207:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/fir_floatingtb/leftfir/inb_add_ack">
-      <obj_property name="ElementShortName">inb_add_ack[1:0]</obj_property>
-      <obj_property name="ObjectShortName">inb_add_ack[1:0]</obj_property>
+      <obj_property name="ElementShortName">inb_add_ack[207:0]</obj_property>
+      <obj_property name="ObjectShortName">inb_add_ack[207:0]</obj_property>
    </wvobject>
 </wave_config>

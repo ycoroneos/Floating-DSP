@@ -4,8 +4,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/fi
 INFO: [VRFC 10-311] analyzing module clock_sync
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fir_floating
-WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v:212]
-WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v:214]
+WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v:190]
+WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/fir_floating.v:192]
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/DSP.srcs/sources_1/new/float_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module float_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/fpu_custom/all/multiplier.v" into library float_lib

@@ -23,7 +23,7 @@ module fir_floatingtb(
 
     );
     //memory for the filter coefficients
-    localparam NTAPS=4;
+    localparam NTAPS=208;
     localparam WIDTH=32;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
     float_memory #(.NTAPS(NTAPS)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
@@ -56,7 +56,7 @@ module fir_floatingtb(
     left_in=0;
     right_in=0;
     reset=1;
-    forever #640 lrclk_gen = ~lrclk_gen;
+    forever #100 lrclk_gen = ~lrclk_gen;
     end
 
     initial begin
@@ -66,12 +66,13 @@ module fir_floatingtb(
     
     always @(negedge lrclk_gen)
     begin
-    $fwrite(file,"%d\n",left_out);
+    $fwrite(file,"%b\n",left_out);
     end
 
     initial begin
-    // this value should be 128*[number of output samples to save]
-    #128000 $fclose(file);
+    // this value should be 200*[number of output samples to save]
+    #100000 $fclose(file);
+    $finish;
     end
 
     // initial begin
@@ -80,12 +81,14 @@ module fir_floatingtb(
     // end
     
     initial begin
-    #1280
+    // #1280
+    #200
     reset=0;
     left_in = 32'b00111111100000000000000000000000;
     right_in = 32'b00111111100000000000000000000000;
+    #200
     // #1280
-    #2560
+    // #2560
     left_in=0;
     right_in=0;
     end
