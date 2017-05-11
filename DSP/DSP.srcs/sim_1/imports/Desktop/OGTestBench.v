@@ -29,8 +29,8 @@ module OGTestBench(
     
     //fir memories
     wire [(NTAPS*(WIDTH))-1 : 0] fixed_coeffs, float_coeffs;
-    float_memory #(.NTAPS(NTAPS)) ctable0(.out(float_coeffs[(NTAPS*(WIDTH))-1:0]));
-    memory #(.NTAPS(NTAPS)) ctable1(.out(fixed_coeffs[(NTAPS*(WIDTH))-1:0]));
+    memory #(.NTAPS(NTAPS), .FILE("coeff_float.list")) ctable0(.out(float_coeffs[(NTAPS*(WIDTH))-1:0]));
+    memory #(.NTAPS(NTAPS), .FILE("coeff_fixed.list")) ctable1(.out(fixed_coeffs[(NTAPS*(WIDTH))-1:0]));
     
     //signals everyone shares
     reg reset;
