@@ -17,14 +17,19 @@ This can take either input files or just a single raw input value, for example:\
     > 00111111100111011111001110110110\n \n \
     ./convert.py 00111111100111011111001110110110 --out_format=f --in_format=b --ftoi \n \
     > 1.23399996758\n \n \
+Use --noconv to convert directly from one number type to another, without turning it into a binary float value.\n \n \
+    ./convert.py f --in_format=h --out_format=b --noconv \n \
+  	> 00000000000000000000000000001111 \n\n\
 Warning: Converting float value outputs (without ftoi) to something other ')
 
-parser.add_argument('input', metavar='IN', type=str, help='Input file path')
+parser.add_argument('input', metavar='IN/VAL', type=str, help='Input file path or a single value to convert.')
 parser.add_argument('output', metavar='OUT', nargs="?", type=str, help='Output file path')
 parser.add_argument('--in_format',metavar='b,d,h,f', type=str, default="d", help='Format of input values: hex(h), decimal(d), binary(b), or float(f)')
 parser.add_argument('--out_format',metavar='b,d,h,f,i', type=str, default="b", help='Format of output values: hex(h), decimal(d), binary(b), ints(i) or float(f)')
 parser.add_argument('--ftoi', dest='ftoi', action='store_true', help="Convert from a binary representation of a float value to a number")
+parser.add_argument('--noconv', dest='noconvert', action='store_true', help="Do not convert from a number to a float binary representation, just number to number.")
 parser.set_defaults(ftoi=False)
+parser.set_defaults(noconvert=False)
 
 def load_data(infile, informat):
 	# pattern = re.compile('[\W_|.]+') # remove nonalphanumeric
@@ -32,7 +37,9 @@ def load_data(infile, informat):
 	data = []
 	with open(infile, 'r') as data_file:
 		for row in data_file:
-			data.append(pattern.sub('', row))
+			val = pattern.sub('', row)
+			if not val == "":
+				data.append(val)
 	return data
 
 def save_output(outfile, outformat, data):
@@ -108,6 +115,10 @@ def format_to_format(formatstr):
 	if float_format(formatstr):
 		return "float"
 
+
+def should_convert_to_binary_float_representation(args):
+	return not args.ftoi and not float_format(args.out_format) and not args.noconvert
+
 def main():
 	args = parser.parse_args()
 
@@ -132,8 +143,8 @@ def main():
 		if args.ftoi:
 			data = map(binary_to_float, data)
 
-		# convert from a 
-		if not float_format(args.out_format) and not args.ftoi:
+		# if necessary, convert from a number to a binary float representation
+		if should_convert_to_binary_float_representation(args):
 			data = map(float_to_binary, data)
 
 		save_output(args.output, args.out_format, data)
@@ -153,7 +164,8 @@ def main():
 		if args.ftoi:
 			in_val = binary_to_float(in_val)
 
-		if not float_format(args.out_format) and not args.ftoi:
+		# if necessary, convert from a number to a binary float representation
+		if should_convert_to_binary_float_representation(args):
 			in_val = float_to_binary(in_val)
 
 		if bin_format(args.out_format):

@@ -71,7 +71,7 @@ module fir_floatingtb(
 
     initial begin
     // this value should be 200*[number of output samples to save]
-    #100000 $fclose(file);
+    #1000000 $fclose(file);
     $finish;
     end
 
@@ -84,8 +84,18 @@ module fir_floatingtb(
     // #1280
     #200
     reset=0;
-    left_in = 32'b00111111100000000000000000000000;
-    right_in = 32'b00111111100000000000000000000000;
+    left_in = 32'b01000000001000000000000000000000;
+    right_in = 32'b01000000001000000000000000000000;
+    #200
+    // #1280
+    // #2560
+    left_in=0;
+    right_in=0;
+
+    #80000
+    reset=0;
+    left_in = 32'b01000000001000000000000000000000;
+    right_in = 32'b01000000001000000000000000000000;
     #200
     // #1280
     // #2560

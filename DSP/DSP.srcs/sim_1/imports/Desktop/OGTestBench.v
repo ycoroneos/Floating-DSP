@@ -24,7 +24,7 @@ module OGTestBench(
     );
     
     //fir parameters
-    localparam NTAPS=208;
+    localparam NTAPS=5;
     localparam WIDTH=32;
     
     //fir memories
@@ -32,6 +32,9 @@ module OGTestBench(
     memory #(.NTAPS(NTAPS), .FILE("100_LP_binary.coe")) ctable0(.out(float_coeffs[(NTAPS*(WIDTH))-1:0]));
     memory #(.NTAPS(NTAPS), .FILE("float_coeff_100LP_binary.coe")) ctable1(.out(fixed_coeffs[(NTAPS*(WIDTH))-1:0]));
     
+    // for sanity
+    reg [32:0] progress;
+
     //signals everyone shares
     reg reset;
     reg lrclk_gen;
@@ -54,8 +57,9 @@ module OGTestBench(
     
     //initialize lrclk
     initial begin
+        progress = 1;
         lrclk_gen = 1;
-        forever #100 lrclk_gen = ~lrclk_gen;
+        forever #64 lrclk_gen = ~lrclk_gen;
     end
     
     //initialize the fast floating-point clock
@@ -72,8 +76,12 @@ module OGTestBench(
     left_in_float=0;
     
     //wait until the first rising edge of lrclk to start loading data
-    #200
-    reset=0;    
+    #128
+    reset=0;
+    left_in_fixed={24'h00_0001, 8'h00};
+    #128
+    left_in_fixed=0;
+
     end
     
     //open a bunch of files
@@ -82,7 +90,7 @@ module OGTestBench(
         fixed_input_fd=$fopen("chirp_fixed_binary.mem","r");
         fixed_output_fd=$fopen("chirp_fixed.out", "w");
         float_output_fd=$fopen("chirp_float.out", "w");
-end
+    end
     
     //load in a new input on every rising lrclk edge
     always @(posedge lrclk_gen)
@@ -95,6 +103,7 @@ end
         $fclose(float_output_fd);
         $finish;
         end
+        progress = progress + 1;
         $fscanf(fixed_input_fd, "%b\n", left_in_fixed);
         $fscanf(float_input_fd, "%b\n", left_in_float);
     end
@@ -102,8 +111,8 @@ end
     //write data to files   
     always @(negedge lrclk_gen)
     begin
-        $fwrite(fixed_output_fd,"%d\n",left_out_fixed);
-        $fwrite(float_output_fd,"%d\n",left_out_float);
-        $display("%d\n", left_out_fixed);
+        $fwrite(fixed_output_fd,"%b\n",left_out_fixed);
+        $fwrite(float_output_fd,"%b\n",left_out_float);
+        $display("%d\n", progress);
     end
 endmodule

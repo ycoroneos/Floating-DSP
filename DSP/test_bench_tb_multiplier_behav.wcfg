@@ -3,73 +3,29 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="fir_floatingtb_behav.wdb" id="1">
+      <db_ref path="fir_floating_file_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="fir_floatingtb" />
+            <top_module name="fir_floating_file_tb" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="5444176149fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomEndTime time="930046379650fs"></ZoomEndTime>
+      <Cursor1Time time="93000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="114"></ValueColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
-   <wvobject type="logic" fp_name="/fir_floatingtb/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/fir_floatingtb/leftfir/lrclk">
-      <obj_property name="ElementShortName">lrclk</obj_property>
-      <obj_property name="ObjectShortName">lrclk</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/pipes">
-      <obj_property name="ElementShortName">pipes[413:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">pipes[413:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/delays">
-      <obj_property name="ElementShortName">delays[207:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">delays[207:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/muls">
-      <obj_property name="ElementShortName">muls[207:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">muls[207:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/adds">
-      <obj_property name="ElementShortName">adds[206:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">adds[206:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/current_state">
-      <obj_property name="ElementShortName">current_state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/left_in">
+   <WVObjectSize size="2" />
+   <wvobject type="array" fp_name="/fir_floating_file_tb/left_in">
       <obj_property name="ElementShortName">left_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">left_in[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/left_out">
+   <wvobject type="array" fp_name="/fir_floating_file_tb/left_out">
       <obj_property name="ElementShortName">left_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">left_out[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/fir_floatingtb/leftfir/mult_reset">
-      <obj_property name="ElementShortName">mult_reset</obj_property>
-      <obj_property name="ObjectShortName">mult_reset</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/fir_floatingtb/leftfir/add_reset">
-      <obj_property name="ElementShortName">add_reset</obj_property>
-      <obj_property name="ObjectShortName">add_reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/ina_add_ack">
-      <obj_property name="ElementShortName">ina_add_ack[207:0]</obj_property>
-      <obj_property name="ObjectShortName">ina_add_ack[207:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/fir_floatingtb/leftfir/inb_add_ack">
-      <obj_property name="ElementShortName">inb_add_ack[207:0]</obj_property>
-      <obj_property name="ObjectShortName">inb_add_ack[207:0]</obj_property>
    </wvobject>
 </wave_config>
