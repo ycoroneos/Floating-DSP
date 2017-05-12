@@ -28,8 +28,14 @@ parser.add_argument('--in_format',metavar='b,d,h,f', type=str, default="d", help
 parser.add_argument('--out_format',metavar='b,d,h,f,i', type=str, default="b", help='Format of output values: hex(h), decimal(d), binary(b), ints(i) or float(f)')
 parser.add_argument('--ftoi', dest='ftoi', action='store_true', help="Convert from a binary representation of a float value to a number")
 parser.add_argument('--noconv', dest='noconvert', action='store_true', help="Do not convert from a number to a float binary representation, just number to number.")
+parser.add_argument('--bitness', type=int, default=32, help="Number of bits on the output, default 32")
+parser.add_argument('--2c', dest='twoscomplement', action='store_true', help="Indicate that the input is in twos complement format")
 parser.set_defaults(ftoi=False)
 parser.set_defaults(noconvert=False)
+parser.set_defaults(twoscomplement=False)
+
+
+bitness = 32
 
 def load_data(infile, informat):
 	# pattern = re.compile('[\W_|.]+') # remove nonalphanumeric
@@ -46,10 +52,12 @@ def save_output(outfile, outformat, data):
 	with open(outfile, 'w') as data_file:
 		if bin_format(outformat):
 			for row in data:
-				data_file.write(format(row, '#034b')[2:] + "\n")
+				row = int_to_twos_comp(row, bitness)
+				data_file.write(format(row, '#0'+str(bitness+2)+'b')[2:] + "\n")
 		elif hex_format(outformat):
 			for row in data:
-				data_file.write(format(row, "#010X")[2:] + "\n")
+				row = int_to_twos_comp(row, bitness)
+				data_file.write(format(row, "#0"+str(bitness/4+2)+"X")[2:] + "\n")
 		elif dec_format(outformat):
 			for row in data:
 				data_file.write(str(row) + "\n")
@@ -59,6 +67,18 @@ def save_output(outfile, outformat, data):
 		elif int_format(outformat):
 			for row in data:
 				data_file.write(str(int(row)) + "\n")
+
+def twos_comp_to_int(val, bits):
+	""" compute the 2's complement of int value val """
+	if (val & (1 << (bits - 1))) != 0: # if sign bit is set e.g., 8bit: 128-255
+		val = val - (1 << bits)        # compute negative value
+	return val                         # return positive value as is
+
+def int_to_twos_comp(val, bits):
+	""" compute the 2's complement of int value val """
+	if val < 0:
+		val = val % (1<<bits)
+	return val
 
 def hex_format(formatstr):
 	formatstr = formatstr.lower()
@@ -120,10 +140,11 @@ def should_convert_to_binary_float_representation(args):
 	return not args.ftoi and not float_format(args.out_format) and not args.noconvert
 
 def main():
+	global bitness
 	args = parser.parse_args()
+	bitness = args.bitness
 
 	if args.input and args.output:
-
 		print args.input, "-->", args.output
 		print "...Input format: ", format_to_format(args.in_format)
 		print "...Output format: ", format_to_format(args.out_format)
@@ -139,6 +160,9 @@ def main():
 			data = map(decimal_to_int, data)
 		elif float_format(args.in_format):
 			data = map(float_to_float, data)
+
+		if args.twoscomplement:
+			data = map(lambda x: twos_comp_to_int(x, bitness), data)
 
 		if args.ftoi:
 			data = map(binary_to_float, data)
@@ -161,6 +185,9 @@ def main():
 		elif float_format(args.in_format):
 			in_val = float_to_float(in_val)
 
+		if args.twoscomplement:
+			in_val = twos_comp_to_int(in_val, bitness)
+
 		if args.ftoi:
 			in_val = binary_to_float(in_val)
 
@@ -169,9 +196,11 @@ def main():
 			in_val = float_to_binary(in_val)
 
 		if bin_format(args.out_format):
-			in_val = format(in_val, '#034b')[2:]
+			in_val = int_to_twos_comp(in_val, bitness)
+			in_val = format(in_val, '#0'+str(bitness+2)+'b')[2:]
 		elif hex_format(args.out_format):
-			in_val = format(in_val, "#010X")[2:]
+			in_val = int_to_twos_comp(in_val, bitness)
+			in_val = format(in_val, "#0"+str(bitness/4+2)+"X")[2:]
 		elif dec_format(args.out_format):
 			in_val = str(in_val)
 		elif float_format(args.out_format):

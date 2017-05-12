@@ -31,8 +31,8 @@ parameter TOP_BIT=23
 (
 input wire reset,
 input wire lrclk,
-input wire [23:0] in,
-input wire [23:0] out,
+input wire [WIDTH-1:0] in,
+input wire [WIDTH-1:0] out,
 input wire [(NTAPS)*(WIDTH)-1:0] coeffs
     );
     //constants we need
@@ -42,12 +42,12 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
     localparam NMULS = NTAPS;
     
     //declare the pipeline stages
-    reg [23:0] pipes[NPIPES-1:0];
+    reg [WIDTH-1:0] pipes[NPIPES-1:0];
     reg [WIDTH-1:0] delays[NDELAYS-1:0];
     
     //declare the continuous stages
-    wire [WIDTH-1:0] muls[NMULS-1:0];
-    wire [WIDTH-1:0] adds[NADDS-1:0];
+    wire signed [WIDTH-1:0] muls[NMULS-1:0];
+    wire signed [WIDTH-1:0] adds[NADDS-1:0];
     
     //make the continuous assignments
     genvar j;
@@ -56,11 +56,11 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
         begin
             if (j==0)
                 begin
-                    assign muls[j][WIDTH-1:0] = in[23:0] * coeffs[j*WIDTH +: WIDTH];
+                    assign muls[j][WIDTH-1:0] = in[WIDTH-1:0] * coeffs[j*WIDTH +: WIDTH];
                 end
             else
                 begin
-                    assign muls[j][WIDTH-1:0] = pipes[(2*j)-1][23:0] * coeffs[j*WIDTH +: WIDTH];
+                    assign muls[j][WIDTH-1:0] = pipes[(2*j)-1][WIDTH-1:0] * coeffs[j*WIDTH +: WIDTH];
                 end
         end
     //adds
@@ -72,7 +72,7 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
     
     
    
-    assign out[23:0] = delays[NDELAYS-1][TOP_BIT -: 24];
+    assign out[WIDTH-1:0] = delays[NDELAYS-1][WIDTH-1 -: WIDTH];
     integer i;
     always @(negedge lrclk)
     begin
@@ -88,11 +88,11 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                 begin
                     if (i==0)
                         begin
-                            pipes[i][23:0] <= in[23:0];
+                            pipes[i][WIDTH-1:0] <= in[WIDTH-1:0];
                         end
                     else
                         begin
-                            pipes[i][23:0] <= pipes[i-1][23:0];
+                            pipes[i][WIDTH-1:0] <= pipes[i-1][WIDTH-1:0];
                         end
                 end
                
@@ -108,7 +108,6 @@ input wire [(NTAPS)*(WIDTH)-1:0] coeffs
                             delays[i][WIDTH-1:0] <= adds[i-1][WIDTH-1:0];
                         end
                 end
-                
         end
     end
 endmodule
