@@ -30,9 +30,9 @@ def chirp(length, low, high):
 if __name__ == '__main__':
 	# args = parser.parse_args()
 
-	chp = chirp(1.0, 10, 2000)
+	chp = chirp(1.0, 10, 20000)
 
-	np.savetxt("./chirp.signal", chp, fmt="%.9f")
+	np.savetxt("./chirp_extended.signal", chp, fmt="%.9f")
 
 	plt.plot(chp)
 	plt.show()

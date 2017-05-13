@@ -40,6 +40,18 @@ SMALLER_SCALE_METHOD = 2
 SCALE_METHOD = CLIP_METHOD
 # SCALE_METHOD = SMALLER_SCALE_METHOD
 
+def line_prepender(filename, line):
+	with open(filename, 'r+') as f:
+		content = f.read()
+		f.seek(0, 0)
+		f.write(line.rstrip('\r\n') + '\n' + content)
+
+def strip_last_line(filename):
+	with open(filename, 'r+') as f:
+		content = f.read()
+		f.seek(0, 0)
+		f.write(line.rstrip('\r\n') + '\n' + content)
+
 def float_to_scaled_int(arr, copy=True):
 	if copy:
 		unscaled = np.copy(arr)
@@ -127,6 +139,10 @@ def simulate(coefficients, signal, output_name, notes=""):
 	# copy out the results
 	do("cp {0} {1}/output_float_bin.list".format(SIGNAL_OUT_FLOAT, output_name))
 	do("cp {0} {1}/output_fixed_bin.list".format(SIGNAL_OUT_FIXED, output_name))
+
+	# phase shift the float point result backwards one sample to phase align the signals
+	line_prepender(output_name+"/output_float_bin.list", "0"*32)
+	do("head -n-1 {0}/output_float_bin.list > {0}/tmp.list && mv {0}/tmp.list {0}/output_float_bin.list".format(output_name))
 
 	# convert the results to more readable format
 	do(CONV+"{0}/output_fixed_bin.list {0}/output_fixed_int.list --in_format=b --out_format=d --noconv --bitness=50 --2c".format(output_name))
