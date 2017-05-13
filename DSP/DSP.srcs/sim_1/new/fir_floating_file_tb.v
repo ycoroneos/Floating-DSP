@@ -55,6 +55,7 @@ module fir_floating_file_tb(
     initial begin
     #128
     reset=0;
+    progress=0;
     end
 
     //open a bunch of files

@@ -45,6 +45,7 @@ module fir_fixed_file_tb(
     end
     // 11111111111111111111111111111110000011110000000000
     initial begin
+      progress=0;
     lrclk_gen=1;
     left_in=0;
     reset=1;
