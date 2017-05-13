@@ -13,14 +13,19 @@ def square(fs, f):
         sq += (4/(np.pi*h))*np.sin(2*np.pi*f*h*t)
     return t, np.sign(sq)
 
-def DFT(x):
-    n=len(x)
-    return scipy.fftpack.fft(x)[0:n/2]
+def sine(fs, f):
+    t=np.arange(0,1,1.0/fs)
+    return t, np.sin(2.0*np.pi*f*t)
+
+def showFFT(fs, x, freqlo, freqhi):
+    xf=scipy.fftpack.fft(x)
+    freq=np.fft.fftfreq(len(x), d=1.0/fs)
+    plt.plot(freq[freqlo:freqhi],(2.0/len(x))* np.abs(xf)[freqlo:freqhi])
+    plt.show()
 
 if (__name__=="__main__"):
     #generate a sample signal
     t, sq=square(48000, 1)
-    dft=DFT(sq)
-    #plt.plot(t, sq)
-    plt.plot(map(abs, dft[0:20]))
-    plt.show()
+    t2, sn2 = sine(48000, 50)
+    t3, sn3 = sine(48000, 20)
+    showFFT(48000, sq, 0, 100)
