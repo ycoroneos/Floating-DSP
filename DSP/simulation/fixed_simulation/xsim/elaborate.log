@@ -1,0 +1,15 @@
+Vivado Simulator 2017.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2017.1/bin/unwrapped/lnx64.o/xelab --relax --debug typical --mt auto -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot fir_fixed_file_tb xil_defaultlib.fir_fixed_file_tb xil_defaultlib.glbl -log elaborate.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.memory(NTAPS=208,WIDTH=50)
+Compiling module xil_defaultlib.fir_systolic(NTAPS=208,WIDTH=50)
+Compiling module xil_defaultlib.fir_fixed_file_tb
+WARNING: [XSIM 43-3373] "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" Line 70. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot fir_fixed_file_tb
