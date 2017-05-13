@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Sat May 13 01:37:31 2017
+# Process ID: 21142
+# Current directory: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim
+# Command line: wbtcv -mode batch -source /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/webtalk.log
+# Journal file: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat May 13 01:37:32 2017. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sat May 13 01:37:32 2017...

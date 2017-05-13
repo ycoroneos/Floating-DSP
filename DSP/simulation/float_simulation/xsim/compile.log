@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/adder.v" into library float_lib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/clock_sync.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_sync
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_floating
+WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating.v:190]
+WARNING: [VRFC 10-756] identifier i is used before its declaration [/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating.v:192]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/float_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module float_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/multiplier.v" into library float_lib
+INFO: [VRFC 10-311] analyzing module multiplier
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating_file_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_floating_file_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
