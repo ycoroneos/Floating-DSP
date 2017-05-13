@@ -20,12 +20,18 @@ def sine(fs, f):
 def showFFT(fs, x, freqlo, freqhi):
     xf=scipy.fftpack.fft(x)
     freq=np.fft.fftfreq(len(x), d=1.0/fs)
-    plt.plot(freq[freqlo:freqhi],(2.0/len(x))* np.abs(xf)[freqlo:freqhi])
+    #plt.plot(freq[freqlo:freqhi],(2.0/len(x))* np.abs(xf)[freqlo:freqhi])
+    plt.semilogx(freq[freqlo:freqhi],(2.0/len(x))* np.abs(xf)[freqlo:freqhi])
     plt.show()
+
+def readfloatfile(filename):
+    return map(float, [line.strip() for line in open(filename, 'r')])
 
 if (__name__=="__main__"):
     #generate a sample signal
-    t, sq=square(48000, 1)
-    t2, sn2 = sine(48000, 50)
-    t3, sn3 = sine(48000, 20)
-    showFFT(48000, sq, 0, 100)
+    sig=readfloatfile("chirp.signal")
+    showFFT(48000, sig, 0, 4000)
+#    t, sq=square(48000, 1)
+#    t2, sn2 = sine(48000, 50)
+#    t3, sn3 = sine(48000, 20)
+#    showFFT(48000, sq, 0, 100)
