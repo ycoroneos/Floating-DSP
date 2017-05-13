@@ -1,0 +1,1 @@
+100Hz square wave, 0.5 mag, 0.25 second

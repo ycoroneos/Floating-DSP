@@ -14,6 +14,9 @@ parser.add_argument('coeffs', metavar='COEFFS', type=str, help='File to find coe
 parser.add_argument('signal', metavar='SIGNAL', type=str, help='File to find signal in float format from [1.0,-1.0]')
 parser.add_argument('output', metavar='OUTPUT', type=str, help='Name of the output folder')
 parser.add_argument('--notes', metavar='NOTES', type=str, default="", help='Optional notes')
+parser.add_argument('--dry', dest='dry', action='store_true', help="Dry run, no simulation")
+parser.set_defaults(dry=False)
+
 
 def pad_signal(signal, num_coeffs):
 	return np.concatenate(([0], signal, np.zeros(num_coeffs*2)))
@@ -84,7 +87,10 @@ def normalize(arr):
 		arr /= 2**22
 	return arr
 
-def simulate(coefficients, signal, output_name, notes=""):
+def convolve(coeffs, signal):
+	return np.convolve(coeffs, signal, mode="full")
+
+def simulate(coefficients, signal, output_name, notes="", dry=False):
 	print "Simulating..."
 	print "...signal length:", len(signal) 
 	print "...coefficient length:", len(coefficients)
@@ -92,8 +98,6 @@ def simulate(coefficients, signal, output_name, notes=""):
 	print "---------------------------------------------------"
 	print "---------------------------------------------------"
 	
-	signal = pad_signal(signal, len(coefficients))
-
 	# check if file exists, if not make it, fail if it is already a file
 	if os.path.isfile(output_name):
 		print "Output path is a file, failing..."
@@ -104,6 +108,12 @@ def simulate(coefficients, signal, output_name, notes=""):
 	if not notes == "":
 		with open("{0}/notes.txt".format(output_name), "w") as text_file:
 			text_file.write(notes.decode('string_escape'))
+
+	ideal = convolve(coefficients, signal)
+	ideal = np.concatenate((np.zeros(208), ideal, np.zeros(1)))
+	np.savetxt(output_name + "/output_ideal.list", ideal, fmt="%.8f")
+
+	signal = pad_signal(signal, len(coefficients))
 
 	# make copies of the source signal
 	np.savetxt(output_name + "/signal.list", signal, fmt="%.8f")
@@ -130,11 +140,12 @@ def simulate(coefficients, signal, output_name, notes=""):
 	do("cp {0}/signal_fixed_bin.list {1}".format(output_name, SIGNAL_IN_FIXED))
 	do("cp {0}/coeff_fixed_bin.list {1}".format(output_name, COEFF_IN_FIXED))
 
-	# do the simulations
-	print "Doing fixed point simulation..."
-	do(FIXED_SIMULATE)
-	print "Doing floating point simulation..."
-	do(FLOAT_SIMULATE)
+	if not dry:
+		# do the simulations
+		print "Doing fixed point simulation..."
+		do(FIXED_SIMULATE)
+		print "Doing floating point simulation..."
+		do(FLOAT_SIMULATE)
 
 	# copy out the results
 	do("cp {0} {1}/output_float_bin.list".format(SIGNAL_OUT_FLOAT, output_name))
@@ -168,4 +179,4 @@ if __name__ == '__main__':
 	if len(signal.shape) == 0:
 		signal = np.array([signal], dtype=np.float32)
 
-	simulate(coeffs, signal, args.output, args.notes)
+	simulate(coeffs, signal, args.output, notes=args.notes, dry=args.dry)

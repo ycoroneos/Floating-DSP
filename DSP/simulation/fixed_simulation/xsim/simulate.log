@@ -2,8 +2,8 @@
 # xsim v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sat May 13 16:32:48 2017
-# Process ID: 29338
+# Start of session at: Sat May 13 17:34:14 2017
+# Process ID: 29385
 # Current directory: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/fixed_simulation/xsim
 # Command line: xsim -log simulate.log -mode tcl -source {xsim.dir/fir_fixed_file_tb/xsim_script.tcl}
 # Log file: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/fixed_simulation/xsim/simulate.log
@@ -96859,6 +96859,6 @@ source cmd.tcl
      48417
 
 $finish called at time : 6197376 ns : File "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" Line 67
-run: Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 1033.406 ; gain = 0.000 ; free physical = 3785 ; free virtual = 8392
+run: Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 1033.398 ; gain = 0.000 ; free physical = 3828 ; free virtual = 8500
 ## quit
-INFO: [Common 17-206] Exiting xsim at Sat May 13 16:33:18 2017...
+INFO: [Common 17-206] Exiting xsim at Sat May 13 17:34:44 2017...
