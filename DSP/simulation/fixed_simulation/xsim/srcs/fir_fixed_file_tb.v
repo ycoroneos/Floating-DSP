@@ -41,7 +41,7 @@ module fir_fixed_file_tb(
     //open a bunch of files
     initial begin
         fixed_input_fd=$fopen("chirp_fixed_binary.mem","r");
-        fixed_output_fd=$fopen("chirp_fixed.out", "w");
+        fixed_output_fd=$fopen("fixed_output.mem", "w");
     end
     // 11111111111111111111111111111110000011110000000000
     initial begin

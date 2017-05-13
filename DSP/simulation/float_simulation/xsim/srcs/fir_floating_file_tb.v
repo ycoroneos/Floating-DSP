@@ -61,7 +61,7 @@ module fir_floating_file_tb(
     //open a bunch of files
     initial begin
         float_input_fd=$fopen("chirp_float_binary.mem","r");
-        float_output_fd=$fopen("chirp_float.out", "w");
+        float_output_fd=$fopen("float_output.mem", "w");
     end
     
     //load in a new input on every rising lrclk edge
