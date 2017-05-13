@@ -28,6 +28,7 @@ COEFFS = "/coeff.list"
 FLOAT = "/output_float_dec.list"
 FIXED = "/output_fixed_normalized.list"
 IDEAL = "/output_ideal.list"
+IDEAL = "/output_ideal32.list"
 
 parser.add_argument('test', metavar='TEST', type=str, help='Directory containing the test bench output')
 parser.add_argument('--signal', dest='signal', action='store_true', help="Show the signal")
@@ -37,6 +38,8 @@ parser.add_argument('--diff1', dest='diff1', action='store_true', help="Show the
 parser.add_argument('--diff2', dest='diff2', action='store_true', help="Show the difference between ideal and float output")
 parser.add_argument('--diff3', dest='diff3', action='store_true', help="Show the difference between ideal and fixed output")
 parser.add_argument('--ideal', dest='ideal', action='store_true', help="Show the ideal output signal")
+parser.add_argument('--ideal32', dest='ideal', action='store_true', help="Show the ideal output signal with 32 bits")
+parser.add_argument('--fft', dest='fft', action='store_true', help="Show the fft of the signals")
 parser.set_defaults(signal=False)
 parser.set_defaults(fixed=False)
 parser.set_defaults(float=False)
@@ -44,6 +47,8 @@ parser.set_defaults(diff1=False)
 parser.set_defaults(diff2=False)
 parser.set_defaults(diff3=False)
 parser.set_defaults(ideal=False)
+parser.set_defaults(ideal32=False)
+parser.set_defaults(fft=False)
 
 
 # def do(cmd):
@@ -59,6 +64,7 @@ if __name__ == '__main__':
 	float_out = None
 	fixed_out = None
 	ideal_out = None
+	ideal_out32 = None
 	signal = None
 
 
@@ -73,21 +79,31 @@ if __name__ == '__main__':
 	if args.float:
 		# print args.test + FLOAT
 		float_out = np.loadtxt(args.test + FLOAT)
-		# plt.plot(float_out, label="float out", alpha=0.6)
 
-		plt.plot(np.fft.fft(float_out), label="float out fft", alpha=0.6)
+		if args.fft:
+			plt.plot(np.fft.fft(float_out), label="float out fft", alpha=0.6)
+		else:
+			plt.plot(float_out, label="float out", alpha=0.6)
+
+		
 
 	if args.fixed:
 		fixed_out = np.loadtxt(args.test + FIXED)
-		# plt.plot(fixed_out, label="fixed out", alpha=0.6)
-
-		plt.plot(np.fft.fft(fixed_out), label="fixed out fft", alpha=0.6)
+		
+		if args.fft:
+			plt.plot(np.fft.fft(fixed_out), label="fixed out fft", alpha=0.6)
+		else:
+			plt.plot(fixed_out, label="fixed out", alpha=0.6)
 
 
 
 	if args.ideal:
 		ideal_out = np.loadtxt(args.test + IDEAL)
 		plt.plot(ideal_out, label="ideal out", alpha=0.6)
+
+	if args.ideal32:
+		ideal_out32 = np.loadtxt(args.test + IDEAL32)
+		plt.plot(ideal_out32, label="ideal out 32 bit", alpha=0.6)
 
 	if args.diff1:
 		if float_out == None:

@@ -1,0 +1,1 @@
+10-20000Hz, logaritmic, 1 second

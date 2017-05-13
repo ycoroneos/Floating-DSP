@@ -39,14 +39,26 @@ def square(length, f, fs=48000):
     # return t, np.sign(sq)
 
 
-def highpass(cutoff, fs, bins=101):
-    return scipy.signal.firwin(bins, cutoff = 0.3, window = "hamming", pass_zero=False)
+def highpass(cutoff, fs, bins=101, window="hamming"):
+    return scipy.signal.firwin(bins, cutoff = cutoff, window=window, pass_zero=False, nyq=fs / 2)
 
-def lowpass(cutoff, fs, bins=101):
-    return scipy.signal.firwin(bins, cutoff = 0.3, window = "hamming", pass_zero=True)
+def lowpass(cutoff, fs, bins=101, window="hamming"):
+    return scipy.signal.firwin(bins, cutoff = cutoff, window=window, pass_zero=True, nyq=fs / 2)
 
+def fir_freqz(b, fs):
+    N=1024*10
+    # Get the frequency response
+    X = np.fft.fft(b, N)
+    # Take the magnitude
+    Xm = np.abs(X)
+    # Convert the magnitude to decibel scale
+    Xdb = 20*np.log10(Xm/Xm.max())
+    # Frequency vector
+    f = np.arange(N)*fs/N
+    plt.semilogx(f, Xdb, 'b', label='Orig. coeff.')
+    # plt.show()
 
-
+# good window function: flattop, blackmanharris, nuttall, parzen
 if __name__ == '__main__':
 	# args = parser.parse_args()
 
@@ -57,27 +69,60 @@ if __name__ == '__main__':
 	# print "TEST", sqr.shape
 
 	# np.savetxt("./square_smaller.signal", sqr, fmt="%.9f")
-	
-	hpf = highpass(4800, 24800, bins=207)
-	lpf = lowpass(4800, 24800, bins=207)
 
-	numbins = 1024*10
+	# boxcar, triang, blackman, hamming, hann, bartlett, flattop, parzen, bohman, blackmanharris, nuttall, barthann, kaiser (needs beta), gaussian (needs std), general_gaussian (needs power, width), slepian (needs width), chebwin (needs attenuation)
 
-	f = np.fft.fft(lpf, numbins)
+	windows = ["boxcar", "triang", "blackman", "hamming", "hann", "bartlett", "flattop", "parzen", "bohman", "blackmanharris", "nuttall", "barthann"]
+	goodwindows = ["flattop", "blackmanharris", "nuttall", "parzen"]
+	goodwindows = ["nuttall"]
 
-	fabs = np.abs(f)
-	xdb = 20*np.log10(fabs / fabs.max())
-	x = np.linspace(0, 1.0, numbins)
+	TAPS = 107
+	FS = 48000
+	CUT = 1000
 
-	plt.semilogx(x, xdb)
+	lpf = lowpass(CUT, FS, bins=TAPS, window="nuttall")
+	hpf = highpass(CUT, FS, bins=TAPS, window="nuttall")
 
-	print np.sum(lpf)
-	print np.sum(hpf)
+	np.savetxt("./better_lpf.coeffs", lpf, fmt="%.9f")
+	np.savetxt("./better_hpf.coeffs", hpf, fmt="%.9f")
+
+
+
+	for i in goodwindows:
+		print "Window function:", i
+		hpf = highpass(CUT, FS, bins=TAPS)
+		lpf = lowpass(CUT, FS, bins=TAPS, window=i)
+
+		other = np.loadtxt("./lpf.coeffs")
+
+		fir_freqz(lpf, FS)
+		fir_freqz(hpf, FS)
+
+		plt.ylim([-160,10])
+		plt.xlim([10,FS/2])
+
+		plt.xscale("log")
+
+		plt.show()
+
+	# numbins = 1024*10
+
+	# f = np.fft.fft(lpf, numbins)
+
+	# fabs = np.abs(f)
+	# xdb = 20*np.log10(fabs / fabs.max())
+	# x = np.linspace(0, 1.0, numbins)
+
+	# plt.semilogx(x, xdb)
+
+	# print np.sum(lpf)
+	# print np.sum(hpf)
 
 
 	# plt.plot(hpf)
 	# plt.plot(lpf)
+	# plt.show()
 
 	# # np.savetxt("./chirp_extended.signal", chp, fmt="%.9f")
 	# # plt.plot(chp)
-	plt.show()
+	

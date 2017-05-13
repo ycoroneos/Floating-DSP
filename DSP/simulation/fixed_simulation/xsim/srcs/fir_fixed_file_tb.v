@@ -23,7 +23,8 @@ module fir_fixed_file_tb(
 
     );
     //memory for the filter coefficients
-    localparam NTAPS=208;
+    // localparam NTAPS=208;
+    localparam NTAPS=107;
     localparam WIDTH=50;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
     memory #(.NTAPS(NTAPS), .WIDTH(WIDTH)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));

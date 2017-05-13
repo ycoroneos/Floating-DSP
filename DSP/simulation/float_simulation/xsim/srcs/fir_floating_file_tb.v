@@ -23,7 +23,8 @@ module fir_floating_file_tb(
 
     );
     //memory for the filter coefficients
-    localparam NTAPS=208;
+    // localparam NTAPS=208;
+    localparam NTAPS=107;
     localparam WIDTH=32;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
     float_memory #(.NTAPS(NTAPS)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
@@ -44,7 +45,7 @@ module fir_floating_file_tb(
     lrclk_gen=1;
     left_in=0;
     reset=1;
-    forever #64 lrclk_gen = ~lrclk_gen;
+    forever #100 lrclk_gen = ~lrclk_gen;
     end
 
     initial begin
@@ -53,7 +54,7 @@ module fir_floating_file_tb(
     end
 
     initial begin
-    #128
+    #200
     reset=0;
     progress=0;
     end

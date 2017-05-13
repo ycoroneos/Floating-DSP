@@ -90,6 +90,9 @@ def normalize(arr):
 def convolve(coeffs, signal):
 	return np.convolve(coeffs, signal, mode="full")
 
+def convolve(coeffs, signal, dtype=np.float64):
+	return np.convolve(coeffs.astype(dtype), signal.astype(dtype), mode="full").astype(dtype)
+
 def simulate(coefficients, signal, output_name, notes="", dry=False):
 	print "Simulating..."
 	print "...signal length:", len(signal) 
@@ -109,9 +112,15 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 		with open("{0}/notes.txt".format(output_name), "w") as text_file:
 			text_file.write(notes.decode('string_escape'))
 
+	# do the ideal convolution with 64 bits
 	ideal = convolve(coefficients, signal)
 	ideal = np.concatenate((np.zeros(208), ideal, np.zeros(1)))
-	np.savetxt(output_name + "/output_ideal.list", ideal, fmt="%.8f")
+	np.savetxt(output_name + "/output_ideal.list", ideal, fmt="%.14f")
+
+	# do the same thing the FIR filter is expected to do
+	ideal = convolve(coefficients, signal, dtype=np.float32)
+	ideal = np.concatenate((np.zeros(208), ideal, np.zeros(1)))
+	np.savetxt(output_name + "/output_ideal32.list", ideal, fmt="%.8f")
 
 	signal = pad_signal(signal, len(coefficients))
 
