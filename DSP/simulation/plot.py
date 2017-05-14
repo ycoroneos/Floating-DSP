@@ -26,6 +26,8 @@ parser = argparse.ArgumentParser(
 SIGNAL = "/signal.list"
 COEFFS = "/coeff.list"
 FLOAT = "/output_float_dec.list"
+FLOAT = "/output_float_24bit.list"
+# FLOAT = "/output_float_24bit_dither.list"
 FIXED = "/output_fixed_normalized.list"
 IDEAL = "/output_ideal.list"
 IDEAL = "/output_ideal32.list"
@@ -156,8 +158,9 @@ if __name__ == '__main__':
 		if ideal_out == None:
 			ideal_out = np.loadtxt(args.test + IDEAL)
 		err = float_out - ideal_out
-		print "Floating RMSE:", np.sqrt(np.mean(np.power(err[300:-300], 2.0)))
-		plt.plot(err[300:-300], label="float - ideal", alpha=0.6)
+		print "Floating RMSE:", np.sqrt(np.mean(np.power(err[200:-120], 2.0)))
+		print "Floating Error:", np.mean(err[200:-120])
+		plt.plot(err[200:-120], label="float - ideal", alpha=0.6)
 
 	if args.diff3:
 		if ideal_out == None:
@@ -166,8 +169,8 @@ if __name__ == '__main__':
 			fixed_out = np.loadtxt(args.test + FIXED)
 
 		err = fixed_out - ideal_out
-		print "Fixed RMSE:", np.sqrt(np.mean(np.power(err[300:-300], 2.0)))
-		plt.plot(err[300:-300], label="fixed - ideal", alpha=0.6)
+		print "Fixed RMSE:", np.sqrt(np.mean(np.power(err[200:-120], 2.0)))
+		plt.plot(err[200:-120], label="fixed - ideal", alpha=0.6)
 
 
 	# print (fixed_out - ideal_out)

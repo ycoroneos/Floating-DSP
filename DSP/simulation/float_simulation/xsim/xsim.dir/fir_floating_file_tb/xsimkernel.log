@@ -1,7 +1,7 @@
-Running: xsim.dir/fir_floating_file_tb/xsimk -simmode gui -wdb fir_floating_file_tb.wdb -simrunnum 0 -socket 35918
+Running: xsim.dir/fir_floating_file_tb/xsimk -simmode gui -wdb fir_floating_file_tb.wdb -simrunnum 0 -socket 38778
 Design successfully loaded
-Design Loading Memory Usage: 44680 KB (Peak: 44680 KB)
-Design Loading CPU Usage: 0 ms
+Design Loading Memory Usage: 49604 KB (Peak: 49604 KB)
+Design Loading CPU Usage: 20 ms
 Simulation completed
-Simulation Memory Usage: 131260 KB (Peak: 191956 KB)
-Simulation CPU Usage: 5590 ms
+Simulation Memory Usage: 136804 KB (Peak: 196880 KB)
+Simulation CPU Usage: 1219340 ms

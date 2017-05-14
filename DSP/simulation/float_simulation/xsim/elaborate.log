@@ -117,12 +117,12 @@ WARNING: [XSIM 43-4099] "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulati
 INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.float_memory(NTAPS=107)
+Compiling module xil_defaultlib.float_memory(NTAPS=277)
 Compiling module float_lib.multiplier
 Compiling module float_lib.adder
 Compiling module xil_defaultlib.clock_sync
-Compiling module xil_defaultlib.fir_floating(NTAPS=107,WIDTH=32)
+Compiling module xil_defaultlib.fir_floating(NTAPS=277,WIDTH=32)
 Compiling module xil_defaultlib.fir_floating_file_tb
-WARNING: [XSIM 43-3373] "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating_file_tb.v" Line 78. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/srcs/fir_floating_file_tb.v" Line 79. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot fir_floating_file_tb

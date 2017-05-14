@@ -94,6 +94,7 @@ def convolve(coeffs, signal, dtype=np.float64):
 	return np.convolve(coeffs.astype(dtype), signal.astype(dtype), mode="full").astype(dtype)
 
 TAPS = 107
+TAPS = 277
 
 def simulate(coefficients, signal, output_name, notes="", dry=False):
 	print "Simulating..."
@@ -154,7 +155,7 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 	if not dry:
 		# do the simulations
 		print "Doing fixed point simulation..."
-		do(FIXED_SIMULATE)
+		# do(FIXED_SIMULATE)
 		print "Doing floating point simulation..."
 		do(FLOAT_SIMULATE)
 
@@ -169,6 +170,8 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 	# convert the results to more readable format
 	do(CONV+"{0}/output_fixed_bin.list {0}/output_fixed_int.list --in_format=b --out_format=d --noconv --bitness=50 --2c".format(output_name))
 	do(CONV+"{0}/output_float_bin.list {0}/output_float_dec.list --in_format=b --out_format=f --ftoi".format(output_name))
+	do(CONV+"{0}/output_float_bin.list {0}/output_float_24bit.list --in_format=b --out_format=f --ftoi --with_rounding".format(output_name))
+	do(CONV+"{0}/output_float_bin.list {0}/output_float_24bit_dither.list --in_format=b --out_format=f --ftoi --with_rounding --dither".format(output_name))
 
 	# remove the scaling factor of the coefficients
 	scaled_signal = np.loadtxt("{0}/output_fixed_int.list".format(output_name), dtype=np.int64)

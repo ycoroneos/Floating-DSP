@@ -4,6 +4,7 @@ import struct
 import argparse
 import re, string
 from argparse import RawTextHelpFormatter
+import numpy as np
 
 parser = argparse.ArgumentParser(
 	formatter_class=RawTextHelpFormatter,
@@ -30,9 +31,14 @@ parser.add_argument('--ftoi', dest='ftoi', action='store_true', help="Convert fr
 parser.add_argument('--noconv', dest='noconvert', action='store_true', help="Do not convert from a number to a float binary representation, just number to number.")
 parser.add_argument('--bitness', type=int, default=32, help="Number of bits on the output, default 32")
 parser.add_argument('--2c', dest='twoscomplement', action='store_true', help="Indicate that the input is in twos complement format")
+parser.add_argument('--with_rounding', dest='withrounding', action='store_true', help="Whether or not to discretize to bins to simulate 24 bit conversion")
+parser.add_argument('--dither', dest='dither', action='store_true', help="Whether or not to use error dither diffusion for 24 bit binning")
+
 parser.set_defaults(ftoi=False)
 parser.set_defaults(noconvert=False)
 parser.set_defaults(twoscomplement=False)
+parser.set_defaults(withrounding=False)
+parser.set_defaults(dither=False)
 
 
 bitness = 32
@@ -123,6 +129,23 @@ def float_to_binary(f):
 def binary_to_float(f):
 	return struct.unpack('f', struct.pack('I', f))[0]
 
+def binary_to_float_with_rounding(f, bits=24):
+	mult = np.power(2, bits-1).astype(np.float64)
+	fv = struct.unpack('f', struct.pack('I', f))[0]
+	fv = np.round(fv * mult).astype(np.float64)
+	return fv / mult
+
+dither_err=0.0
+
+def binary_to_float_with_rounding_dither(f, bits=24):
+	global dither_err
+	mult = np.power(2, bits-1).astype(np.float64)
+	fv = struct.unpack('f', struct.pack('I', f))[0]
+	val = fv * mult
+	fv = np.round(val - dither_err).astype(np.float64)
+	dither_err += fv - val
+	return fv / mult
+
 def format_to_format(formatstr):
 	if dec_format(formatstr):
 		return "decimal"
@@ -165,7 +188,13 @@ def main():
 			data = map(lambda x: twos_comp_to_int(x, bitness), data)
 
 		if args.ftoi:
-			data = map(binary_to_float, data)
+			if args.withrounding:
+				if args.dither:
+					data = map(binary_to_float_with_rounding_dither, data)
+				else:
+					data = map(binary_to_float_with_rounding, data)
+			else:
+				data = map(binary_to_float, data)
 
 		# if necessary, convert from a number to a binary float representation
 		if should_convert_to_binary_float_representation(args):
@@ -189,7 +218,10 @@ def main():
 			in_val = twos_comp_to_int(in_val, bitness)
 
 		if args.ftoi:
-			in_val = binary_to_float(in_val)
+			if args.withrounding:
+				in_val = binary_to_float_with_rounding(in_val)
+			else:
+				in_val = binary_to_float(in_val)
 
 		# if necessary, convert from a number to a binary float representation
 		if should_convert_to_binary_float_representation(args):

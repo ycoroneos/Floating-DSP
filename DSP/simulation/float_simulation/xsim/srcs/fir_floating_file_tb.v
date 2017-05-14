@@ -24,7 +24,8 @@ module fir_floating_file_tb(
     );
     //memory for the filter coefficients
     // localparam NTAPS=208;
-    localparam NTAPS=107;
+    // localparam NTAPS=107;
+    localparam NTAPS=277;
     localparam WIDTH=32;
     wire [(NTAPS*(WIDTH))-1 : 0] coeffs;
     float_memory #(.NTAPS(NTAPS)) ctable(.out(coeffs[(NTAPS*(WIDTH))-1:0]));
