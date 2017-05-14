@@ -51,6 +51,24 @@ parser.set_defaults(ideal32=False)
 parser.set_defaults(fft=False)
 
 
+def showFFT(b, fs=48000, bins=1024*10, logy=True, justplot=True, label=""):
+	N=bins
+	X = np.fft.fft(b, N)
+	if logy:
+		Xm=np.abs(X)
+		Xm = 20*np.log10(Xm/Xm.max())
+	else:
+		Xm = np.abs(X) * (2.0/len(X))
+	t=np.fft.fftfreq(len(Xm), d=1.0/fs)
+	if justplot:
+		if label == "":
+			plt.semilogx(t, Xm, alpha=0.6)
+		else:
+			plt.semilogx(t, Xm, label=label, alpha=0.6)
+		# plt.show()
+	else:
+		return t, Xm
+
 # def do(cmd):
 # 	os.system(cmd)
 
@@ -69,19 +87,32 @@ if __name__ == '__main__':
 
 
 
-	# coeffs = np.loadtxt("./lpf.coeffs")
+	# coeffs1 = np.loadtxt("./better_lpf.coeffs")
+	# coeffs2 = np.loadtxt("./tests/better_lpf_chirp_extended/coeff_fixed_int.list")
+	# coeffs3 = np.loadtxt("./tests/better_lpf_chirp_extended/coeff.list")
+
+	# print coeffs1.dtype
+
+	# showFFT(coeffs1, label="1")
+	# showFFT(coeffs2, label="2")
+	# showFFT(coeffs3, label="3")
 	# plt.plot(np.fft.fft(coeffs))
 	
 	if args.signal:
 		signal = np.loadtxt(args.test + SIGNAL)
-		plt.plot(signal, label="signal")
+
+		if args.fft:
+			showFFT(signal, justplot=True)
+		else:
+			plt.plot(signal, label="signal")
 
 	if args.float:
 		# print args.test + FLOAT
 		float_out = np.loadtxt(args.test + FLOAT)
 
 		if args.fft:
-			plt.plot(np.fft.fft(float_out), label="float out fft", alpha=0.6)
+			showFFT(float_out, label="float fft")
+			# plt.plot(np.fft.fft(float_out), label="float out fft", alpha=0.6)
 		else:
 			plt.plot(float_out, label="float out", alpha=0.6)
 
@@ -91,7 +122,8 @@ if __name__ == '__main__':
 		fixed_out = np.loadtxt(args.test + FIXED)
 		
 		if args.fft:
-			plt.plot(np.fft.fft(fixed_out), label="fixed out fft", alpha=0.6)
+			showFFT(fixed_out, label="fixed fft")
+			# plt.plot(np.fft.fft(fixed_out), label="fixed out fft", alpha=0.6)
 		else:
 			plt.plot(fixed_out, label="fixed out", alpha=0.6)
 
@@ -99,7 +131,13 @@ if __name__ == '__main__':
 
 	if args.ideal:
 		ideal_out = np.loadtxt(args.test + IDEAL)
-		plt.plot(ideal_out, label="ideal out", alpha=0.6)
+
+		if args.fft:
+			showFFT(ideal_out, label="ideal fft")
+			# plt.plot(np.fft.fft(ideal_out), label="ideal out fft", alpha=0.6)
+		else:
+			plt.plot(ideal_out, label="ideal out", alpha=0.6)
+		
 
 	if args.ideal32:
 		ideal_out32 = np.loadtxt(args.test + IDEAL32)
@@ -118,7 +156,7 @@ if __name__ == '__main__':
 		if ideal_out == None:
 			ideal_out = np.loadtxt(args.test + IDEAL)
 		err = float_out - ideal_out
-		print "Floating msre:", np.mean(np.power(err[300:-300], 2.0))
+		print "Floating RMSE:", np.sqrt(np.mean(np.power(err[300:-300], 2.0)))
 		plt.plot(err[300:-300], label="float - ideal", alpha=0.6)
 
 	if args.diff3:
@@ -128,7 +166,7 @@ if __name__ == '__main__':
 			fixed_out = np.loadtxt(args.test + FIXED)
 
 		err = fixed_out - ideal_out
-		print "Fixed msre:", np.mean(np.power(err[300:-300], 2.0))
+		print "Fixed RMSE:", np.sqrt(np.mean(np.power(err[300:-300], 2.0)))
 		plt.plot(err[300:-300], label="fixed - ideal", alpha=0.6)
 
 

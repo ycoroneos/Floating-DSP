@@ -93,6 +93,8 @@ def convolve(coeffs, signal):
 def convolve(coeffs, signal, dtype=np.float64):
 	return np.convolve(coeffs.astype(dtype), signal.astype(dtype), mode="full").astype(dtype)
 
+TAPS = 107
+
 def simulate(coefficients, signal, output_name, notes="", dry=False):
 	print "Simulating..."
 	print "...signal length:", len(signal) 
@@ -114,19 +116,19 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 
 	# do the ideal convolution with 64 bits
 	ideal = convolve(coefficients, signal)
-	ideal = np.concatenate((np.zeros(208), ideal, np.zeros(1)))
-	np.savetxt(output_name + "/output_ideal.list", ideal, fmt="%.14f")
+	ideal = np.concatenate((np.zeros(TAPS), ideal, np.zeros(1)))
+	np.savetxt(output_name + "/output_ideal.list", ideal, fmt="%.20f")
 
 	# do the same thing the FIR filter is expected to do
 	ideal = convolve(coefficients, signal, dtype=np.float32)
-	ideal = np.concatenate((np.zeros(208), ideal, np.zeros(1)))
-	np.savetxt(output_name + "/output_ideal32.list", ideal, fmt="%.8f")
+	ideal = np.concatenate((np.zeros(TAPS), ideal, np.zeros(1)))
+	np.savetxt(output_name + "/output_ideal32.list", ideal, fmt="%.20f")
 
 	signal = pad_signal(signal, len(coefficients))
 
 	# make copies of the source signal
-	np.savetxt(output_name + "/signal.list", signal, fmt="%.8f")
-	np.savetxt(output_name + "/coeff.list", coefficients, fmt="%.8f")
+	np.savetxt(output_name + "/signal.list", signal, fmt="%.14f")
+	np.savetxt(output_name + "/coeff.list", coefficients, fmt="%.20f")
 
 	# convert the float representation to binary
 	do(CONV+"{0}/signal.list {0}/signal_float_bin.list --in_format=f --out_format=b".format(output_name))
@@ -175,17 +177,17 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 
 	# convert the fixed point to the range [-1,1]
 	normalized_signal = normalize(unscaled_signal)
-	np.savetxt(output_name + "/output_fixed_normalized.list", normalized_signal, fmt="%.10f")
+	np.savetxt(output_name + "/output_fixed_normalized.list", normalized_signal, fmt="%.14f")
 
 	print "DONE"
 
 if __name__ == '__main__':
 	args = parser.parse_args()
 
-	coeffs = np.loadtxt(args.coeffs, dtype=np.float32)
-	signal = np.loadtxt(args.signal, dtype=np.float32)
+	coeffs = np.loadtxt(args.coeffs, dtype=np.float64)
+	signal = np.loadtxt(args.signal, dtype=np.float64)
 
 	if len(signal.shape) == 0:
-		signal = np.array([signal], dtype=np.float32)
+		signal = np.array([signal], dtype=np.float64)
 
 	simulate(coeffs, signal, args.output, notes=args.notes, dry=args.dry)

@@ -45,7 +45,7 @@ module fir_floating_file_tb(
     lrclk_gen=1;
     left_in=0;
     reset=1;
-    forever #100 lrclk_gen = ~lrclk_gen;
+    forever #200 lrclk_gen = ~lrclk_gen;
     end
 
     initial begin
@@ -54,7 +54,7 @@ module fir_floating_file_tb(
     end
 
     initial begin
-    #200
+    #400
     reset=0;
     progress=0;
     end

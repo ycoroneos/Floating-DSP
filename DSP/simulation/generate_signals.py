@@ -32,12 +32,10 @@ def square(length, f, fs=48000):
 	for i in xrange(int(fs/f/2)):
 		square[i::int(fs/f)] = -1.0
 	return square*0.5
-    # t = np.linspace(0,length,length*fs+1)
-    # sq = np.zeros(len(t)) #preallocate the output array
-    # for h in np.arange(1,25,length):
-    #     sq += (4/(np.pi*h))*np.sin(2*np.pi*f*h*t)
-    # return t, np.sign(sq)
 
+def sin(length, f, fs=48000):
+	t = np.linspace(0,2.0*np.pi*f*length,length*fs+1)
+	return np.sin(t)
 
 def highpass(cutoff, fs, bins=101, window="hamming"):
     return scipy.signal.firwin(bins, cutoff = cutoff, window=window, pass_zero=False, nyq=fs / 2)
@@ -58,8 +56,52 @@ def fir_freqz(b, fs):
     plt.semilogx(f, Xdb, 'b', label='Orig. coeff.')
     # plt.show()
 
+CONV = "../../convert.py "
+SIMULATE = "./simulate.py "
+
 # good window function: flattop, blackmanharris, nuttall, parzen
 if __name__ == '__main__':
+
+
+
+	num_cycles = 5.0
+	padding = 300.0
+	num_samples = 280
+	# samples = np.logspace(20.0, 20000.0, num=num_samples)
+	samples = np.logspace(1.0, 5.0, num=num_samples)
+	min_freq = 20
+	max_freq = 20000
+
+	i = 0
+	t = 0.0
+	for freq in samples:
+		if freq < min_freq or freq > max_freq:
+			continue
+
+		if freq < 1280:
+			continue
+		# if freq < 100:
+		# 	time = 4 / freq
+		# else:
+		# 	time = num_cycles / freq + padding / 48000.0
+		print "FREQ:", freq
+		# i += 1
+		# # time = num_cycles / freq + padding / 48000.0
+		# t += time
+		# wave = sin(time, freq)
+		# np.savetxt("./tests/sweep/sin_"+str(int(freq)) + ".signal", wave, fmt="%.12f")
+
+		name = str(int(freq))
+		# run the shit through the simulator
+		do(SIMULATE+"better_lpf.coeffs ./tests/sweep/sin_"+name+".signal ./tests/sweep/sin_"+name)
+
+		# print SIMULATE+"better_lpf.coeffs ./tests/sweep/sin_"+str(freq)+".signal ./tests/sweep/sin_"+str(freq)
+
+		# plt.plot(wave)
+		# plt.show()
+
+	print i, t
+
 	# args = parser.parse_args()
 
 	# chp = chirp(1.0, 10, 20000)
@@ -72,38 +114,36 @@ if __name__ == '__main__':
 
 	# boxcar, triang, blackman, hamming, hann, bartlett, flattop, parzen, bohman, blackmanharris, nuttall, barthann, kaiser (needs beta), gaussian (needs std), general_gaussian (needs power, width), slepian (needs width), chebwin (needs attenuation)
 
-	windows = ["boxcar", "triang", "blackman", "hamming", "hann", "bartlett", "flattop", "parzen", "bohman", "blackmanharris", "nuttall", "barthann"]
-	goodwindows = ["flattop", "blackmanharris", "nuttall", "parzen"]
-	goodwindows = ["nuttall"]
+	# windows = ["boxcar", "triang", "blackman", "hamming", "hann", "bartlett", "flattop", "parzen", "bohman", "blackmanharris", "nuttall", "barthann"]
+	# goodwindows = ["flattop", "blackmanharris", "nuttall", "parzen"]
+	# goodwindows = ["nuttall"]
 
-	TAPS = 107
-	FS = 48000
-	CUT = 1000
+	# TAPS = 107
+	# FS = 48000
+	# CUT = 1000
 
-	lpf = lowpass(CUT, FS, bins=TAPS, window="nuttall")
-	hpf = highpass(CUT, FS, bins=TAPS, window="nuttall")
+	# lpf = lowpass(CUT, FS, bins=TAPS, window="nuttall")
+	# hpf = highpass(CUT, FS, bins=TAPS, window="nuttall")
 
-	np.savetxt("./better_lpf.coeffs", lpf, fmt="%.9f")
-	np.savetxt("./better_hpf.coeffs", hpf, fmt="%.9f")
+	# np.savetxt("./better_lpf.coeffs", lpf, fmt="%.20f")
+	# np.savetxt("./better_hpf.coeffs", hpf, fmt="%.20f")
 
+	# for i in goodwindows:
+	# 	print "Window function:", i
+	# 	hpf = highpass(CUT, FS, bins=TAPS)
+	# 	lpf = lowpass(CUT, FS, bins=TAPS, window=i)
 
+	# 	other = np.loadtxt("./lpf.coeffs")
 
-	for i in goodwindows:
-		print "Window function:", i
-		hpf = highpass(CUT, FS, bins=TAPS)
-		lpf = lowpass(CUT, FS, bins=TAPS, window=i)
+	# 	fir_freqz(lpf, FS)
+	# 	fir_freqz(hpf, FS)
 
-		other = np.loadtxt("./lpf.coeffs")
+	# 	plt.ylim([-160,10])
+	# 	plt.xlim([10,FS/2])
 
-		fir_freqz(lpf, FS)
-		fir_freqz(hpf, FS)
+	# 	plt.xscale("log")
 
-		plt.ylim([-160,10])
-		plt.xlim([10,FS/2])
-
-		plt.xscale("log")
-
-		plt.show()
+	# 	plt.show()
 
 	# numbins = 1024*10
 
