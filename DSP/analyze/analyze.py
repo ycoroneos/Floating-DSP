@@ -15,12 +15,12 @@ def square(fs, f, time):
     return t, np.sign(sq)
 
 def sine(fs, f):
-    t=np.arange(0,1,1.0/fs)
+    t=np.arange(0,0.008,1.0/fs)
     return t, np.sin(2.0*np.pi*f*t)
 
 
 
-def showFFT(b, fs=48000, bins=1024*50, logy=False, justplot=False):
+def showFFT(b, fs=48000, bins=1024*50, logy=False, justplot=False, plotlabel=''):
     N=bins
     X = np.fft.fft(b, N)
     if logy:
@@ -30,21 +30,14 @@ def showFFT(b, fs=48000, bins=1024*50, logy=False, justplot=False):
         Xm = np.abs(X) * (2.0/len(X))
     t=np.fft.fftfreq(len(Xm), d=1.0/fs)
     if justplot:
-        plt.semilogx(t, Xm)
-        plt.show()
+        plt.semilogx(t, Xm, label=plotlabel)
+        #plt.show()
     else:
         return t, Xm
 
 
 def readfloatfile(filename):
     return map(float, [line.strip() for line in open(filename, 'r')])
-
-#def calcTHDN(fftsig, fundamental):
-#    denom = fftsig[fundamental]/np.sqrt(2)
-#    numerator = sum(map(lambda x: np.power((x/np.sqrt(2)),2.0), fftsig))
-#    numerator -= np.power(denom, 2.0)
-#    numerator = np.sqrt(numerator)
-#    return numerator / denom
 
 
 def calcTHDN(fftscale, fftsig, fundamental, bounds=20.0):
@@ -62,15 +55,51 @@ def calcTHDN(fftscale, fftsig, fundamental, bounds=20.0):
     return numerator / denominator
 
 #calculates THD+N for a some given signal samples
-def signalTHDN(signal, fs=48000, fuzz=20.0):
+def signalTHDN(signal, fundamental, fs=48000, fuzz=20.0, auto=False):
     freqscale, value = showFFT(signal, fs, justplot=False, logy=False)
-    return calcTHDN(freqscale, value, 100, bounds=fuzz)
+    if auto:
+        fundamental=freqscale[np.argmax(value)]
+        print fundamental
+    return calcTHDN(freqscale, value, fundamental, bounds=fuzz)
+
+#takes badly sliced period signal and returns two perfect periods
+def symmetric(signal):
+    deriv = signal[1:] - signal[:-1]
+    firstcut=1
+    while not ((np.sign(signal[firstcut])==1 or np.sign(signal[firstcut])==0) and np.sign(signal[firstcut-1])==-1 and deriv[firstcut]>0):
+        firstcut+=1
+    secondcut=firstcut+1
+    while not ((np.sign(signal[secondcut])==1 or np.sign(signal[firstcut])== 0) and np.sign(signal[secondcut-1])==-1 and deriv[secondcut]>0):
+        secondcut+=1
+    print (firstcut, secondcut)
+    return np.tile(signal[firstcut:secondcut], 10000)
+
+def addzeroes(signal):
+    return np.append(np.zeros(1000), np.append(signal, np.zeros(1000)))
+
+def multiple_files(files):
+    for f in files:
+        #sig=symmetric(np.array(readfloatfile(f)[250:450]))
+        sig=addzeroes(np.array(readfloatfile(f)[250:450]))
+        #plt.plot(sig, label=f)
+        showFFT(sig, justplot=True, plotlabel=f)
+        print str(f)+" "+str(signalTHDN(sig, 100, auto=True, fuzz=400.0))
 
 if (__name__=="__main__"):
+    multiple_files(['output_fixed_normalized.list', 'output_float_dec.list'])
+    plt.legend()
+    plt.show()
     #sig=readfloatfile("coeff_fixed_int.list")
-    #sig=readfloatfile("chirp.signal")
-    #t, sq=sine(48000, 2000)
-    print signalTHDN(square(48000, 100, 4)[1])
+    #sig=readfloatfile("output_ideal.list")[250:450]
+    #sig=symmetric(np.array(readfloatfile("output_fixed_normalized.list")[250:450]))
+    #sig=symmetric(np.array(readfloatfile("output_float_dec.list")[250:450]))
+    #plt.plot(sig)
+    #plt.show()
+    #t, sq=sine(48000, 1280)
+    #plt.plot(sig)
+    #plt.show()
+    #showFFT(sig, justplot=True)
+    #print signalTHDN(sig, 100, auto=True, fuzz=400.0)
 #    t, sq=square(48000, 100, 4)
 #    freqscale, value = showFFT(sq, 48000, justplot=False, logy=False)
 #    print calcTHDN(freqscale, value, 100, bounds=20.0)
