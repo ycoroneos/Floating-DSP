@@ -1,0 +1,7 @@
+adder.v,verilog,float_lib,srcs/adder.v,
+clock_sync.v,verilog,xil_defaultlib,srcs/clock_sync.v,
+fir_floating.v,verilog,xil_defaultlib,srcs/fir_floating.v,
+float_memory.v,verilog,xil_defaultlib,srcs/float_memory.v,
+multiplier.v,verilog,float_lib,srcs/multiplier.v,
+fir_floating_file_tb.v,verilog,xil_defaultlib,srcs/fir_floating_file_tb.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

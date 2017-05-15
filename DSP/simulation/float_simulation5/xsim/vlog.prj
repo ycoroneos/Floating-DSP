@@ -1,0 +1,8 @@
+verilog float_lib srcs/adder.v 
+verilog xil_defaultlib srcs/clock_sync.v 
+verilog xil_defaultlib srcs/fir_floating.v 
+verilog xil_defaultlib srcs/float_memory.v 
+verilog float_lib srcs/multiplier.v 
+verilog xil_defaultlib srcs/fir_floating_file_tb.v 
+verilog xil_defaultlib "glbl.v"
+nosort

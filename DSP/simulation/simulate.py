@@ -14,6 +14,7 @@ parser.add_argument('coeffs', metavar='COEFFS', type=str, help='File to find coe
 parser.add_argument('signal', metavar='SIGNAL', type=str, help='File to find signal in float format from [1.0,-1.0]')
 parser.add_argument('output', metavar='OUTPUT', type=str, help='Name of the output folder')
 parser.add_argument('--notes', metavar='NOTES', type=str, default="", help='Optional notes')
+parser.add_argument('--which', metavar='WHICH', type=str, default="", help='Which number simulation to use, optional, use if multiple instances at same time')
 parser.add_argument('--dry', dest='dry', action='store_true', help="Dry run, no simulation")
 parser.set_defaults(dry=False)
 
@@ -23,16 +24,16 @@ def pad_signal(signal, num_coeffs):
 
 CONV = "../../convert.py "
 
-SIGNAL_IN_FLOAT = "./float_simulation/xsim/chirp_float_binary.mem"
-COEFF_IN_FLOAT = "./float_simulation/xsim/float_coeffs.list"
-SIGNAL_IN_FIXED = "./fixed_simulation/xsim/chirp_fixed_binary.mem"
-COEFF_IN_FIXED = "./fixed_simulation/xsim/coeff.list"
+SIGNAL_IN_FLOAT = "./float_simulation{0}/xsim/chirp_float_binary.mem"
+COEFF_IN_FLOAT = "./float_simulation{0}/xsim/float_coeffs.list"
+SIGNAL_IN_FIXED = "./fixed_simulation{0}/xsim/chirp_fixed_binary.mem"
+COEFF_IN_FIXED = "./fixed_simulation{0}/xsim/coeff.list"
 
-SIGNAL_OUT_FLOAT = "./float_simulation/xsim/float_output.mem"
-SIGNAL_OUT_FIXED = "./fixed_simulation/xsim/fixed_output.mem"
+SIGNAL_OUT_FLOAT = "./float_simulation{0}/xsim/float_output.mem"
+SIGNAL_OUT_FIXED = "./fixed_simulation{0}/xsim/fixed_output.mem"
 
-FLOAT_SIMULATE = "cd ./float_simulation/xsim/ && ./fir_floating_file_tb.sh && cd ../../"
-FIXED_SIMULATE = "cd ./fixed_simulation/xsim/ && ./fir_fixed_file_tb.sh && cd ../../"
+FLOAT_SIMULATE = "cd ./float_simulation{0}/xsim/ && ./fir_floating_file_tb.sh && cd ../../"
+FIXED_SIMULATE = "cd ./fixed_simulation{0}/xsim/ && ./fir_fixed_file_tb.sh && cd ../../"
 
 def do(cmd):
 	os.system(cmd)
@@ -103,6 +104,28 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 	print "...output folder name:", output_name
 	print "---------------------------------------------------"
 	print "---------------------------------------------------"
+
+	global SIGNAL_IN_FLOAT, COEFF_IN_FLOAT, SIGNAL_IN_FIXED, COEFF_IN_FIXED, SIGNAL_OUT_FLOAT, SIGNAL_OUT_FIXED, FLOAT_SIMULATE, FIXED_SIMULATE
+
+	SIGNAL_IN_FLOAT = SIGNAL_IN_FLOAT.format(args.which)
+	COEFF_IN_FLOAT = COEFF_IN_FLOAT.format(args.which)
+	SIGNAL_IN_FIXED = SIGNAL_IN_FIXED.format(args.which)
+	COEFF_IN_FIXED = COEFF_IN_FIXED.format(args.which)
+	SIGNAL_OUT_FLOAT = SIGNAL_OUT_FLOAT.format(args.which)
+	SIGNAL_OUT_FIXED = SIGNAL_OUT_FIXED.format(args.which)
+	FLOAT_SIMULATE = FLOAT_SIMULATE.format(args.which)
+	FIXED_SIMULATE = FIXED_SIMULATE.format(args.which)
+
+	print SIGNAL_IN_FLOAT
+	print COEFF_IN_FLOAT
+	print SIGNAL_IN_FIXED
+	print COEFF_IN_FIXED
+	print SIGNAL_OUT_FLOAT
+	print SIGNAL_OUT_FIXED
+	print FLOAT_SIMULATE
+	print FIXED_SIMULATE
+
+	# exit()
 	
 	# check if file exists, if not make it, fail if it is already a file
 	if os.path.isfile(output_name):
@@ -155,7 +178,7 @@ def simulate(coefficients, signal, output_name, notes="", dry=False):
 	if not dry:
 		# do the simulations
 		print "Doing fixed point simulation..."
-		# do(FIXED_SIMULATE)
+		do(FIXED_SIMULATE)
 		print "Doing floating point simulation..."
 		do(FLOAT_SIMULATE)
 
