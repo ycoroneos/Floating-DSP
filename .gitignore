@@ -90,3 +90,5 @@
 !*.txt
 !*.csv
 !*.sh
+!*.signal
+!*.coeffs
