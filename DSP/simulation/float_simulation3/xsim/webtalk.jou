@@ -2,11 +2,11 @@
 # Webtalk v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sun May 14 01:38:58 2017
-# Process ID: 15898
-# Current directory: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim
-# Command line: wbtcv -mode batch -source /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
-# Log file: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/webtalk.log
-# Journal file: /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/webtalk.jou
+# Start of session at: Mon May 15 04:21:42 2017
+# Process ID: 945
+# Current directory: /home/yanni/18.335/finalproj/DSP/simulation/float_simulation3/xsim
+# Command line: wbtcv -mode batch -source /home/yanni/18.335/finalproj/DSP/simulation/float_simulation3/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/yanni/18.335/finalproj/DSP/simulation/float_simulation3/xsim/webtalk.log
+# Journal file: /home/yanni/18.335/finalproj/DSP/simulation/float_simulation3/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /home/corey/mit/6.337/yanni_code/finalproj/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
+source /home/yanni/18.335/finalproj/DSP/simulation/float_simulation3/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
