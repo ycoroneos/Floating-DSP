@@ -87,3 +87,6 @@
 !*.py
 !*.list
 !*.mem
+!*.txt
+!*.csv
+!*.sh
