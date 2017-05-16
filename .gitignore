@@ -92,3 +92,4 @@
 !*.sh
 !*.signal
 !*.coeffs
+!*.tar.gz
