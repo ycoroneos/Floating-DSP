@@ -80,13 +80,15 @@ def addzeroes(signal):
 def multiple_files(files):
     for f in files:
         #sig=symmetric(np.array(readfloatfile(f)[250:450]))
-        sig=addzeroes(np.array(readfloatfile(f)[250:450]))
+        #sig=addzeroes(np.array(readfloatfile(f)[250:450]))
+        sig=np.array(readfloatfile(f))
         #plt.plot(sig, label=f)
-        showFFT(sig, justplot=True, plotlabel=f)
-        print str(f)+" "+str(signalTHDN(sig, 100, auto=True, fuzz=400.0))
+        showFFT(sig, justplot=True, plotlabel=f, logy=True)
+        #print str(f)+" "+str(signalTHDN(sig, 100, auto=True, fuzz=400.0))
 
 if (__name__=="__main__"):
-    multiple_files(['output_fixed_normalized.list', 'output_float_dec.list'])
+    #multiple_files(['output_fixed_normalized.list', 'output_float_dec.list'])
+    multiple_files(['better_hpf.coeffs'])
     plt.legend()
     plt.show()
     #sig=readfloatfile("coeff_fixed_int.list")
