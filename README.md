@@ -12,14 +12,15 @@ and we also include RTL for interfacing the codec's i2s protocol
 from Stefan Kristiansson (https://github.com/skristiansson/i2s/tree/master/rtl/verilog).
 
 Also inside the DSP folder is our simulation library and simulation test set. We have created a hodge-podge of useful
-python utilities for signal processing and visualization. Speicifically interesting files are Convert.py, analyze.py,
+python utilities for signal processing and visualization. Specifically interesting files are Convert.py, analyze.py,
 generate_signals.py, and simulate.py
 
 ## How to Run / Verify
 Fortunately, our testing framework is entirely scripted and automatic.
 Unfortunately, you must have Vivado 2017.1 or newer installed.
 
-Step 1. Get Vivado 2017.1 or newer from Xilinx
+Step 1. Install Vivado 2017.1 or newer from Xilinx. Older versions might
+work but no guarantees.
 
 Step 2. Navigate to the DSP/simulation folder
 

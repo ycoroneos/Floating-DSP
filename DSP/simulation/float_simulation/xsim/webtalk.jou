@@ -2,8 +2,8 @@
 # Webtalk v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu May 18 20:49:56 2017
-# Process ID: 6645
+# Start of session at: Thu May 18 20:58:32 2017
+# Process ID: 7034
 # Current directory: /home/yanni/Floating-DSP/DSP/simulation/float_simulation/xsim
 # Command line: wbtcv -mode batch -source /home/yanni/Floating-DSP/DSP/simulation/float_simulation/xsim/xsim.dir/fir_floating_file_tb/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/yanni/Floating-DSP/DSP/simulation/float_simulation/xsim/webtalk.log
