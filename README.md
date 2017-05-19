@@ -14,3 +14,23 @@ from Stefan Kristiansson (https://github.com/skristiansson/i2s/tree/master/rtl/v
 Also inside the DSP folder is our simulation library and simulation test set. We have created a hodge-podge of useful
 python utilities for signal processing and visualization. Speicifically interesting files are Convert.py, analyze.py,
 generate_signals.py, and simulate.py
+
+## How to Run / Verify
+Fortunately, our testing framework is entirely scripted and automatic.
+Unfortunately, you must have Vivado 2017.1 or newer installed.
+
+Step 1. Get Vivado 2017.1 or newer from Xilinx
+
+Step 2. Navigate to the DSP/simulation folder
+
+Step 3. To run a simulation of the fixed point and floating point
+filters, you must use simulate.py. Here is an example command for
+running a low pass blackman filter on a Chirp signal:
+
+./simulate.py 150Hz_lpf_277tap_blackman.coeffs chirp_extended.signal ./tests/test --notes="blackman 150hz 277 taps lpf, chirp 20-20000hz"
+
+Step 4. To verify the RTL, open DSP.xpr with Vivado and poke around.
+XSim is a great utility for observing the systolic FIR pipeline. An
+alternative way to verify the RTL (when Vivado is not available) is to aggregate every single verilog
+file in the subtree and perform a reachability analysis starting from
+"toplevel.v"

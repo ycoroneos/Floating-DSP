@@ -2,12 +2,12 @@
 # xsim v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sun May 14 20:23:18 2017
-# Process ID: 29215
-# Current directory: /home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim
+# Start of session at: Thu May 18 20:49:34 2017
+# Process ID: 6481
+# Current directory: /home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim
 # Command line: xsim -log simulate.log -mode tcl -source {xsim.dir/fir_fixed_file_tb/xsim_script.tcl}
-# Log file: /home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/simulate.log
-# Journal file: /home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/xsim.jou
+# Log file: /home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/simulate.log
+# Journal file: /home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/xsim.jou
 #-----------------------------------------------------------
 source xsim.dir/fir_fixed_file_tb/xsim_script.tcl
 source cmd.tcl

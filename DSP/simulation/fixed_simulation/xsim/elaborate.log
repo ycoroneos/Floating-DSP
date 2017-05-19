@@ -10,6 +10,6 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.memory(NTAPS=277,WIDTH=50)
 Compiling module xil_defaultlib.fir_systolic(NTAPS=277,WIDTH=50)
 Compiling module xil_defaultlib.fir_fixed_file_tb
-WARNING: [XSIM 43-3373] "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" Line 72. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "/home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" Line 72. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot fir_fixed_file_tb

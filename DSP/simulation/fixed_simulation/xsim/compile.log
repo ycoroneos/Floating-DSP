@@ -1,8 +1,8 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/fir_systolic.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/srcs/fir_systolic.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fir_systolic
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/srcs/memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/srcs/fir_fixed_file_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fir_fixed_file_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/18.335/finalproj/DSP/simulation/fixed_simulation/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/yanni/Floating-DSP/DSP/simulation/fixed_simulation/xsim/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
